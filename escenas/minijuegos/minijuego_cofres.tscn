@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cle37l80uue6p"]
+
+[ext_resource type="Script" uid="uid://dd4vhkmk7vcvh" path="res://scripts/minijuego_cofres.gd" id="1_6h3a0"]
+[ext_resource type="Texture2D" uid="uid://bu1qdb7clesue" path="res://imagenes/cofre-cerrado.png" id="2_cjyib"]
+[ext_resource type="Texture2D" uid="uid://b31lg8aeubsly" path="res://icon.svg" id="2_qsjiq"]
+[ext_resource type="Texture2D" uid="uid://doxma5wal0jeq" path="res://imagenes/cofre-vacio.png" id="3_s2tuc"]
+[ext_resource type="Texture2D" uid="uid://dg4yqa84yhj56" path="res://imagenes/cofre-tesoro.png" id="4_6yiu1"]
+
+[node name="Minijuego-Cofres" type="Node2D" unique_id=445488359]
+script = ExtResource("1_6h3a0")
+textura_cerrado = ExtResource("2_cjyib")
+textura_abierto_vacio = ExtResource("3_s2tuc")
+textura_abierto_premio = ExtResource("4_6yiu1")
+
+[node name="Cofre1" type="Button" parent="." unique_id=545234878]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 170.0
+offset_top = 318.0
+offset_right = 220.0
+offset_bottom = 368.0
+icon = ExtResource("2_qsjiq")
+flat = true
+expand_icon = true
+
+[node name="Cofre2" type="Button" parent="." unique_id=2069996158]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 489.0
+offset_top = 323.0
+offset_right = 539.0
+offset_bottom = 373.0
+icon = ExtResource("2_qsjiq")
+flat = true
+expand_icon = true
+
+[node name="Cofre3" type="Button" parent="." unique_id=1749811916]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 895.0
+offset_top = 319.0
+offset_right = 945.0
+offset_bottom = 369.0
+icon = ExtResource("2_qsjiq")
+flat = true
+expand_icon = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1132051120]
+
+[node name="Mensaje" type="Label" parent="." unique_id=1365667850]
+offset_right = 40.0
+offset_bottom = 23.0
