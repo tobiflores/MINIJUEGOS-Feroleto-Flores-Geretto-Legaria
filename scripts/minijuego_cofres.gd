@@ -2,10 +2,10 @@ extends Node2D
 
 signal termino(resultado: float)
 
-@export var tiempo_limite: float = 6.0
-@export var tiempo_mostrar_premio: float = 1.2
+@export var tiempo_limite: float = 8.0
+@export var tiempo_mostrar_premio: float = 1.7
 @export var tiempo_mostrar_resultado: float = 1.0
-@export var cantidad_intercambios: int = 4
+@export var cantidad_intercambios: int = 8
 @export var tiempo_por_intercambio: float = 0.35
 
 @export var textura_cerrado: Texture2D
@@ -20,6 +20,8 @@ func _ready() -> void:
 	cofres = [$Cofre1, $Cofre2, $Cofre3]
 	cofre_premiado = cofres[randi() % cofres.size()]
 
+	$Instruccion.text = "ENCONTRÁ EL TESORO CON ORO"
+
 	for cofre in cofres:
 		cofre.disabled = true
 		cofre.icon = textura_abierto_premio if cofre == cofre_premiado else textura_abierto_vacio
@@ -31,6 +33,7 @@ func _ready() -> void:
 	$Timer.start()
 
 	await get_tree().create_timer(tiempo_mostrar_premio).timeout
+	$Instruccion.text = ""
 
 	for cofre in cofres:
 		cofre.icon = textura_cerrado
@@ -40,6 +43,8 @@ func _ready() -> void:
 	for cofre in cofres:
 		cofre.disabled = false
 	puede_clickear = true
+	await get_tree().create_timer(5.0).timeout
+	$Instruccion.text = ""
 
 func mezclar() -> void:
 	for i in cantidad_intercambios:
@@ -68,12 +73,12 @@ func _al_elegir_cofre(cofre_elegido: Button) -> void:
 	cofre_premiado.icon = textura_abierto_premio
 
 	if cofre_elegido == cofre_premiado:
-		$Mensaje.text = "Ganaste"
+		$Resultado.text = ""
 		await get_tree().create_timer(tiempo_mostrar_resultado).timeout
 		terminar(1.0)
 	else:
 		cofre_elegido.icon = textura_abierto_vacio
-		$Mensaje.text = "Cofre vacío"
+		$Resultado.text = "COFRE EQUIVOCADO"
 		await get_tree().create_timer(tiempo_mostrar_resultado).timeout
 		terminar(0.0)
 
@@ -81,9 +86,14 @@ func _cuando_se_acaba_el_tiempo() -> void:
 	for cofre in cofres:
 		cofre.disabled = true
 	cofre_premiado.icon = textura_abierto_premio
-	$Mensaje.text = "Tiempo acabado"
 	await get_tree().create_timer(tiempo_mostrar_resultado).timeout
 	terminar(0.0)
+
+func _process(_delta: float) -> void:
+	if $Timer.time_left > 0:
+		$ProgressBar.value = $Timer.time_left / tiempo_limite
+	else:
+		$ProgressBar.value = 0.0
 
 func terminar(resultado: float) -> void:
 	termino.emit(resultado)

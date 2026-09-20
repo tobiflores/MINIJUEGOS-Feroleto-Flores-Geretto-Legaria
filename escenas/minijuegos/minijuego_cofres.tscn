@@ -5,12 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://b31lg8aeubsly" path="res://icon.svg" id="2_qsjiq"]
 [ext_resource type="Texture2D" uid="uid://doxma5wal0jeq" path="res://imagenes/cofre-vacio.png" id="3_s2tuc"]
 [ext_resource type="Texture2D" uid="uid://dg4yqa84yhj56" path="res://imagenes/cofre-tesoro.png" id="4_6yiu1"]
+[ext_resource type="FontFile" uid="uid://br64yg4s15f4j" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="6_s2tuc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjyib"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Minijuego-Cofres" type="Node2D" unique_id=445488359]
 script = ExtResource("1_6h3a0")
 textura_cerrado = ExtResource("2_cjyib")
 textura_abierto_vacio = ExtResource("3_s2tuc")
 textura_abierto_premio = ExtResource("4_6yiu1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=248132319]
+offset_right = 1153.0
+offset_bottom = 650.0
+color = Color(0.11302898, 0.30202067, 0.32507274, 1)
 
 [node name="Cofre1" type="Button" parent="." unique_id=545234878]
 custom_minimum_size = Vector2(150, 150)
@@ -24,10 +33,10 @@ expand_icon = true
 
 [node name="Cofre2" type="Button" parent="." unique_id=2069996158]
 custom_minimum_size = Vector2(150, 150)
-offset_left = 489.0
-offset_top = 323.0
-offset_right = 539.0
-offset_bottom = 373.0
+offset_left = 519.0
+offset_top = 322.0
+offset_right = 669.0
+offset_bottom = 472.0
 icon = ExtResource("2_qsjiq")
 flat = true
 expand_icon = true
@@ -44,6 +53,25 @@ expand_icon = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1132051120]
 
-[node name="Mensaje" type="Label" parent="." unique_id=1365667850]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Instruccion" type="Label" parent="." unique_id=1177756737]
+offset_left = 381.0
+offset_top = 179.0
+offset_right = 784.0
+offset_bottom = 269.0
+theme_override_fonts/font = ExtResource("6_s2tuc")
+theme_override_font_sizes/font_size = 30
+
+[node name="Resultado" type="Label" parent="." unique_id=167653383]
+offset_left = 393.0
+offset_top = 178.0
+offset_right = 796.0
+offset_bottom = 268.0
+theme_override_fonts/font = ExtResource("6_s2tuc")
+theme_override_font_sizes/font_size = 41
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1844446133]
+offset_top = 620.0
+offset_right = 1152.0
+offset_bottom = 647.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_cjyib")
+max_value = 1.0
