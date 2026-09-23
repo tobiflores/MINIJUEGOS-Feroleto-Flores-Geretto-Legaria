@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://blxxxhtt2s2pc"]
+
+[ext_resource type="Script" uid="uid://7hylt5vmpqfq" path="res://scripts/caramelos/objeto_cayendo.gd" id="1_8706h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rwctu"]
+
+[node name="ObjetoCayendo" type="Area2D" unique_id=1888525686]
+script = ExtResource("1_8706h")
+
+[node name="Calavera" type="Sprite2D" parent="." unique_id=1745228491]
+
+[node name="Caramelo" type="CollisionShape2D" parent="." unique_id=1170531771]
+shape = SubResource("CircleShape2D_rwctu")

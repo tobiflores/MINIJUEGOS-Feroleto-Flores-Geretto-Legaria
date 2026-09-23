@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://behfvas1mmyqu"]
+
+[ext_resource type="Script" uid="uid://bcb0fh80xs1ev" path="res://scripts/caramelos/minijuego_caramelos.gd" id="1_8iqxp"]
+[ext_resource type="FontFile" uid="uid://br64yg4s15f4j" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="1_vojrg"]
+[ext_resource type="PackedScene" uid="uid://blxxxhtt2s2pc" path="res://escenas/general/objeto_cayendo.tscn" id="2_b81d6"]
+[ext_resource type="Script" uid="uid://g778hw525p10" path="res://scripts/caramelos/calabaza.gd" id="2_gdefh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vojrg"]
+radius = 46.615448
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iqxp"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Minijuego-Caramelos" type="Node2D" unique_id=274900844]
+script = ExtResource("1_8iqxp")
+escena_objeto_cayendo = ExtResource("2_b81d6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=727470597]
+offset_right = 1153.0
+offset_bottom = 650.0
+color = Color(0.11302898, 0.30202067, 0.32507274, 1)
+
+[node name="Calabaza" type="Area2D" parent="." unique_id=1192186154]
+script = ExtResource("2_gdefh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Calabaza" unique_id=481566159]
+position = Vector2(579, 546)
+shape = SubResource("CircleShape2D_vojrg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Calabaza" unique_id=982733748]
+
+[node name="TimerJuego" type="Timer" parent="." unique_id=1276167771]
+
+[node name="TimerCaramelos" type="Timer" parent="." unique_id=1987940993]
+
+[node name="Instruccion" type="Label" parent="." unique_id=1325181674]
+offset_left = 381.0
+offset_top = 179.0
+offset_right = 784.0
+offset_bottom = 269.0
+theme_override_fonts/font = ExtResource("1_vojrg")
+theme_override_font_sizes/font_size = 30
+
+[node name="Resultado" type="Label" parent="." unique_id=1605667134]
+offset_left = 393.0
+offset_top = 178.0
+offset_right = 796.0
+offset_bottom = 268.0
+theme_override_fonts/font = ExtResource("1_vojrg")
+theme_override_font_sizes/font_size = 41
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=15052922]
+offset_top = 620.0
+offset_right = 1152.0
+offset_bottom = 647.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_8iqxp")
+max_value = 1.0
