@@ -10,6 +10,9 @@ signal termino(resultado: float)
 @export var probCaramelo: float = 0.75
 @export var caramelos: int = 8
 @export var tiempoResultado: float = 1.0
+@export var cosasCayendo_min: int = 1
+@export var cosasCayendo_max: int = 3
+@export var distanciaCaramelos: float = 100.0
 
 @export var escena_objeto_cayendo: PackedScene
 @export var textura_caramelo: Texture2D
@@ -20,7 +23,7 @@ var perdio: bool = false
 var ancho_pantalla: float = 800.0
 
 func _ready() -> void:
-	$Instruccion.text = "Atrapá los caramelos y evitá las calaveras"
+	$Instruccion.text = "Atrapa 15 caramelos y evitá las calaveras"
 
 	$TimerJuego.wait_time = tiempoLimite
 	$TimerJuego.one_shot = true
@@ -30,6 +33,8 @@ func _ready() -> void:
 	ancho_pantalla = get_viewport_rect().size.x
 
 	_programar_proxima_aparicion()
+	await get_tree().create_timer(3.0).timeout
+	$Instruccion.text = ""
 
 func _process(_delta: float) -> void:
 	if $TimerJuego.time_left > 0:
@@ -45,20 +50,56 @@ func _programar_proxima_aparicion() -> void:
 		$TimerCaramelos.timeout.connect(_generar_objeto)
 	$TimerCaramelos.start()
 
+var contador_generaciones: int = 0
+
 func _generar_objeto() -> void:
+	contador_generaciones += 1
+	print("generacion numero: ", contador_generaciones, " - tiempo: ", Time.get_ticks_msec())
+
 	if perdio:
 		return
 
-	var objeto: Area2D = escena_objeto_cayendo.instantiate()
-	objeto.position = Vector2(randf_range(50.0, ancho_pantalla - 50.0), -50.0)
-	objeto.velocidad_caida = randf_range(velocidad_caida_min, velocidad_caida_max)
+	if escena_objeto_cayendo == null:
+		print("error")
+		return
 
-	var esCaramelo: bool = randf() < probCaramelo
-	objeto.esCaramelo = esCaramelo
-	objeto.get_node("Calavera").texture = textura_caramelo if esCaramelo else textura_no_caramelo
+	var cantidad: int = randi_range(cosasCayendo_min, cosasCayendo_max)
+	var posiciones_usadas: Array[float] = []
 
-	add_child(objeto)
+	for i in cantidad:
+		var pos_x: float = _generar_posicion_x_valida(posiciones_usadas)
+		posiciones_usadas.append(pos_x)
+
+		var objeto: Area2D = escena_objeto_cayendo.instantiate()
+		objeto.position = Vector2(pos_x, -50.0)
+		objeto.velocidad_caida = randf_range(velocidad_caida_min, velocidad_caida_max)
+
+		var esCaramelo: bool = randf() < probCaramelo
+		objeto.esCaramelo = esCaramelo
+		objeto.get_node("Calavera").texture = textura_caramelo if esCaramelo else textura_no_caramelo
+
+		add_child(objeto)
+
 	_programar_proxima_aparicion()
+	
+func _generar_posicion_x_valida(posiciones_usadas: Array[float]) -> float:
+	var intentos: int = 0
+	var pos_x: float = randf_range(50.0, ancho_pantalla - 50.0)
+
+	while intentos < 20:
+		var hay_conflicto: bool = false
+		for otra_pos in posiciones_usadas:
+			if abs(pos_x - otra_pos) < distanciaCaramelos:
+				hay_conflicto = true
+				break
+
+		if not hay_conflicto:
+			return pos_x
+
+		pos_x = randf_range(50.0, ancho_pantalla - 50.0)
+		intentos += 1
+
+	return pos_x
 
 func _on_calabaza_atrapo_objeto(objeto: Node2D) -> void:
 	if perdio:
@@ -101,3 +142,7 @@ func _cuando_se_acaba_el_tiempo() -> void:
 func terminar(resultado: float) -> void:
 	termino.emit(resultado)
 	queue_free()
+
+
+func _on_timer_caramelos_timeout() -> void:
+	pass # Replace with function body.

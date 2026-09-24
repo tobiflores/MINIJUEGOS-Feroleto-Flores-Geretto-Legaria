@@ -8,6 +8,7 @@
 script = ExtResource("1_8706h")
 
 [node name="Calavera" type="Sprite2D" parent="." unique_id=1745228491]
+scale = Vector2(0.25, 0.25)
 
 [node name="Caramelo" type="CollisionShape2D" parent="." unique_id=1170531771]
 shape = SubResource("CircleShape2D_rwctu")

@@ -5,17 +5,22 @@
 [ext_resource type="PackedScene" uid="uid://blxxxhtt2s2pc" path="res://escenas/general/objeto_cayendo.tscn" id="2_b81d6"]
 [ext_resource type="Script" uid="uid://g778hw525p10" path="res://scripts/caramelos/calabaza.gd" id="2_gdefh"]
 [ext_resource type="Texture2D" uid="uid://t7d8rb3a0q7f" path="res://imagenes/caramelo.png" id="3_7jj34"]
+[ext_resource type="Texture2D" uid="uid://d35nouhskqpnd" path="res://imagenes/redskull.png" id="4_kogvk"]
+[ext_resource type="Texture2D" uid="uid://b6r4vqmve6ql7" path="res://imagenes/calabaza.png" id="6_myawb"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vojrg"]
-radius = 46.615448
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76wbo"]
+size = Vector2(147, 22)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iqxp"]
 bg_color = Color(0, 0, 0, 1)
 
 [node name="Minijuego-Caramelos" type="Node2D" unique_id=274900844]
 script = ExtResource("1_8iqxp")
+velocidad_caida_max = 150.0
+caramelos = 7
 escena_objeto_cayendo = ExtResource("2_b81d6")
 textura_caramelo = ExtResource("3_7jj34")
+textura_no_caramelo = ExtResource("4_kogvk")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=727470597]
 offset_right = 1153.0
@@ -25,11 +30,14 @@ color = Color(0.11302898, 0.30202067, 0.32507274, 1)
 [node name="Calabaza" type="Area2D" parent="." unique_id=1192186154]
 script = ExtResource("2_gdefh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Calabaza" unique_id=481566159]
-position = Vector2(579, 546)
-shape = SubResource("CircleShape2D_vojrg")
-
 [node name="Sprite2D" type="Sprite2D" parent="Calabaza" unique_id=982733748]
+position = Vector2(577.5, 550.3808)
+scale = Vector2(0.5061476, 0.62438715)
+texture = ExtResource("6_myawb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Calabaza" unique_id=481566159]
+position = Vector2(576.5, 506)
+shape = SubResource("RectangleShape2D_76wbo")
 
 [node name="TimerJuego" type="Timer" parent="." unique_id=1276167771]
 
@@ -44,10 +52,10 @@ theme_override_fonts/font = ExtResource("1_vojrg")
 theme_override_font_sizes/font_size = 30
 
 [node name="Resultado" type="Label" parent="." unique_id=1605667134]
-offset_left = 393.0
-offset_top = 178.0
-offset_right = 796.0
-offset_bottom = 268.0
+offset_left = 207.0
+offset_top = 186.0
+offset_right = 610.0
+offset_bottom = 276.0
 theme_override_fonts/font = ExtResource("1_vojrg")
 theme_override_font_sizes/font_size = 41
 
