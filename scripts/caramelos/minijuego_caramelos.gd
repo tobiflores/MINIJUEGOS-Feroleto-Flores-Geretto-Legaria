@@ -23,18 +23,21 @@ var perdio: bool = false
 var ancho_pantalla: float = 800.0
 
 func _ready() -> void:
-	$Instruccion.text = "Atrapa 15 caramelos y evitá las calaveras"
-
+	$Instruccion.text = "ATRAPÁ  LOS CARAMELOS Y EVITÁ LAS CALAVERAS"
+	$Instruccion2.text = "Usa las flechitas para moverte"
+	
+	ancho_pantalla = get_viewport_rect().size.x
+	await get_tree().create_timer(2.0).timeout
+	
 	$TimerJuego.wait_time = tiempoLimite
 	$TimerJuego.one_shot = true
 	$TimerJuego.timeout.connect(_cuando_se_acaba_el_tiempo)
 	$TimerJuego.start()
 
-	ancho_pantalla = get_viewport_rect().size.x
-
 	_programar_proxima_aparicion()
 	await get_tree().create_timer(3.0).timeout
 	$Instruccion.text = ""
+	$Instruccion2.text = ""
 
 func _process(_delta: float) -> void:
 	if $TimerJuego.time_left > 0:
@@ -53,9 +56,6 @@ func _programar_proxima_aparicion() -> void:
 var contador_generaciones: int = 0
 
 func _generar_objeto() -> void:
-	contador_generaciones += 1
-	print("generacion numero: ", contador_generaciones, " - tiempo: ", Time.get_ticks_msec())
-
 	if perdio:
 		return
 
@@ -63,8 +63,16 @@ func _generar_objeto() -> void:
 		print("error")
 		return
 
-	var cantidad: int = randi_range(cosasCayendo_min, cosasCayendo_max)
+	var cantidad_actual: int = get_tree().get_nodes_in_group("cayendo").size()
+	if cantidad_actual >= cosasCayendo_max:
+		_programar_proxima_aparicion()
+		return
+
+	var cantidad: int = randi_range(cosasCayendo_min, cosasCayendo_max - cantidad_actual)
+
 	var posiciones_usadas: Array[float] = []
+	for objeto_existente in get_tree().get_nodes_in_group("cayendo"):
+		posiciones_usadas.append(objeto_existente.position.x)
 
 	for i in cantidad:
 		var pos_x: float = _generar_posicion_x_valida(posiciones_usadas)
@@ -73,15 +81,15 @@ func _generar_objeto() -> void:
 		var objeto: Area2D = escena_objeto_cayendo.instantiate()
 		objeto.position = Vector2(pos_x, -50.0)
 		objeto.velocidad_caida = randf_range(velocidad_caida_min, velocidad_caida_max)
+		objeto.add_to_group("cayendo")
 
 		var esCaramelo: bool = randf() < probCaramelo
 		objeto.esCaramelo = esCaramelo
 		objeto.get_node("Calavera").texture = textura_caramelo if esCaramelo else textura_no_caramelo
 
 		add_child(objeto)
-
 	_programar_proxima_aparicion()
-	
+
 func _generar_posicion_x_valida(posiciones_usadas: Array[float]) -> float:
 	var intentos: int = 0
 	var pos_x: float = randf_range(50.0, ancho_pantalla - 50.0)

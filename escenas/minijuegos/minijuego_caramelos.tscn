@@ -16,7 +16,8 @@ bg_color = Color(0, 0, 0, 1)
 
 [node name="Minijuego-Caramelos" type="Node2D" unique_id=274900844]
 script = ExtResource("1_8iqxp")
-velocidad_caida_max = 150.0
+velocidad_caida_min = 200.0
+velocidad_caida_max = 280.0
 caramelos = 7
 escena_objeto_cayendo = ExtResource("2_b81d6")
 textura_caramelo = ExtResource("3_7jj34")
@@ -44,10 +45,18 @@ shape = SubResource("RectangleShape2D_76wbo")
 [node name="TimerCaramelos" type="Timer" parent="." unique_id=1987940993]
 
 [node name="Instruccion" type="Label" parent="." unique_id=1325181674]
-offset_left = 381.0
-offset_top = 179.0
-offset_right = 784.0
-offset_bottom = 269.0
+offset_left = 314.0
+offset_top = 219.0
+offset_right = 874.0
+offset_bottom = 309.0
+theme_override_fonts/font = ExtResource("1_vojrg")
+theme_override_font_sizes/font_size = 30
+
+[node name="Instruccion2" type="Label" parent="." unique_id=274323317]
+offset_left = 432.0
+offset_top = 296.0
+offset_right = 992.0
+offset_bottom = 365.0
 theme_override_fonts/font = ExtResource("1_vojrg")
 theme_override_font_sizes/font_size = 30
 

@@ -5,7 +5,7 @@ signal atrapo_objeto(objeto: Node2D)
 @export var velocidad: float = 500.0
 
 var limite_izquierdo: float = 50.0
-var limite_derecho: float = 750.0
+var limite_derecho: float = 1100.0
 
 func _process(delta: float) -> void:
 	var direccion: float = 0.0
