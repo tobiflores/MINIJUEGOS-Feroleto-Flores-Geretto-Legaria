@@ -29,10 +29,10 @@ offset_bottom = 650.0
 color = Color(0.11302898, 0.30202067, 0.32507274, 1)
 
 [node name="Calabaza" type="Area2D" parent="." unique_id=1192186154]
-position = Vector2(577.5, 550.381)
 script = ExtResource("2_gdefh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Calabaza" unique_id=982733748]
+position = Vector2(577.5, 550.3808)
 scale = Vector2(0.5061476, 0.62438715)
 texture = ExtResource("6_myawb")
 
