@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dbsck8kft5qkn"]
+
+[ext_resource type="Script" uid="uid://kofebppb3a6a" path="res://scripts/transicion_victoria.gd" id="1_0yafw"]
+[ext_resource type="Texture2D" uid="uid://b31lg8aeubsly" path="res://icon.svg" id="2_tysrj"]
+[ext_resource type="Texture2D" uid="uid://ch3hmb1l5ym8s" path="res://imagenes/stairs.jpg" id="3_10u17"]
+
+[node name="TransicionVictoria" type="Node2D" unique_id=1856119977]
+script = ExtResource("1_0yafw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=641087914]
+offset_right = 1153.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 1)
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=643117796]
+position = Vector2(567, 324)
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("3_10u17")
+
+[node name="Personaje" type="Sprite2D" parent="." unique_id=476792367]
+position = Vector2(838, 109)
+texture = ExtResource("2_tysrj")

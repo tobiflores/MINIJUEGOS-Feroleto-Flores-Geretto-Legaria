@@ -37,7 +37,7 @@ scale = Vector2(0.5061476, 0.62438715)
 texture = ExtResource("6_myawb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Calabaza" unique_id=481566159]
-position = Vector2(576.5, 506)
+position = Vector2(-0.5, -43.38098)
 shape = SubResource("RectangleShape2D_76wbo")
 
 [node name="TimerJuego" type="Timer" parent="." unique_id=1276167771]
@@ -74,3 +74,6 @@ offset_right = 1152.0
 offset_bottom = 647.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_8iqxp")
 max_value = 1.0
+
+[connection signal="area_entered" from="Calabaza" to="Calabaza" method="_on_area_entered"]
+[connection signal="atrapo_objeto" from="Calabaza" to="." method="_on_calabaza_atrapo_objeto"]

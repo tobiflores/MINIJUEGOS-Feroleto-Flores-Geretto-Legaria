@@ -3,12 +3,14 @@ extends Node2D
 signal termino(resultado: float)
 
 @export var tiempoLimite: float = 15.0
-@export var tiempo_entre_apariciones_min: float = 0.4
+@export var tiempo_entre_apariciones_min: float = 0.6
 @export var tiempo_entre_apariciones_max: float = 0.9
 @export var velocidad_caida_min: float = 150.0
 @export var velocidad_caida_max: float = 300.0
+@export var velocidad_calavera_min: float = 250.0
+@export var velocidad_calavera_max: float = 400.0
 @export var probCaramelo: float = 0.75
-@export var caramelos: int = 8
+@export var caramelos: int = 10
 @export var tiempoResultado: float = 1.0
 @export var cosasCayendo_min: int = 1
 @export var cosasCayendo_max: int = 3
@@ -23,7 +25,7 @@ var perdio: bool = false
 var ancho_pantalla: float = 800.0
 
 func _ready() -> void:
-	$Instruccion.text = "ATRAPÁ  LOS CARAMELOS Y EVITÁ LAS CALAVERAS"
+	$Instruccion.text = "ATRAPÁ 10 CARAMELOS Y EVITÁ LAS CALAVERAS"
 	$Instruccion2.text = "Usa las flechitas para moverte"
 	
 	ancho_pantalla = get_viewport_rect().size.x
@@ -80,11 +82,15 @@ func _generar_objeto() -> void:
 
 		var objeto: Area2D = escena_objeto_cayendo.instantiate()
 		objeto.position = Vector2(pos_x, -50.0)
-		objeto.velocidad_caida = randf_range(velocidad_caida_min, velocidad_caida_max)
-		objeto.add_to_group("cayendo")
 
 		var esCaramelo: bool = randf() < probCaramelo
 		objeto.esCaramelo = esCaramelo
+
+		if esCaramelo:
+			objeto.velocidad_caida = randf_range(velocidad_caida_min, velocidad_caida_max)
+		else:
+			objeto.velocidad_caida = randf_range(velocidad_calavera_min, velocidad_calavera_max)
+
 		objeto.get_node("Calavera").texture = textura_caramelo if esCaramelo else textura_no_caramelo
 
 		add_child(objeto)
@@ -150,7 +156,3 @@ func _cuando_se_acaba_el_tiempo() -> void:
 func terminar(resultado: float) -> void:
 	termino.emit(resultado)
 	queue_free()
-
-
-func _on_timer_caramelos_timeout() -> void:
-	pass # Replace with function body.

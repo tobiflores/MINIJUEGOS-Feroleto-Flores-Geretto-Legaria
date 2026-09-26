@@ -11,3 +11,9 @@ func resultado(resultado: float) -> void:
 	else:
 		pisoActual += 1
 		print("bajaste al piso ", pisoActual)
+		await mostrar_transicion()
+
+func mostrar_transicion() -> void:
+	var transicion = preload("res://escenas/general/transicion_victoria.tscn").instantiate()
+	add_child(transicion)
+	await transicion.transicion_terminada
