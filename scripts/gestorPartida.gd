@@ -1,19 +1,20 @@
 extends Node
 
-var pisoActual: int = 1
-var peligroActual: float = 0.0
+var pisoActual: int = 20
+var vidas: int = 3
 
-func resultado(resultado: float) -> void:
-	peligroActual += (1.0 - resultado) * 0.2
-	peligroActual = clamp(peligroActual, 0.0, 1.0)
-	if peligroActual >= 1.0:
-		print("perdiste")
+func resultado(resultado_minijuego: float) -> void:
+	var gano: bool = resultado_minijuego >= 1.0
+
+	if gano:
+		pisoActual -= 1
 	else:
-		pisoActual += 1
-		print("bajaste al piso ", pisoActual)
-		await mostrar_transicion()
+		vidas -= 1
 
-func mostrar_transicion() -> void:
+	await mostrar_transicion(gano)
+
+func mostrar_transicion(gano: bool) -> void:
 	var transicion = preload("res://escenas/general/transicion_victoria.tscn").instantiate()
 	add_child(transicion)
+	transicion.mostrar_datos(pisoActual, vidas, gano)
 	await transicion.transicion_terminada

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b0018qfgib0ku"]
+
+[ext_resource type="Script" uid="uid://3npap6dn82cw" path="res://scripts/principal.gd" id="1_dj7q0"]
+[ext_resource type="PackedScene" uid="uid://cle37l80uue6p" path="res://escenas/minijuegos/minijuego_cofres.tscn" id="2_yv8ah"]
+[ext_resource type="PackedScene" uid="uid://behfvas1mmyqu" path="res://escenas/minijuegos/minijuego_caramelos.tscn" id="3_aanal"]
+[ext_resource type="PackedScene" uid="uid://dw570jju4f5ag" path="res://escenas/minijuegos/minijuego_golpearMadera.tscn" id="4_smctb"]
+
+[node name="Principal" type="Node2D" unique_id=218056312]
+script = ExtResource("1_dj7q0")
+lista_minijuegos = Array[PackedScene]([ExtResource("2_yv8ah"), ExtResource("3_aanal"), ExtResource("4_smctb")])

@@ -10,6 +10,10 @@ signal transicion_terminada
 @export var posicion_quiebre: Vector2 = Vector2(431.0, 447.0)
 @export var posicion_final: Vector2 = Vector2(798.0, 489.0)
 
+func mostrar_datos(piso: int, vidas: int, gano: bool) -> void:
+	$NumPiso.text = "Piso: " + str(piso)
+	$Vidas.text = "Vidas: " + str(vidas)
+
 func _ready() -> void:
 	$Personaje.position = posicion_inicial
 	_animar_bajada()
@@ -28,4 +32,4 @@ func _animar_bajada() -> void:
 
 	await tween.finished
 	transicion_terminada.emit()
-	# queue_free()
+	queue_free()
