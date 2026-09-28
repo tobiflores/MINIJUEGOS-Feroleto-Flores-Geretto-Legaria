@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dw570jju4f5ag"]
 
-[ext_resource type="Script" uid="uid://b5voymagclgqq" path="res://escenas/minijuegos/minijuego_golpearMadera.gd" id="1_fs60o"]
+[ext_resource type="Script" uid="uid://b5voymagclgqq" path="res://scripts/minijuego_golpearMadera.gd" id="1_fs60o"]
 [ext_resource type="FontFile" uid="uid://br64yg4s15f4j" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="1_jw8p4"]
 [ext_resource type="Texture2D" uid="uid://41i6yflkybec" path="res://imagenes/pose1.png" id="2_l8obx"]
 [ext_resource type="Texture2D" uid="uid://cbi3s8njwx7ko" path="res://imagenes/pose2.png" id="3_smymm"]
-[ext_resource type="Texture2D" uid="uid://dv25c3hxdmo30" path="res://imagenes/pose3.png" id="4_16lxf"]
+[ext_resource type="Texture2D" uid="uid://crin8rq0nrkbh" path="res://imagenes/pose3.png" id="4_16lxf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs60o"]
 bg_color = Color(0.09240068, 0.19522923, 0.53666794, 1)

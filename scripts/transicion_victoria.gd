@@ -17,7 +17,6 @@ func mostrar_datos(piso: int, vidas: int, gano: bool) -> void:
 	$Vidas.text = "Vidas: " + str(vidas)
 
 func _ready() -> void:
-	print("bajando: ", textura_bajando, " | caminando: ", textura_caminando)
 	$Personaje.texture = textura_bajando
 	$Personaje.position = posicion_inicial
 	_animar_bajada()
