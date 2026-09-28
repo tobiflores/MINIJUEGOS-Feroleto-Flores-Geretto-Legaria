@@ -5,6 +5,8 @@ signal transicion_terminada
 @export var duracion_bajada: float = 3.0
 @export var duracion_piso: float = 1.5
 @export var escalones: int = 6
+@export var textura_bajando: Texture2D
+@export var textura_caminando: Texture2D
 
 @export var posicion_inicial: Vector2 = Vector2(838.0, 109.0)
 @export var posicion_quiebre: Vector2 = Vector2(431.0, 447.0)
@@ -15,6 +17,8 @@ func mostrar_datos(piso: int, vidas: int, gano: bool) -> void:
 	$Vidas.text = "Vidas: " + str(vidas)
 
 func _ready() -> void:
+	print("bajando: ", textura_bajando, " | caminando: ", textura_caminando)
+	$Personaje.texture = textura_bajando
 	$Personaje.position = posicion_inicial
 	_animar_bajada()
 
@@ -28,6 +32,7 @@ func _animar_bajada() -> void:
 		punto.y = lerp(posicion_inicial.y, posicion_quiebre.y, progreso)
 		tween.tween_property($Personaje, "position", punto, duracion_bajada / escalones)
 
+	tween.tween_callback(func(): $Personaje.texture = textura_caminando)
 	tween.tween_property($Personaje, "position", posicion_final, duracion_piso)
 
 	await tween.finished

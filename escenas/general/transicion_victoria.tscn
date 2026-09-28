@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://dbsck8kft5qkn"]
 
 [ext_resource type="Script" uid="uid://kofebppb3a6a" path="res://scripts/transicion_victoria.gd" id="1_0yafw"]
-[ext_resource type="Texture2D" uid="uid://b31lg8aeubsly" path="res://icon.svg" id="2_tysrj"]
+[ext_resource type="Texture2D" uid="uid://bltcog42fq5bg" path="res://imagenes/PersonajeIzquierda.png" id="2_178o6"]
 [ext_resource type="Texture2D" uid="uid://ch3hmb1l5ym8s" path="res://imagenes/stairs.jpg" id="3_10u17"]
+[ext_resource type="Texture2D" uid="uid://bjd6pb212ch0y" path="res://imagenes/PersonajeDerecha.png" id="3_owf36"]
 
 [node name="TransicionVictoria" type="Node2D" unique_id=1856119977]
 script = ExtResource("1_0yafw")
 duracion_bajada = 1.8
 duracion_piso = 0.8
+textura_bajando = ExtResource("2_178o6")
+textura_caminando = ExtResource("3_owf36")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=641087914]
 offset_right = 1153.0
@@ -20,8 +23,9 @@ scale = Vector2(2.4, 2.4)
 texture = ExtResource("3_10u17")
 
 [node name="Personaje" type="Sprite2D" parent="." unique_id=476792367]
-position = Vector2(838, 109)
-texture = ExtResource("2_tysrj")
+position = Vector2(838, 85)
+scale = Vector2(0.2, 0.2)
+flip_h = true
 
 [node name="NumPiso" type="Label" parent="." unique_id=1300978627]
 offset_left = 261.0
