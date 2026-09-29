@@ -40,6 +40,10 @@ func _ready() -> void:
 	await get_tree().create_timer(3.0).timeout
 	$Instruccion.text = ""
 	$Instruccion2.text = ""
+	_actualizar_contador()
+
+func _actualizar_contador() -> void:
+	$ContadorCaramelos.text = str(puntaje) + " / " + str(caramelos)
 
 func _process(_delta: float) -> void:
 	if $TimerJuego.time_left > 0:
@@ -121,6 +125,7 @@ func _on_calabaza_atrapo_objeto(objeto: Node2D) -> void:
 
 	if objeto.esCaramelo:
 		puntaje += 1
+		_actualizar_contador()
 		objeto.queue_free()
 		if puntaje >= caramelos:
 			_ganar()

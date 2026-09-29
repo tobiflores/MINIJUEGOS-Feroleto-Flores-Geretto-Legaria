@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://dbsck8kft5qkn"]
 
-[ext_resource type="Script" uid="uid://kofebppb3a6a" path="res://scripts/transicion_victoria.gd" id="1_0yafw"]
-[ext_resource type="Texture2D" uid="uid://bltcog42fq5bg" path="res://imagenes/PersonajeIzquierda.png" id="2_178o6"]
-[ext_resource type="Texture2D" uid="uid://ch3hmb1l5ym8s" path="res://imagenes/stairs.jpg" id="3_10u17"]
-[ext_resource type="Texture2D" uid="uid://bjd6pb212ch0y" path="res://imagenes/PersonajeDerecha.png" id="3_owf36"]
-[ext_resource type="FontFile" uid="uid://bcw1irlfqrc5x" path="res://fuentes/Frijole/Frijole-Regular.ttf" id="5_owf36"]
+[ext_resource type="Script" uid="uid://kofebppb3a6a" path="res://scripts/transicion.gd" id="1_fns7c"]
+[ext_resource type="Texture2D" uid="uid://bltcog42fq5bg" path="res://imagenes/PersonajeIzquierda.png" id="2_edxef"]
+[ext_resource type="Texture2D" uid="uid://bjd6pb212ch0y" path="res://imagenes/PersonajeDerecha.png" id="3_ns6lt"]
+[ext_resource type="Texture2D" uid="uid://ch3hmb1l5ym8s" path="res://imagenes/stairs.jpg" id="4_xmfty"]
+[ext_resource type="FontFile" uid="uid://bcw1irlfqrc5x" path="res://fuentes/Frijole/Frijole-Regular.ttf" id="5_qofvb"]
 
-[node name="TransicionVictoria" type="Node2D" unique_id=1856119977]
-script = ExtResource("1_0yafw")
+[node name="Transicion" type="Node2D" unique_id=1856119977]
+script = ExtResource("1_fns7c")
 duracion_bajada = 1.8
 duracion_piso = 0.8
-textura_bajando = ExtResource("2_178o6")
-textura_caminando = ExtResource("3_owf36")
+textura_bajando = ExtResource("2_edxef")
+textura_caminando = ExtResource("3_ns6lt")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=641087914]
 offset_right = 1153.0
@@ -21,7 +21,7 @@ color = Color(0, 0, 0, 1)
 [node name="Fondo" type="Sprite2D" parent="." unique_id=643117796]
 position = Vector2(567, 324)
 scale = Vector2(2.4, 2.4)
-texture = ExtResource("3_10u17")
+texture = ExtResource("4_xmfty")
 
 [node name="Personaje" type="Sprite2D" parent="." unique_id=476792367]
 position = Vector2(838, 85)
@@ -34,7 +34,7 @@ offset_top = 94.0
 offset_right = 380.0
 offset_bottom = 198.0
 theme_override_colors/font_color = Color(0.69, 1, 0.73649997, 1)
-theme_override_fonts/font = ExtResource("5_owf36")
+theme_override_fonts/font = ExtResource("5_qofvb")
 theme_override_font_sizes/font_size = 34
 
 [node name="Vidas" type="Label" parent="." unique_id=1473974647]
@@ -43,4 +43,4 @@ offset_top = 523.0
 offset_right = 143.0
 offset_bottom = 612.0
 scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("5_owf36")
+theme_override_fonts/font = ExtResource("5_qofvb")

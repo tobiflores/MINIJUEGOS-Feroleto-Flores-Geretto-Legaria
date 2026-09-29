@@ -5,12 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://41i6yflkybec" path="res://imagenes/pose1.png" id="2_l8obx"]
 [ext_resource type="Texture2D" uid="uid://cbi3s8njwx7ko" path="res://imagenes/pose2.png" id="3_smymm"]
 [ext_resource type="Texture2D" uid="uid://crin8rq0nrkbh" path="res://imagenes/pose3.png" id="4_16lxf"]
+[ext_resource type="AudioStream" uid="uid://b0e150arkv4ay" path="res://musica/boxing_ring.wav" id="6_eosf5"]
+[ext_resource type="AudioStream" uid="uid://b1oaf5f57ssoi" path="res://audios/SonidoMadera.mp3" id="7_fbf3g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs60o"]
 bg_color = Color(0.09240068, 0.19522923, 0.53666794, 1)
 
 [node name="Minijuego-GolpearMadera" type="Node2D" unique_id=442566395]
 script = ExtResource("1_fs60o")
+velocidadBarra = 9.0
+tiempo_mostrar_resultado = 2.0
 textura1 = ExtResource("2_l8obx")
 textura2 = ExtResource("3_smymm")
 textura3 = ExtResource("4_16lxf")
@@ -26,12 +30,12 @@ scale = Vector2(0.7707071, 0.8075397)
 texture = ExtResource("2_l8obx")
 
 [node name="Instruccion" type="Label" parent="." unique_id=372554950]
-offset_left = 440.0
-offset_top = 40.0
-offset_right = 1000.0
-offset_bottom = 130.0
+offset_left = 332.0
+offset_top = 64.0
+offset_right = 892.0
+offset_bottom = 154.0
 theme_override_fonts/font = ExtResource("1_jw8p4")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 63
 
 [node name="Resultado" type="Label" parent="." unique_id=1883691361]
 offset_left = 51.0
@@ -55,6 +59,14 @@ offset_right = 185.0
 offset_bottom = 124.0
 
 [node name="Timer" type="Timer" parent="." unique_id=30362985]
+
+[node name="Musica" type="AudioStreamPlayer2D" parent="." unique_id=2020611094]
+stream = ExtResource("6_eosf5")
+volume_db = -10.692
+
+[node name="SonidoMadera" type="AudioStreamPlayer2D" parent="." unique_id=594350697]
+stream = ExtResource("7_fbf3g")
+volume_db = -10.692
 
 [node name="Fuerza1" type="ColorRect" parent="." unique_id=1984878306]
 offset_left = 1041.0

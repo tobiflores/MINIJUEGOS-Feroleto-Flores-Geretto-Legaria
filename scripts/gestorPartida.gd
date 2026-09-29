@@ -14,7 +14,7 @@ func resultado(resultado_minijuego: float) -> void:
 	await mostrar_transicion(gano)
 
 func mostrar_transicion(gano: bool) -> void:
-	var transicion = preload("res://escenas/general/transicion_victoria.tscn").instantiate()
+	var transicion = preload("res://escenas/general/transicion.tscn").instantiate()
 	add_child(transicion)
 	transicion.mostrar_datos(pisoActual, vidas, gano)
 	await transicion.transicion_terminada

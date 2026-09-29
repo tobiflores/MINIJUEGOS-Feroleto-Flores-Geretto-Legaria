@@ -18,7 +18,6 @@ bg_color = Color(0, 0, 0, 1)
 script = ExtResource("1_8iqxp")
 velocidad_caida_min = 200.0
 velocidad_caida_max = 280.0
-caramelos = 7
 escena_objeto_cayendo = ExtResource("2_b81d6")
 textura_caramelo = ExtResource("3_7jj34")
 textura_no_caramelo = ExtResource("4_kogvk")
@@ -67,6 +66,12 @@ offset_right = 610.0
 offset_bottom = 276.0
 theme_override_fonts/font = ExtResource("1_vojrg")
 theme_override_font_sizes/font_size = 41
+
+[node name="ContadorCaramelos" type="Label" parent="." unique_id=372059999]
+offset_left = 13.0
+offset_top = 575.0
+offset_right = 53.0
+offset_bottom = 598.0
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=15052922]
 offset_top = 620.0

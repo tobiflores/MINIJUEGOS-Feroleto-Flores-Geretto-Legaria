@@ -18,6 +18,7 @@ var yaGolpeo: bool = false
 var segmentos: Array[ColorRect] = []
 
 func _ready() -> void:
+	$Musica.play()
 	segmentos = [$Fuerza1, $Fuerza2, $Fuerza3, $Fuerza4, $Fuerza5, $Fuerza6, $Fuerza7, $Fuerza8, $Fuerza9, $Fuerza10]
 	$Instruccion.text = "GOLPEÁ LA MADERA"
 	$ProgressBar.min_value = 0.0
@@ -30,7 +31,7 @@ func _ready() -> void:
 
 	puedeGolpear = true
 	
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(0.8).timeout
 	$Instruccion.text = ""
 
 func _process(delta: float) -> void:
@@ -53,6 +54,7 @@ func _process(delta: float) -> void:
 func _animar_golpe(acerto: bool) -> void:
 	if acerto:
 		$Personaje.texture = textura2
+		$SonidoMadera.play()
 	else:
 		$Personaje.texture = textura3
 	await get_tree().create_timer(0.15).timeout
@@ -91,5 +93,6 @@ func _actualizar_segmentos() -> void:
 		segmentos[i].visible = i < segmentos_prendidos
 
 func terminar(resultado: float) -> void:
+	$Musica.stop()
 	termino.emit(resultado)
 	queue_free()
