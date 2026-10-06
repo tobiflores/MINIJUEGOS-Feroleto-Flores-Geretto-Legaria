@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbi3s8njwx7ko"
-path="res://.godot/imported/pose2.png-71c9f4ffd852101f9fac86a11e7b3327.ctex"
+uid="uid://difo5sdjp8hf6"
+path="res://.godot/imported/PoseDos.png-2a20aa56fba79a0f285cf9fc42ed4eaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagenes/pose2.png"
-dest_files=["res://.godot/imported/pose2.png-71c9f4ffd852101f9fac86a11e7b3327.ctex"]
+source_file="res://imagenes/PoseDos.png"
+dest_files=["res://.godot/imported/PoseDos.png-2a20aa56fba79a0f285cf9fc42ed4eaa.ctex"]
 
 [params]
 

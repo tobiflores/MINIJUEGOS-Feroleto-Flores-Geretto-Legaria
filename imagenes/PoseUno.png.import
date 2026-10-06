@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crin8rq0nrkbh"
-path="res://.godot/imported/pose3.png-30e74b3734bc50d2c5fd01e0eddb898f.ctex"
+uid="uid://c2ermq4pd3ica"
+path="res://.godot/imported/PoseUno.png-bdb28aea397dc4f92f25137acfcc9ea7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagenes/pose3.png"
-dest_files=["res://.godot/imported/pose3.png-30e74b3734bc50d2c5fd01e0eddb898f.ctex"]
+source_file="res://imagenes/PoseUno.png"
+dest_files=["res://.godot/imported/PoseUno.png-bdb28aea397dc4f92f25137acfcc9ea7.ctex"]
 
 [params]
 

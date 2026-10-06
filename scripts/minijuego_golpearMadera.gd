@@ -20,7 +20,7 @@ var segmentos: Array[ColorRect] = []
 func _ready() -> void:
 	$Musica.play()
 	segmentos = [$Fuerza1, $Fuerza2, $Fuerza3, $Fuerza4, $Fuerza5, $Fuerza6, $Fuerza7, $Fuerza8, $Fuerza9, $Fuerza10]
-	$Instruccion.text = "GOLPEÁ LA MADERA"
+	$Instruccion.text = "GOLPEÁ LA PUERTA"
 	$ProgressBar.min_value = 0.0
 	$ProgressBar.max_value = 1.0
 

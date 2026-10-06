@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b5voymagclgqq" path="res://scripts/minijuego_golpearMadera.gd" id="1_fs60o"]
 [ext_resource type="FontFile" uid="uid://br64yg4s15f4j" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="1_jw8p4"]
-[ext_resource type="Texture2D" uid="uid://41i6yflkybec" path="res://imagenes/pose1.png" id="2_l8obx"]
-[ext_resource type="Texture2D" uid="uid://cbi3s8njwx7ko" path="res://imagenes/pose2.png" id="3_smymm"]
-[ext_resource type="Texture2D" uid="uid://crin8rq0nrkbh" path="res://imagenes/pose3.png" id="4_16lxf"]
+[ext_resource type="Texture2D" uid="uid://c2ermq4pd3ica" path="res://imagenes/PoseUno.png" id="2_fbf3g"]
+[ext_resource type="Texture2D" uid="uid://difo5sdjp8hf6" path="res://imagenes/PoseDos.png" id="3_qvyq5"]
+[ext_resource type="Texture2D" uid="uid://d10spgea6fqcm" path="res://imagenes/PoseTres.png" id="4_80dsg"]
 [ext_resource type="AudioStream" uid="uid://b0e150arkv4ay" path="res://musica/boxing_ring.wav" id="6_eosf5"]
 [ext_resource type="AudioStream" uid="uid://b1oaf5f57ssoi" path="res://audios/SonidoMadera.mp3" id="7_fbf3g"]
 
@@ -15,9 +15,9 @@ bg_color = Color(0.09240068, 0.19522923, 0.53666794, 1)
 script = ExtResource("1_fs60o")
 velocidadBarra = 9.0
 tiempo_mostrar_resultado = 2.0
-textura1 = ExtResource("2_l8obx")
-textura2 = ExtResource("3_smymm")
-textura3 = ExtResource("4_16lxf")
+textura1 = ExtResource("2_fbf3g")
+textura2 = ExtResource("3_qvyq5")
+textura3 = ExtResource("4_80dsg")
 
 [node name="Fondo" type="ColorRect" parent="." unique_id=834669979]
 offset_right = 1153.0
@@ -27,7 +27,7 @@ color = Color(0, 0, 0, 1)
 [node name="Personaje" type="Sprite2D" parent="." unique_id=592179818]
 position = Vector2(568, 357.00003)
 scale = Vector2(0.7707071, 0.8075397)
-texture = ExtResource("2_l8obx")
+texture = ExtResource("2_fbf3g")
 
 [node name="Instruccion" type="Label" parent="." unique_id=372554950]
 offset_left = 332.0
