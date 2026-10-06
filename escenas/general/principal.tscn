@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cle37l80uue6p" path="res://escenas/minijuegos/minijuego_cofres.tscn" id="2_yv8ah"]
 [ext_resource type="PackedScene" uid="uid://behfvas1mmyqu" path="res://escenas/minijuegos/minijuego_caramelos.tscn" id="3_aanal"]
 [ext_resource type="PackedScene" uid="uid://dw570jju4f5ag" path="res://escenas/minijuegos/minijuego_golpearMadera.tscn" id="4_smctb"]
-[ext_resource type="PackedScene" uid="uid://cwdgdayfp5n45" path="res://escenas/minijuegos/minijuego_diferente.tscn" id="5_aanal"]
+[ext_resource type="PackedScene" uid="uid://cwdgdayfp5n45" path="res://escenas/minijuegos/minijuego_abrirPuertas.tscn" id="5_aanal"]
 [ext_resource type="PackedScene" uid="uid://cuyfn44uoncnk" path="res://escenas/minijuegos/minijuego_penal.tscn" id="6_smctb"]
 
 [node name="Principal" type="Node2D" unique_id=218056312]

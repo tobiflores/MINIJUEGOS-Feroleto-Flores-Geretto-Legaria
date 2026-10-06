@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqbatiu1hxrhn"
-path="res://.godot/imported/personaje.png-b4df4aa4076435d335126e9de9f56682.ctex"
+uid="uid://dupug7lbtawsa"
+path="res://.godot/imported/Llave.png-965b4cec2d139bf725461d3da94940ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagenes/personaje.png"
-dest_files=["res://.godot/imported/personaje.png-b4df4aa4076435d335126e9de9f56682.ctex"]
+source_file="res://imagenes/Llave.png"
+dest_files=["res://.godot/imported/Llave.png-965b4cec2d139bf725461d3da94940ca.ctex"]
 
 [params]
 

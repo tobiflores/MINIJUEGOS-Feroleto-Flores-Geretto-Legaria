@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://cwdgdayfp5n45"]
 
-[ext_resource type="Script" uid="uid://bee328aq6xa4e" path="res://scripts/minijuego_diferente.gd" id="1_kh0l1"]
+[ext_resource type="Script" uid="uid://bee328aq6xa4e" path="res://scripts/minijuego_abrirPuertas.gd" id="1_kh0l1"]
 [ext_resource type="FontFile" uid="uid://br64yg4s15f4j" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="1_omygh"]
-[ext_resource type="Texture2D" uid="uid://c5s67d54h5n7f" path="res://imagenes/Diferente.png" id="2_5aipk"]
-[ext_resource type="Texture2D" uid="uid://cqbatiu1hxrhn" path="res://imagenes/personaje.png" id="2_lg4lj"]
-[ext_resource type="Texture2D" uid="uid://cwmhbr3kdd45l" path="res://imagenes/pink cursor.png" id="4_6g6my"]
+[ext_resource type="Texture2D" uid="uid://dupug7lbtawsa" path="res://imagenes/Llave.png" id="2_5aipk"]
+[ext_resource type="Texture2D" uid="uid://cuyeigyrhn78e" path="res://imagenes/PuertaCerrada.png" id="2_lg4lj"]
+[ext_resource type="Texture2D" uid="uid://ce8t0k5xhakft" path="res://imagenes/PuertaAbierta.png" id="3_6g6my"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh0l1"]
 bg_color = Color(0.09240068, 0.19522923, 0.53666794, 1)
 
-[node name="Minijuego-Diferente" type="Node2D" unique_id=368802481]
+[node name="Minijuego-AbrirPuertas" type="Node2D" unique_id=368802481]
 script = ExtResource("1_kh0l1")
-texturaNormal = ExtResource("2_lg4lj")
-texturaDiferente = ExtResource("2_5aipk")
-texturaCursor = ExtResource("4_6g6my")
+texturaCerrada = ExtResource("2_lg4lj")
+texturaAbierta = ExtResource("3_6g6my")
+texturaCursor = ExtResource("2_5aipk")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=665051018]
 offset_right = 1153.0
@@ -55,59 +55,59 @@ offset_bottom = 124.0
 offset_left = 244.0
 offset_top = 71.0
 offset_right = 948.0
-offset_bottom = 619.0
+offset_bottom = 919.0
 columns = 3
 
 [node name="PJ1" type="Button" parent="GridContainer" unique_id=964904157]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(220, 175)
 layout_mode = 2
 flat = true
 expand_icon = true
 
 [node name="PJ2" type="Button" parent="GridContainer" unique_id=410674409]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(220, 175)
 layout_mode = 2
 flat = true
 expand_icon = true
 
 [node name="PJ3" type="Button" parent="GridContainer" unique_id=1688617160]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(220, 175)
 layout_mode = 2
 flat = true
 expand_icon = true
 
 [node name="PJ4" type="Button" parent="GridContainer" unique_id=1807098778]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(220, 175)
 layout_mode = 2
 flat = true
 expand_icon = true
 
 [node name="PJ5" type="Button" parent="GridContainer" unique_id=2121550506]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(220, 175)
 layout_mode = 2
 flat = true
 expand_icon = true
 
 [node name="PJ6" type="Button" parent="GridContainer" unique_id=2067980374]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(220, 175)
 layout_mode = 2
 flat = true
 expand_icon = true
 
 [node name="PJ7" type="Button" parent="GridContainer" unique_id=2000176515]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(220, 175)
 layout_mode = 2
 flat = true
 expand_icon = true
 
 [node name="PJ8" type="Button" parent="GridContainer" unique_id=1128186360]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(220, 175)
 layout_mode = 2
 flat = true
 expand_icon = true
 
 [node name="PJ9" type="Button" parent="GridContainer" unique_id=1099461889]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(220, 175)
 layout_mode = 2
 flat = true
 expand_icon = true

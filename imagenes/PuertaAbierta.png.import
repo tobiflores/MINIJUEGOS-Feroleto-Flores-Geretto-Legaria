@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5s67d54h5n7f"
-path="res://.godot/imported/Diferente.png-3dfb14e219a2a35978d5ba93d47c0f42.ctex"
+uid="uid://ce8t0k5xhakft"
+path="res://.godot/imported/PuertaAbierta.png-d08b4bc3d2bb62d8972c49962cc7277d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagenes/Diferente.png"
-dest_files=["res://.godot/imported/Diferente.png-3dfb14e219a2a35978d5ba93d47c0f42.ctex"]
+source_file="res://imagenes/PuertaAbierta.png"
+dest_files=["res://.godot/imported/PuertaAbierta.png-d08b4bc3d2bb62d8972c49962cc7277d.ctex"]
 
 [params]
 
