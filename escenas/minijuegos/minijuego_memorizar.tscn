@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bgkspyufmwbde"]
+
+[ext_resource type="FontFile" uid="uid://br64yg4s15f4j" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="1_usu51"]
+[ext_resource type="Script" uid="uid://cuvqcwsevdrgf" path="res://scripts/minijuego_memorizar.gd" id="1_xybuh"]
+[ext_resource type="Texture2D" uid="uid://cutnqc0r37val" path="res://imagenes/Dorso.png" id="2_juiqd"]
+[ext_resource type="Texture2D" uid="uid://cwmhbr3kdd45l" path="res://imagenes/pink cursor.png" id="3_cgqj1"]
+[ext_resource type="Texture2D" uid="uid://cuyeigyrhn78e" path="res://imagenes/PuertaCerrada.png" id="4_p1uq3"]
+[ext_resource type="Texture2D" uid="uid://bjd6pb212ch0y" path="res://imagenes/PersonajeDerecha.png" id="5_xhwmo"]
+[ext_resource type="Texture2D" uid="uid://b31lg8aeubsly" path="res://icon.svg" id="6_uwy82"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xybuh"]
+bg_color = Color(0.09240068, 0.19522923, 0.53666794, 1)
+
+[node name="Minijuego-Memorizar" type="Node2D" unique_id=1459326653]
+script = ExtResource("1_xybuh")
+texturaDorso = ExtResource("2_juiqd")
+texturasFrente = Array[Texture2D]([ExtResource("3_cgqj1"), ExtResource("4_p1uq3"), ExtResource("5_xhwmo"), ExtResource("6_uwy82")])
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1899479037]
+offset_right = 1153.0
+offset_bottom = 650.0
+color = Color(0.11302898, 0.30202067, 0.32507274, 1)
+
+[node name="Instruccion" type="Label" parent="." unique_id=1228228505]
+offset_left = 239.0
+offset_top = 18.0
+offset_right = 766.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("1_usu51")
+theme_override_font_sizes/font_size = 63
+
+[node name="Resultado" type="Label" parent="." unique_id=1275261252]
+offset_left = 51.0
+offset_top = 186.0
+offset_right = 454.0
+offset_bottom = 276.0
+theme_override_fonts/font = ExtResource("1_usu51")
+theme_override_font_sizes/font_size = 41
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1414515113]
+offset_top = 620.0
+offset_right = 1152.0
+offset_bottom = 647.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_xybuh")
+max_value = 1.0
+
+[node name="Mensaje" type="Label" parent="." unique_id=2000882143]
+offset_left = 145.0
+offset_top = 101.0
+offset_right = 185.0
+offset_bottom = 124.0
+
+[node name="Timer" type="Timer" parent="." unique_id=2100559557]
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=973346700]
+offset_left = 152.0
+offset_top = 113.0
+offset_right = 1044.0
+offset_bottom = 487.0
+columns = 4
+
+[node name="Carta1" type="Button" parent="GridContainer" unique_id=1558088628]
+custom_minimum_size = Vector2(220, 175)
+layout_mode = 2
+flat = true
+expand_icon = true
+
+[node name="Carta2" type="Button" parent="GridContainer" unique_id=1904120859]
+custom_minimum_size = Vector2(220, 175)
+layout_mode = 2
+flat = true
+expand_icon = true
+
+[node name="Carta3" type="Button" parent="GridContainer" unique_id=349984749]
+custom_minimum_size = Vector2(220, 175)
+layout_mode = 2
+flat = true
+expand_icon = true
+
+[node name="Carta4" type="Button" parent="GridContainer" unique_id=873944291]
+custom_minimum_size = Vector2(220, 175)
+layout_mode = 2
+flat = true
+expand_icon = true
+
+[node name="Carta5" type="Button" parent="GridContainer" unique_id=1167615535]
+custom_minimum_size = Vector2(220, 175)
+layout_mode = 2
+flat = true
+expand_icon = true
+
+[node name="Carta6" type="Button" parent="GridContainer" unique_id=1334567599]
+custom_minimum_size = Vector2(220, 175)
+layout_mode = 2
+flat = true
+expand_icon = true
+
+[node name="Carta7" type="Button" parent="GridContainer" unique_id=783721623]
+custom_minimum_size = Vector2(220, 175)
+layout_mode = 2
+flat = true
+expand_icon = true
+
+[node name="Carta8" type="Button" parent="GridContainer" unique_id=1760712821]
+custom_minimum_size = Vector2(220, 175)
+layout_mode = 2
+flat = true
+expand_icon = true
