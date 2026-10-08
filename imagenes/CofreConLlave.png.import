@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg4yqa84yhj56"
-path="res://.godot/imported/cofre-tesoro.png-88ad1a0bac84cf781018ab2ed6815d78.ctex"
+uid="uid://cas8domgd0y23"
+path="res://.godot/imported/CofreConLlave.png-694177c79c723383689c34f79934e2f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagenes/cofre-tesoro.png"
-dest_files=["res://.godot/imported/cofre-tesoro.png-88ad1a0bac84cf781018ab2ed6815d78.ctex"]
+source_file="res://imagenes/CofreConLlave.png"
+dest_files=["res://.godot/imported/CofreConLlave.png-694177c79c723383689c34f79934e2f5.ctex"]
 
 [params]
 

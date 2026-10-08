@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bu1qdb7clesue" path="res://imagenes/cofre-cerrado.png" id="2_cjyib"]
 [ext_resource type="Texture2D" uid="uid://b31lg8aeubsly" path="res://icon.svg" id="2_qsjiq"]
 [ext_resource type="Texture2D" uid="uid://doxma5wal0jeq" path="res://imagenes/cofre-vacio.png" id="3_s2tuc"]
-[ext_resource type="Texture2D" uid="uid://dg4yqa84yhj56" path="res://imagenes/cofre-tesoro.png" id="4_6yiu1"]
+[ext_resource type="Texture2D" uid="uid://cas8domgd0y23" path="res://imagenes/CofreConLlave.png" id="4_s2tuc"]
 [ext_resource type="FontFile" uid="uid://br64yg4s15f4j" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="6_s2tuc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjyib"]
@@ -14,7 +14,7 @@ bg_color = Color(0, 0, 0, 1)
 script = ExtResource("1_6h3a0")
 textura_cerrado = ExtResource("2_cjyib")
 textura_abierto_vacio = ExtResource("3_s2tuc")
-textura_abierto_premio = ExtResource("4_6yiu1")
+textura_abierto_premio = ExtResource("4_s2tuc")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=248132319]
 offset_right = 1153.0

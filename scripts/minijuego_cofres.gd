@@ -20,7 +20,7 @@ func _ready() -> void:
 	cofres = [$Cofre1, $Cofre2, $Cofre3]
 	cofre_premiado = cofres[randi() % cofres.size()]
 
-	$Instruccion.text = "ENCONTRÁ EL TESORO CON ORO"
+	$Instruccion.text = "ENCONTRÁ EL COFRE CON LA LLAVE"
 
 	for cofre in cofres:
 		cofre.disabled = true
