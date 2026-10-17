@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://5ytbmcbtm336"]
+
+[ext_resource type="Texture2D" uid="uid://oa4mnr44xa7x" path="res://imagenes/edificio.png" id="1_e8rns"]
+
+[node name="Node2D" type="Node2D" unique_id=686049770]
+scale = Vector2(0.9, 0.9)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=917807602]
+offset_left = 2.2222223
+offset_top = -34.444443
+offset_right = 1282.2223
+offset_bottom = 731.55554
+texture = ExtResource("1_e8rns")
+
+[node name="Button" type="Button" parent="." unique_id=489674484]
+offset_right = 8.0
+offset_bottom = 8.0
