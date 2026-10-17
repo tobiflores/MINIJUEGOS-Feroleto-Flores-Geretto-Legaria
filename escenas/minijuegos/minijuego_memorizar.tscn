@@ -3,10 +3,10 @@
 [ext_resource type="FontFile" uid="uid://br64yg4s15f4j" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="1_usu51"]
 [ext_resource type="Script" uid="uid://cuvqcwsevdrgf" path="res://scripts/minijuego_memorizar.gd" id="1_xybuh"]
 [ext_resource type="Texture2D" uid="uid://cutnqc0r37val" path="res://imagenes/Dorso.png" id="2_juiqd"]
-[ext_resource type="Texture2D" uid="uid://cwmhbr3kdd45l" path="res://imagenes/pink cursor.png" id="3_cgqj1"]
+[ext_resource type="Texture2D" uid="uid://tqni31qrjynn" path="res://imagenes/fuego.png" id="3_juiqd"]
 [ext_resource type="Texture2D" uid="uid://cuyeigyrhn78e" path="res://imagenes/PuertaCerrada.png" id="4_p1uq3"]
 [ext_resource type="Texture2D" uid="uid://bjd6pb212ch0y" path="res://imagenes/PersonajeDerecha.png" id="5_xhwmo"]
-[ext_resource type="Texture2D" uid="uid://b31lg8aeubsly" path="res://icon.svg" id="6_uwy82"]
+[ext_resource type="Texture2D" uid="uid://dupug7lbtawsa" path="res://imagenes/Llave.png" id="6_cgqj1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xybuh"]
 bg_color = Color(0.09240068, 0.19522923, 0.53666794, 1)
@@ -14,7 +14,7 @@ bg_color = Color(0.09240068, 0.19522923, 0.53666794, 1)
 [node name="Minijuego-Memorizar" type="Node2D" unique_id=1459326653]
 script = ExtResource("1_xybuh")
 texturaDorso = ExtResource("2_juiqd")
-texturasFrente = Array[Texture2D]([ExtResource("3_cgqj1"), ExtResource("4_p1uq3"), ExtResource("5_xhwmo"), ExtResource("6_uwy82")])
+texturasFrente = Array[Texture2D]([ExtResource("3_juiqd"), ExtResource("4_p1uq3"), ExtResource("5_xhwmo"), ExtResource("6_cgqj1")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1899479037]
 offset_right = 1153.0
