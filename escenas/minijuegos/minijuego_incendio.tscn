@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c0fm47f27eukh"]
+
+[ext_resource type="Script" uid="uid://bek8365t3wfir" path="res://scripts/minijuego_incendio.gd" id="1_hqdek"]
+[ext_resource type="Texture2D" uid="uid://oa4mnr44xa7x" path="res://imagenes/edificio.png" id="1_vld2t"]
+[ext_resource type="Texture2D" uid="uid://bbevxmomoxac" path="res://imagenes/EdificioSolo.png" id="3_1sc3m"]
+
+[node name="Minijuego-Incendio" type="Node2D" unique_id=2073998188]
+script = ExtResource("1_hqdek")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1811178389]
+offset_left = 2.2222223
+offset_top = -34.444443
+offset_right = 1282.2223
+offset_bottom = 731.55554
+texture = ExtResource("1_vld2t")
+
+[node name="Edificio" type="Sprite2D" parent="." unique_id=1726422751]
+position = Vector2(640.00006, 351.63452)
+scale = Vector2(1.2293665, 1.0173225)
+texture = ExtResource("3_1sc3m")
