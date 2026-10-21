@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://behfvas1mmyqu"]
 
-[ext_resource type="Script" uid="uid://bcb0fh80xs1ev" path="res://scripts/caramelos/minijuego_caramelos.gd" id="1_8iqxp"]
+[ext_resource type="Script" uid="uid://bcb0fh80xs1ev" path="res://scripts/minijuego-caramelos/minijuego_caramelos.gd" id="1_8iqxp"]
 [ext_resource type="FontFile" uid="uid://br64yg4s15f4j" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="1_vojrg"]
 [ext_resource type="PackedScene" uid="uid://blxxxhtt2s2pc" path="res://escenas/general/objeto_cayendo.tscn" id="2_b81d6"]
-[ext_resource type="Script" uid="uid://g778hw525p10" path="res://scripts/caramelos/calabaza.gd" id="2_gdefh"]
+[ext_resource type="Script" uid="uid://g778hw525p10" path="res://scripts/minijuego-caramelos/calabaza.gd" id="2_gdefh"]
 [ext_resource type="Texture2D" uid="uid://t7d8rb3a0q7f" path="res://imagenes/caramelo.png" id="3_7jj34"]
 [ext_resource type="Texture2D" uid="uid://d35nouhskqpnd" path="res://imagenes/redskull.png" id="4_kogvk"]
 [ext_resource type="Texture2D" uid="uid://b6r4vqmve6ql7" path="res://imagenes/calabaza.png" id="6_myawb"]

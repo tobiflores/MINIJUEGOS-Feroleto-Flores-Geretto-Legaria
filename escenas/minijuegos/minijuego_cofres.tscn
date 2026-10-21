@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cle37l80uue6p"]
 
-[ext_resource type="Script" uid="uid://dd4vhkmk7vcvh" path="res://scripts/minijuego_cofres.gd" id="1_6h3a0"]
+[ext_resource type="Script" uid="uid://dd4vhkmk7vcvh" path="res://scripts/otros-minijuegos/minijuego_cofres.gd" id="1_6h3a0"]
 [ext_resource type="Texture2D" uid="uid://bu1qdb7clesue" path="res://imagenes/cofre-cerrado.png" id="2_cjyib"]
 [ext_resource type="Texture2D" uid="uid://b31lg8aeubsly" path="res://icon.svg" id="2_qsjiq"]
 [ext_resource type="Texture2D" uid="uid://doxma5wal0jeq" path="res://imagenes/cofre-vacio.png" id="3_s2tuc"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dw570jju4f5ag"]
 
-[ext_resource type="Script" uid="uid://b5voymagclgqq" path="res://scripts/minijuego_golpearMadera.gd" id="1_fs60o"]
+[ext_resource type="Script" uid="uid://b5voymagclgqq" path="res://scripts/otros-minijuegos/minijuego_golpearMadera.gd" id="1_fs60o"]
 [ext_resource type="FontFile" uid="uid://br64yg4s15f4j" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="1_jw8p4"]
 [ext_resource type="Texture2D" uid="uid://c2ermq4pd3ica" path="res://imagenes/PoseUno.png" id="2_fbf3g"]
 [ext_resource type="Texture2D" uid="uid://difo5sdjp8hf6" path="res://imagenes/PoseDos.png" id="3_qvyq5"]

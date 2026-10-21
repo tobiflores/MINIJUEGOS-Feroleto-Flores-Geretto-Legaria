@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b6ke34nuhqshw"]
+
+[ext_resource type="Script" uid="uid://blr8or0mk1p1t" path="res://scripts/jugador.gd" id="1_g8jub"]
+[ext_resource type="Texture2D" uid="uid://fxx1xre8ejrs" path="res://imagenes/departamentoInterior.png" id="1_okvro"]
+[ext_resource type="Texture2D" uid="uid://bltcog42fq5bg" path="res://imagenes/PersonajeIzquierda.png" id="3_52lww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3nvs"]
+size = Vector2(84, 150)
+
+[node name="Overworld" type="Node2D" unique_id=1716528710]
+
+[node name="Habitacion" type="Sprite2D" parent="." unique_id=1946070872]
+position = Vector2(-26, -73)
+scale = Vector2(0.8416547, 0.7379679)
+texture = ExtResource("1_okvro")
+centered = false
+
+[node name="Jugador" type="CharacterBody2D" parent="." unique_id=37785605]
+script = ExtResource("1_g8jub")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jugador" unique_id=307984901]
+position = Vector2(557, 370)
+scale = Vector2(0.20625006, 0.19934209)
+texture = ExtResource("3_52lww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador" unique_id=1433484595]
+position = Vector2(555, 372)
+shape = SubResource("RectangleShape2D_b3nvs")

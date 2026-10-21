@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0fm47f27eukh"]
 
-[ext_resource type="Script" uid="uid://bek8365t3wfir" path="res://scripts/minijuego_incendio.gd" id="1_hqdek"]
+[ext_resource type="Script" uid="uid://bek8365t3wfir" path="res://scripts/otros-minijuegos/minijuego_incendio.gd" id="1_hqdek"]
 [ext_resource type="Texture2D" uid="uid://oa4mnr44xa7x" path="res://imagenes/edificio.png" id="1_vld2t"]
 [ext_resource type="Texture2D" uid="uid://bbevxmomoxac" path="res://imagenes/EdificioSolo.png" id="3_1sc3m"]
 
