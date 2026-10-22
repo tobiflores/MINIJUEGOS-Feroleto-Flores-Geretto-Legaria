@@ -1,22 +1,32 @@
 [gd_scene format=3 uid="uid://b6ke34nuhqshw"]
 
+[ext_resource type="Script" uid="uid://yy2n3cd0o0sr" path="res://scripts/overworld.gd" id="1_c8x7b"]
 [ext_resource type="Script" uid="uid://blr8or0mk1p1t" path="res://scripts/jugador.gd" id="1_g8jub"]
 [ext_resource type="Texture2D" uid="uid://fxx1xre8ejrs" path="res://imagenes/departamentoInterior.png" id="1_okvro"]
+[ext_resource type="PackedScene" uid="uid://dw570jju4f5ag" path="res://escenas/minijuegos/minijuego_golpearMadera.tscn" id="2_uctm3"]
 [ext_resource type="Texture2D" uid="uid://bltcog42fq5bg" path="res://imagenes/PersonajeIzquierda.png" id="3_52lww"]
+[ext_resource type="Texture2D" uid="uid://bjd6pb212ch0y" path="res://imagenes/PersonajeDerecha.png" id="4_b3nvs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3nvs"]
 size = Vector2(84, 150)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8x7b"]
+size = Vector2(43.25, 102)
+
 [node name="Overworld" type="Node2D" unique_id=1716528710]
+script = ExtResource("1_c8x7b")
+minijuegoPuerta = ExtResource("2_uctm3")
 
 [node name="Habitacion" type="Sprite2D" parent="." unique_id=1946070872]
-position = Vector2(-26, -73)
+position = Vector2(-24, -96)
 scale = Vector2(0.8416547, 0.7379679)
 texture = ExtResource("1_okvro")
 centered = false
 
 [node name="Jugador" type="CharacterBody2D" parent="." unique_id=37785605]
 script = ExtResource("1_g8jub")
+texturaIzquierda = ExtResource("4_b3nvs")
+texturaDerecha = ExtResource("3_52lww")
 
 [node name="Sprite2D" type="Sprite2D" parent="Jugador" unique_id=307984901]
 position = Vector2(557, 370)
@@ -26,3 +36,11 @@ texture = ExtResource("3_52lww")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador" unique_id=1433484595]
 position = Vector2(555, 372)
 shape = SubResource("RectangleShape2D_b3nvs")
+
+[node name="Puerta" type="Area2D" parent="." unique_id=860545384]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta" unique_id=136616066]
+position = Vector2(944.375, 398)
+shape = SubResource("RectangleShape2D_c8x7b")
+
+[connection signal="body_entered" from="Puerta" to="." method="_on_puerta_body_entered"]
