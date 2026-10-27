@@ -235,15 +235,23 @@ func _elegir_variante() -> String:
 
 	return disponibles[0]["escena"]
 
-func resultado(resultado_minijuego: float) -> void:
+func configurar_pisos(cantidad: int) -> void:
+	pisoActual = cantidad
+
+func resultado(
+	resultado_minijuego: float,
+	piso_completo: bool = false,
+	mostrar_transicion_despues: bool = true
+) -> void:
 	var gano: bool = resultado_minijuego >= 1.0
 
-	if gano:
+	if gano and piso_completo:
 		pisoActual -= 1
-	else:
+	elif not gano:
 		vidas -= 1
 
-	await mostrar_transicion(gano)
+	if mostrar_transicion_despues:
+		await mostrar_transicion(gano)
 
 func mostrar_transicion(gano: bool) -> void:
 	if transicion_actual != null and is_instance_valid(transicion_actual):
@@ -252,7 +260,11 @@ func mostrar_transicion(gano: bool) -> void:
 	iniciar_run()
 	var escena: PackedScene = load(_elegir_variante())
 	transicion_actual = escena.instantiate()
-	add_child(transicion_actual)
+	var escena_actual: Node = get_tree().current_scene
+	if escena_actual == null:
+		add_child(transicion_actual)
+	else:
+		escena_actual.add_child(transicion_actual)
 	transicion_actual.mostrar_datos(pisoActual, vidas, gano)
 	await transicion_actual.transicion_terminada
 	transicion_actual = null

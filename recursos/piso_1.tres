@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PisoMinijuegos" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/piso_minijuegos.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/departamento_minijuego.gd" id="2_departamento_script"]
+[ext_resource type="Resource" path="res://recursos/departamento_valentina.tres" id="3_valentina"]
+[ext_resource type="Resource" path="res://recursos/departamento_tomas.tres" id="4_tomas"]
+[ext_resource type="Resource" path="res://recursos/departamento_lila.tres" id="5_lila"]
+
+[resource]
+script = ExtResource("1_script")
+departamentos = Array[ExtResource("2_departamento_script")]([ExtResource("3_valentina"), ExtResource("4_tomas"), ExtResource("5_lila")])

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DepartamentoMinijuego" format=3 uid="uid://bs0sfr14erxsa"]
+
+[ext_resource type="Script" uid="uid://bdgul2o0mrg0c" path="res://scripts/departamento_minijuego.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://bgkspyufmwbde" path="res://escenas/minijuegos/minijuego_memorizar.tscn" id="2_game"]
+
+[resource]
+script = ExtResource("1_script")
+nombre = "Problema"
+habitante = "Lila"
+problematica = "x"
+escena_minijuego = ExtResource("2_game")

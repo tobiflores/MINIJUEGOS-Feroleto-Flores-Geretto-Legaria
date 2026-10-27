@@ -1,12 +1,140 @@
 [gd_scene format=3 uid="uid://b0018qfgib0ku"]
 
 [ext_resource type="Script" uid="uid://3npap6dn82cw" path="res://scripts/principal.gd" id="1_dj7q0"]
-[ext_resource type="PackedScene" uid="uid://cle37l80uue6p" path="res://escenas/minijuegos/minijuego_cofres.tscn" id="2_yv8ah"]
-[ext_resource type="PackedScene" uid="uid://behfvas1mmyqu" path="res://escenas/minijuegos/minijuego_caramelos.tscn" id="3_aanal"]
-[ext_resource type="PackedScene" uid="uid://dw570jju4f5ag" path="res://escenas/minijuegos/minijuego_golpearMadera.tscn" id="4_smctb"]
-[ext_resource type="PackedScene" uid="uid://cwdgdayfp5n45" path="res://escenas/minijuegos/minijuego_abrirPuertas.tscn" id="5_aanal"]
-[ext_resource type="PackedScene" uid="uid://bgkspyufmwbde" path="res://escenas/minijuegos/minijuego_memorizar.tscn" id="6_smctb"]
+[ext_resource type="Script" uid="uid://c7xks6oi3umgf" path="res://scripts/piso_minijuegos.gd" id="2_piso_script"]
+[ext_resource type="Resource" path="res://recursos/piso_1.tres" id="3_piso"]
+[ext_resource type="Texture2D" uid="uid://b31lg8aeubsly" path="res://icon.svg" id="4_aanal"]
+[ext_resource type="PackedScene" path="res://escenas/general/jugador.tscn" id="4_jugador"]
 
 [node name="Principal" type="Node2D" unique_id=218056312]
 script = ExtResource("1_dj7q0")
-lista_minijuegos = Array[PackedScene]([ExtResource("5_aanal"), ExtResource("4_smctb"), ExtResource("3_aanal"), ExtResource("2_yv8ah"), ExtResource("6_smctb")])
+pisos = Array[ExtResource("2_piso_script")]([ExtResource("3_piso")])
+texturaVecino = ExtResource("4_aanal")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1201170031]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.207843, 0.258824, 0.247059, 1)
+
+[node name="Pared" type="ColorRect" parent="." unique_id=1201170038]
+offset_right = 1152.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.396078, 0.45098, 0.419608, 1)
+
+[node name="ParedSuperior" type="ColorRect" parent="." unique_id=1201170039]
+offset_right = 1152.0
+offset_bottom = 18.0
+mouse_filter = 2
+color = Color(0.203922, 0.254902, 0.231373, 1)
+
+[node name="MolduraPared" type="ColorRect" parent="." unique_id=1201170040]
+offset_top = 345.0
+offset_right = 1152.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.227451, 0.278431, 0.25098, 1)
+
+[node name="Piso" type="ColorRect" parent="." unique_id=1201170041]
+offset_top = 365.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.501961, 0.364706, 0.258824, 1)
+
+[node name="Zocalo" type="ColorRect" parent="." unique_id=1201170042]
+offset_top = 365.0
+offset_right = 1152.0
+offset_bottom = 378.0
+mouse_filter = 2
+color = Color(0.290196, 0.25098, 0.211765, 1)
+
+[node name="PuertaMarco1" type="ColorRect" parent="." unique_id=1201170043]
+offset_left = 205.0
+offset_top = 70.0
+offset_right = 371.0
+offset_bottom = 352.0
+mouse_filter = 2
+color = Color(0.203922, 0.25098, 0.223529, 1)
+
+[node name="Puerta1" type="ColorRect" parent="." unique_id=1201170044]
+offset_left = 215.0
+offset_top = 80.0
+offset_right = 361.0
+offset_bottom = 352.0
+mouse_filter = 2
+color = Color(0.501961, 0.345098, 0.239216, 1)
+
+[node name="PuertaMarco2" type="ColorRect" parent="." unique_id=1201170045]
+offset_left = 493.0
+offset_top = 70.0
+offset_right = 659.0
+offset_bottom = 352.0
+mouse_filter = 2
+color = Color(0.203922, 0.25098, 0.223529, 1)
+
+[node name="Puerta2" type="ColorRect" parent="." unique_id=1201170046]
+offset_left = 503.0
+offset_top = 80.0
+offset_right = 649.0
+offset_bottom = 352.0
+mouse_filter = 2
+color = Color(0.501961, 0.345098, 0.239216, 1)
+
+[node name="PuertaMarco3" type="ColorRect" parent="." unique_id=1201170047]
+offset_left = 781.0
+offset_top = 70.0
+offset_right = 947.0
+offset_bottom = 352.0
+mouse_filter = 2
+color = Color(0.203922, 0.25098, 0.223529, 1)
+
+[node name="Puerta3" type="ColorRect" parent="." unique_id=1201170048]
+offset_left = 791.0
+offset_top = 80.0
+offset_right = 937.0
+offset_bottom = 352.0
+mouse_filter = 2
+color = Color(0.501961, 0.345098, 0.239216, 1)
+
+[node name="Jugador" parent="." unique_id=1201170032 instance=ExtResource("4_jugador")]
+position = Vector2(576, 565)
+
+[node name="Interfaz" type="CanvasLayer" parent="." unique_id=1201170033]
+
+[node name="EtiquetaPiso" type="Label" parent="Interfaz" unique_id=1201170034]
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 280.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 24
+
+[node name="EtiquetaVidas" type="Label" parent="Interfaz" unique_id=1201170035]
+offset_left = 961.0
+offset_top = 14.0
+offset_right = 1128.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 2
+
+[node name="EtiquetaInteraccion" type="Label" parent="Interfaz" unique_id=1201170036]
+offset_left = 416.0
+offset_top = 585.0
+offset_right = 736.0
+offset_bottom = 625.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 24
+text = "E  HABLAR"
+horizontal_alignment = 1
+
+[node name="EtiquetaEstado" type="Label" parent="Interfaz" unique_id=1201170037]
+offset_left = 276.0
+offset_top = 72.0
+offset_right = 876.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0.62, 0.878431, 0.517647, 1)
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
