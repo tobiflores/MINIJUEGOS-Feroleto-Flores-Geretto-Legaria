@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://yy2n3cd0o0sr" path="res://scripts/overworld.gd" id="1_c8x7b"]
 [ext_resource type="Script" uid="uid://blr8or0mk1p1t" path="res://scripts/jugador.gd" id="1_g8jub"]
 [ext_resource type="Texture2D" uid="uid://fxx1xre8ejrs" path="res://imagenes/departamentoInterior.png" id="1_okvro"]
-[ext_resource type="PackedScene" uid="uid://dw570jju4f5ag" path="res://escenas/minijuegos/minijuego_golpearMadera.tscn" id="2_uctm3"]
 [ext_resource type="Texture2D" uid="uid://bltcog42fq5bg" path="res://imagenes/PersonajeIzquierda.png" id="3_52lww"]
 [ext_resource type="Texture2D" uid="uid://bjd6pb212ch0y" path="res://imagenes/PersonajeDerecha.png" id="4_b3nvs"]
 
@@ -15,7 +14,6 @@ size = Vector2(43.25, 102)
 
 [node name="Overworld" type="Node2D" unique_id=1716528710]
 script = ExtResource("1_c8x7b")
-minijuegoPuerta = ExtResource("2_uctm3")
 
 [node name="Habitacion" type="Sprite2D" parent="." unique_id=1946070872]
 position = Vector2(-24, -96)
@@ -42,5 +40,14 @@ shape = SubResource("RectangleShape2D_b3nvs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta" unique_id=136616066]
 position = Vector2(944.375, 398)
 shape = SubResource("RectangleShape2D_c8x7b")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hint" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 520.0
+offset_bottom = 54.0
+text = "Entra por la puerta para empezar la run"
 
 [connection signal="body_entered" from="Puerta" to="." method="_on_puerta_body_entered"]

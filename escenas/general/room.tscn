@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cymun2tuc5lsx"]
+
+[ext_resource type="Script" uid="uid://bqs5jm0kbc2ig" path="res://scripts/room.gd" id="1_room"]
+[ext_resource type="Texture2D" path="res://imagenes/itemroom.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://blo0k1uh5dcse" path="res://imagenes/flechaabajo.png" id="3_flecha"]
+[ext_resource type="Texture2D" uid="uid://ugmxkc33r8lg" path="res://imagenes/felchita.png" id="4_cursor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flecha"]
+size = Vector2(96, 96)
+
+[node name="Room" type="Node2D" unique_id=1564608540]
+script = ExtResource("1_room")
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=955111776]
+position = Vector2(576, 324)
+texture = ExtResource("2_bg")
+
+[node name="Centro" type="Marker2D" parent="." unique_id=1005204268]
+position = Vector2(576, 324)
+
+[node name="FlechaAbajo" type="Area2D" parent="." unique_id=546781369]
+position = Vector2(576, 580)
+
+[node name="Sprite2D" type="Sprite2D" parent="FlechaAbajo" unique_id=409936566]
+position = Vector2(94, -166)
+texture = ExtResource("3_flecha")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlechaAbajo" unique_id=1865828828]
+position = Vector2(94, -166)
+shape = SubResource("RectangleShape2D_flecha")
+
+[node name="Cursor" type="Sprite2D" parent="." unique_id=1038205838]
+z_index = 100
+texture = ExtResource("4_cursor")

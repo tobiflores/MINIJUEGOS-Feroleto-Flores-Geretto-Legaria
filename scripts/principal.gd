@@ -5,6 +5,7 @@ extends Node2D
 var minijuegoActual: Node2D = null
 
 func _ready() -> void:
+	await gestorPartida.mostrar_transicion(true)
 	_cargar_minijuego_aleatorio()
 
 func _cargar_minijuego_aleatorio() -> void:

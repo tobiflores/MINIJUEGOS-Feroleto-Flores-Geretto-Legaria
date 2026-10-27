@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_it"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it"]
+size = Vector2(96, 96)
+
+[node name="Item" type="Area2D"]
+script = ExtResource("1_it")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_it")
+
+[node name="Tooltip" type="Label" parent="."]
+visible = false
+offset_left = -140.0
+offset_top = -110.0
+offset_right = 140.0
+offset_bottom = -60.0
+horizontal_alignment = 1
+autowrap_mode = 2

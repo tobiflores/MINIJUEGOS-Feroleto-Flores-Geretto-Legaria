@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bp473jm5sh4n6"]
+
+[ext_resource type="Script" uid="uid://kofebppb3a6a" path="res://scripts/transicion.gd" id="1_fns7c"]
+[ext_resource type="Texture2D" uid="uid://cckxt86bmt0k6" path="res://imagenes/stairshalfawypoint.png" id="4_xmfty"]
+[ext_resource type="FontFile" uid="uid://bcw1irlfqrc5x" path="res://fuentes/Frijole/Frijole-Regular.ttf" id="5_qofvb"]
+[ext_resource type="PackedScene" uid="uid://cymun2tuc5lsx" path="res://escenas/general/room.tscn" id="6_room"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_salida"]
+size = Vector2(200, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_puerta"]
+size = Vector2(120, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pared"]
+size = Vector2(290.5, 650)
+
+[node name="Transicion" type="Node2D" unique_id=1395077752]
+script = ExtResource("1_fns7c")
+duracion = 8.0
+escena_habitacion = ExtResource("6_room")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1773122477]
+offset_right = 1153.0
+offset_bottom = 650.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1232041005]
+position = Vector2(567, 324)
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("4_xmfty")
+
+[node name="Inicio" type="Marker2D" parent="." unique_id=202710365]
+position = Vector2(838, 109)
+
+[node name="SpawnAnimal" type="Marker2D" parent="." unique_id=1084079179]
+position = Vector2(450, 300)
+
+[node name="Salida" type="Area2D" parent="." unique_id=1341931229]
+position = Vector2(798, 560)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Salida" unique_id=1438509533]
+shape = SubResource("RectangleShape2D_salida")
+
+[node name="Puerta" type="Area2D" parent="." unique_id=1366668212]
+position = Vector2(357, 379)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta" unique_id=1841234418]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_puerta")
+
+[node name="Paredes" type="StaticBody2D" parent="." unique_id=1751002126]
+
+[node name="ParedIzq" type="CollisionShape2D" parent="Paredes" unique_id=1508783244]
+position = Vector2(113.5, 324)
+shape = SubResource("RectangleShape2D_pared")
+
+[node name="ParedDer" type="CollisionShape2D" parent="Paredes" unique_id=1424666325]
+position = Vector2(1051.25, 324)
+shape = SubResource("RectangleShape2D_pared")
+
+[node name="NumPiso" type="Label" parent="." unique_id=1037356530]
+offset_left = 261.0
+offset_top = 94.0
+offset_right = 380.0
+offset_bottom = 198.0
+theme_override_colors/font_color = Color(0.69, 1, 0.73649997, 1)
+theme_override_fonts/font = ExtResource("5_qofvb")
+theme_override_font_sizes/font_size = 34
+
+[node name="Vidas" type="Label" parent="." unique_id=1550301125]
+offset_left = 46.0
+offset_top = 523.0
+offset_right = 143.0
+offset_bottom = 612.0
+theme_override_fonts/font = ExtResource("5_qofvb")
+theme_override_font_sizes/font_size = 22
