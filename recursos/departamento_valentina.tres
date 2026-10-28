@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="DepartamentoMinijuego" format=3 uid="uid://b7t6xcb1mvtjs"]
 
 [ext_resource type="Script" uid="uid://bdgul2o0mrg0c" path="res://scripts/departamento_minijuego.gd" id="1_script"]
-[ext_resource type="PackedScene" uid="uid://cle37l80uue6p" path="res://escenas/minijuegos/minijuego_cofres.tscn" id="2_game"]
+[ext_resource type="PackedScene" path="res://escenas/minijuegos/departamento_gato.tscn" id="2_game"]
 
 [resource]
 script = ExtResource("1_script")
 nombre = "Problema"
 habitante = "Valentina"
-problematica = "x"
+problematica = "Atrapar al gato"
 escena_minijuego = ExtResource("2_game")

@@ -3,7 +3,7 @@ extends Node2D
 signal transicion_terminada
 
 const ESCENA_JUGADOR := preload("res://escenas/general/jugador.tscn")
-const ESCENA_ANIMAL := preload("res://escenas/general/animal.tscn")
+const ESCENA_ANIMAL := preload("res://escenas/general/mascota.tscn")
 const ESCENA_PICKUP := preload("res://escenas/general/pickup_llave.tscn")
 
 @export var duracion: float = 6.0

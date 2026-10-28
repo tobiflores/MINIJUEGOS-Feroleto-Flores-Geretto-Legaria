@@ -1,0 +1,182 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/minijuego-gato/departamento_gato.gd" id="1_depto"]
+[ext_resource type="PackedScene" path="res://escenas/general/jugador.tscn" id="2_jugador"]
+[ext_resource type="PackedScene" path="res://escenas/minijuegos/minijuego_gato.tscn" id="3_gato"]
+
+[node name="Departamento-Gato" type="Node2D"]
+script = ExtResource("1_depto")
+escenaMinijuego = ExtResource("3_gato")
+
+[node name="Apartamento" type="Node2D" parent="."]
+
+[node name="Fondo" type="ColorRect" parent="Apartamento"]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.25, 0.22, 0.27, 1)
+
+[node name="Pared" type="ColorRect" parent="Apartamento"]
+offset_right = 1152.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.55, 0.45, 0.5, 1)
+
+[node name="Moldura" type="ColorRect" parent="Apartamento"]
+offset_top = 345.0
+offset_right = 1152.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.35, 0.27, 0.32, 1)
+
+[node name="Piso" type="ColorRect" parent="Apartamento"]
+offset_top = 365.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.62, 0.48, 0.34, 1)
+
+[node name="Alfombra" type="ColorRect" parent="Apartamento"]
+offset_left = 160.0
+offset_top = 480.0
+offset_right = 990.0
+offset_bottom = 610.0
+mouse_filter = 2
+color = Color(0.42, 0.3, 0.36, 1)
+
+[node name="VentanaMarco" type="ColorRect" parent="Apartamento"]
+offset_left = 120.0
+offset_top = 90.0
+offset_right = 320.0
+offset_bottom = 240.0
+mouse_filter = 2
+color = Color(0.3, 0.2, 0.15, 1)
+
+[node name="VentanaVidrio" type="ColorRect" parent="Apartamento"]
+offset_left = 130.0
+offset_top = 100.0
+offset_right = 310.0
+offset_bottom = 230.0
+mouse_filter = 2
+color = Color(0.62, 0.82, 0.92, 1)
+
+[node name="VentanaDivisor" type="ColorRect" parent="Apartamento"]
+offset_left = 214.0
+offset_top = 100.0
+offset_right = 226.0
+offset_bottom = 230.0
+mouse_filter = 2
+color = Color(0.3, 0.2, 0.15, 1)
+
+[node name="Sofa" type="ColorRect" parent="Apartamento"]
+offset_left = 900.0
+offset_top = 230.0
+offset_right = 1090.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.55, 0.28, 0.28, 1)
+
+[node name="SofaRespaldo" type="ColorRect" parent="Apartamento"]
+offset_left = 900.0
+offset_top = 215.0
+offset_right = 1090.0
+offset_bottom = 245.0
+mouse_filter = 2
+color = Color(0.65, 0.35, 0.35, 1)
+
+[node name="Mesa" type="ColorRect" parent="Apartamento"]
+offset_left = 500.0
+offset_top = 250.0
+offset_right = 650.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.4, 0.3, 0.22, 1)
+
+[node name="Vecino" type="Node2D" parent="Apartamento"]
+position = Vector2(760, 470)
+
+[node name="Cabeza" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = -25.0
+offset_top = -110.0
+offset_right = 25.0
+offset_bottom = -60.0
+mouse_filter = 2
+color = Color(0.93, 0.76, 0.62, 1)
+
+[node name="Cuerpo" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = -35.0
+offset_top = -60.0
+offset_right = 35.0
+offset_bottom = 30.0
+mouse_filter = 2
+color = Color(0.3, 0.5, 0.75, 1)
+
+[node name="PiernaIzq" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = -25.0
+offset_top = 30.0
+offset_right = -5.0
+offset_bottom = 70.0
+mouse_filter = 2
+color = Color(0.2, 0.2, 0.3, 1)
+
+[node name="PiernaDer" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = 5.0
+offset_top = 30.0
+offset_right = 25.0
+offset_bottom = 70.0
+mouse_filter = 2
+color = Color(0.2, 0.2, 0.3, 1)
+
+[node name="Jugador" parent="Apartamento" instance=ExtResource("2_jugador")]
+position = Vector2(300, 560)
+
+[node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="EtiquetaHablar" type="Label" parent="Interfaz"]
+visible = false
+offset_left = 416.0
+offset_top = 585.0
+offset_right = 736.0
+offset_bottom = 625.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 24
+text = "E  HABLAR"
+horizontal_alignment = 1
+
+[node name="Dialogo" type="Control" parent="Interfaz"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Fondo" type="ColorRect" parent="Interfaz/Dialogo"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 400.0
+offset_right = 976.0
+offset_bottom = 590.0
+mouse_filter = 2
+color = Color(0.08, 0.08, 0.12, 0.92)
+
+[node name="Texto" type="Label" parent="Interfaz/Dialogo"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 420.0
+offset_right = 956.0
+offset_bottom = 510.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 26
+text = "Vecino: ¡Mi gato se escapó! Necesito atraparlo, ¿me ayudás?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Opcion" type="Label" parent="Interfaz/Dialogo"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 530.0
+offset_right = 956.0
+offset_bottom = 570.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 24
+text = "[1] Aceptar"
+horizontal_alignment = 1

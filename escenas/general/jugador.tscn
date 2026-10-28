@@ -9,12 +9,12 @@ size = Vector2(84, 150)
 
 [node name="Jugador" type="CharacterBody2D"]
 script = ExtResource("1_jug")
-texturaIzquierda = ExtResource("2_izq")
-texturaDerecha = ExtResource("3_der")
+texturaIzquierda = ExtResource("3_der")
+texturaDerecha = ExtResource("2_izq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.20625006, 0.19934209)
-texture = ExtResource("3_der")
+texture = ExtResource("2_izq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jug")

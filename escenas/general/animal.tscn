@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://boc1synhjg3h8"]
 
 [ext_resource type="Script" path="res://scripts/animal.gd" id="1_ani"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ani"]
 radius = 60.0
 
-[node name="Animal" type="Node2D"]
+[node name="Animal" type="Node2D" unique_id=2027971108]
 script = ExtResource("1_ani")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933806372]
 scale = Vector2(2, 2)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=117241980]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1510257760]
 shape = SubResource("CircleShape2D_ani")

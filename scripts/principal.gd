@@ -1,6 +1,10 @@
 extends Node2D
 
 const DISTANCIA_INTERACCION: float = 112.0
+const INDICE_PUERTA_DIRECTA: int = 0
+const PUERTA_DIRECTA_X: float = 288.0
+const PUERTA_DIRECTA_ANCHO: float = 146.0
+const PUERTA_DIRECTA_Y_MAX: float = 380.0
 
 @export var pisos: Array[PisoMinijuegos] = []
 @export var texturaVecino: Texture2D
@@ -11,7 +15,11 @@ const DISTANCIA_INTERACCION: float = 112.0
 @onready var etiqueta_interaccion: Label = $Interfaz/EtiquetaInteraccion
 @onready var etiqueta_estado: Label = $Interfaz/EtiquetaEstado
 
+const NOMBRES_NUEVOS: Array[String] = ["Marta", "Bruno", "Sofia", "Lucas", "Camila", "Diego", "Julia", "Mateo", "Paula", "Hugo", "Elena", "Pablo"]
+
 var indice_piso_actual: int = 0
+var vuelta_pisos: int = 0
+var nombres_disponibles: Array[String] = []
 var departamentos_resueltos: Array[bool] = []
 var posiciones_vecinos: Array[Vector2] = []
 var vecinos: Array[Sprite2D] = []
@@ -62,10 +70,11 @@ func _crear_vecinos() -> void:
 		vecino.texture = texturaVecino
 		vecino.position = posicion
 		vecino.scale = Vector2(0.28, 0.28)
+		vecino.visible = indice != INDICE_PUERTA_DIRECTA
 		add_child(vecino)
 
 		var etiqueta := Label.new()
-		etiqueta.text = departamentos[indice].habitante
+		etiqueta.text = departamentos[indice].habitante if vuelta_pisos == 0 else _nombre_nuevo()
 		etiqueta.position = Vector2(-100, -120)
 		etiqueta.size = Vector2(200, 30)
 		etiqueta.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -73,6 +82,12 @@ func _crear_vecinos() -> void:
 		etiqueta.add_theme_font_size_override("font_size", 18)
 		vecino.add_child(etiqueta)
 		vecinos.append(vecino)
+
+func _nombre_nuevo() -> String:
+	if nombres_disponibles.is_empty():
+		nombres_disponibles.assign(NOMBRES_NUEVOS)
+		nombres_disponibles.shuffle()
+	return nombres_disponibles.pop_back()
 
 func _actualizar_hud() -> void:
 	etiqueta_piso.text = "PISO %d" % gestorPartida.pisoActual
@@ -85,7 +100,7 @@ func _process(_delta: float) -> void:
 	var nuevo_vecino: int = -1
 	var distancia_menor: float = DISTANCIA_INTERACCION
 	for indice in posiciones_vecinos.size():
-		if departamentos_resueltos[indice]:
+		if departamentos_resueltos[indice] or indice == INDICE_PUERTA_DIRECTA:
 			continue
 		var distancia: float = jugador.global_position.distance_to(posiciones_vecinos[indice])
 		if distancia < distancia_menor:
@@ -94,6 +109,11 @@ func _process(_delta: float) -> void:
 
 	vecino_cercano = nuevo_vecino
 	etiqueta_interaccion.visible = vecino_cercano >= 0
+
+	var en_puerta: bool = absf(jugador.global_position.x - PUERTA_DIRECTA_X) < PUERTA_DIRECTA_ANCHO * 0.5 \
+			and jugador.global_position.y < PUERTA_DIRECTA_Y_MAX
+	if en_puerta and not departamentos_resueltos[INDICE_PUERTA_DIRECTA]:
+		_entrar_al_departamento(INDICE_PUERTA_DIRECTA)
 
 func _unhandled_input(evento: InputEvent) -> void:
 	if minijuego_activo or partida_terminada or vecino_cercano < 0:
@@ -127,7 +147,7 @@ func _cuando_termina_minijuego(resultado: float, indice: int) -> void:
 		vecinos[indice].modulate = Color(0.6, 1.0, 0.6)
 
 	var piso_completo: bool = gano and not departamentos_resueltos.has(false)
-	var hay_otro_piso: bool = piso_completo and indice_piso_actual + 1 < pisos.size()
+	var hay_otro_piso: bool = piso_completo
 	await gestorPartida.resultado(resultado, piso_completo, hay_otro_piso)
 	minijuego_activo = false
 	_actualizar_hud()
@@ -140,12 +160,13 @@ func _cuando_termina_minijuego(resultado: float, indice: int) -> void:
 
 	if hay_otro_piso:
 		indice_piso_actual += 1
+		if indice_piso_actual >= pisos.size():
+			indice_piso_actual = 0
+			vuelta_pisos += 1
 		_inicializar_departamentos()
 		_crear_vecinos()
-	elif piso_completo:
-		partida_terminada = true
-		etiqueta_estado.text = "TODOS LOS VECINOS AYUDADOS"
-		etiqueta_estado.show()
 
+	if indice == INDICE_PUERTA_DIRECTA:
+		jugador.position = Vector2(PUERTA_DIRECTA_X, 565)
 	jugador.show()
 	jugador.set_physics_process(true)

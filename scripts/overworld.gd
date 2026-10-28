@@ -9,4 +9,3 @@ func _on_puerta_body_entered(_body: Node2D) -> void:
 		return
 	entro = true
 	get_tree().change_scene_to_file(ESCENA_RUN)
-
