@@ -1,53 +1,446 @@
 [gd_scene format=3 uid="uid://b6ke34nuhqshw"]
 
 [ext_resource type="Script" uid="uid://yy2n3cd0o0sr" path="res://scripts/overworld.gd" id="1_c8x7b"]
-[ext_resource type="Script" uid="uid://blr8or0mk1p1t" path="res://scripts/jugador.gd" id="1_g8jub"]
-[ext_resource type="Texture2D" uid="uid://fxx1xre8ejrs" path="res://imagenes/departamentoInterior.png" id="1_okvro"]
-[ext_resource type="Texture2D" uid="uid://bltcog42fq5bg" path="res://imagenes/PersonajeIzquierda.png" id="3_52lww"]
-[ext_resource type="Texture2D" uid="uid://bjd6pb212ch0y" path="res://imagenes/PersonajeDerecha.png" id="4_b3nvs"]
+[ext_resource type="PackedScene" path="res://escenas/general/jugador.tscn" id="2_jugador"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3nvs"]
-size = Vector2(84, 150)
+[sub_resource type="RectangleShape2D" id="rs_pared_sup"]
+size = Vector2(980, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8x7b"]
-size = Vector2(43.25, 102)
+[sub_resource type="RectangleShape2D" id="rs_pared_inf"]
+size = Vector2(980, 20)
 
-[node name="Overworld" type="Node2D" unique_id=1716528710]
+[sub_resource type="RectangleShape2D" id="rs_pared_izq"]
+size = Vector2(20, 570)
+
+[sub_resource type="RectangleShape2D" id="rs_pared_der_a"]
+size = Vector2(20, 260)
+
+[sub_resource type="RectangleShape2D" id="rs_pared_der_b"]
+size = Vector2(20, 140)
+
+[sub_resource type="RectangleShape2D" id="rs_dorm_der"]
+size = Vector2(20, 290)
+
+[sub_resource type="RectangleShape2D" id="rs_dorm_inf"]
+size = Vector2(200, 20)
+
+[sub_resource type="RectangleShape2D" id="rs_banio_der"]
+size = Vector2(20, 200)
+
+[sub_resource type="RectangleShape2D" id="rs_banio_inf_a"]
+size = Vector2(60, 20)
+
+[sub_resource type="RectangleShape2D" id="rs_banio_inf_b"]
+size = Vector2(80, 20)
+
+[sub_resource type="RectangleShape2D" id="rs_cama"]
+size = Vector2(110, 150)
+
+[sub_resource type="RectangleShape2D" id="rs_mesa"]
+size = Vector2(120, 90)
+
+[sub_resource type="RectangleShape2D" id="rs_sofa"]
+size = Vector2(230, 70)
+
+[sub_resource type="RectangleShape2D" id="rs_cocina"]
+size = Vector2(340, 50)
+
+[sub_resource type="RectangleShape2D" id="rs_heladera"]
+size = Vector2(40, 90)
+
+[sub_resource type="RectangleShape2D" id="rs_puerta"]
+size = Vector2(40, 150)
+
+[node name="Overworld" type="Node2D" unique_id=557774369]
 script = ExtResource("1_c8x7b")
 
-[node name="Habitacion" type="Sprite2D" parent="." unique_id=1946070872]
-position = Vector2(-24, -96)
-scale = Vector2(0.8416547, 0.7379679)
-texture = ExtResource("1_okvro")
-centered = false
+[node name="Fondo" type="ColorRect" parent="." unique_id=41534961]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.04, 0.04, 0.06, 1)
 
-[node name="Jugador" type="CharacterBody2D" parent="." unique_id=37785605]
-script = ExtResource("1_g8jub")
-texturaIzquierda = ExtResource("4_b3nvs")
-texturaDerecha = ExtResource("3_52lww")
+[node name="Habitacion" type="Node2D" parent="." unique_id=1373244729]
 
-[node name="Sprite2D" type="Sprite2D" parent="Jugador" unique_id=307984901]
-position = Vector2(557, 370)
-scale = Vector2(0.20625006, 0.19934209)
-texture = ExtResource("3_52lww")
+[node name="Suelos" type="Node2D" parent="Habitacion" unique_id=449650472]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador" unique_id=1433484595]
-position = Vector2(555, 372)
-shape = SubResource("RectangleShape2D_b3nvs")
+[node name="SueloPrincipal" type="ColorRect" parent="Habitacion/Suelos" unique_id=1326906369]
+offset_left = 100.0
+offset_top = 60.0
+offset_right = 1040.0
+offset_bottom = 590.0
+mouse_filter = 2
+color = Color(0.62, 0.4, 0.24, 1)
 
-[node name="Puerta" type="Area2D" parent="." unique_id=860545384]
+[node name="SueloDormitorio" type="ColorRect" parent="Habitacion/Suelos" unique_id=1501779164]
+offset_left = 100.0
+offset_top = 60.0
+offset_right = 400.0
+offset_bottom = 330.0
+mouse_filter = 2
+color = Color(0.58, 0.37, 0.22, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta" unique_id=136616066]
-position = Vector2(944.375, 398)
-shape = SubResource("RectangleShape2D_c8x7b")
+[node name="SueloBanio" type="ColorRect" parent="Habitacion/Suelos" unique_id=855671795]
+offset_left = 420.0
+offset_top = 60.0
+offset_right = 640.0
+offset_bottom = 260.0
+mouse_filter = 2
+color = Color(0.6, 0.68, 0.76, 1)
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=854861991]
+[node name="Decoracion" type="Node2D" parent="Habitacion" unique_id=1235480898]
 
-[node name="Hint" type="Label" parent="UI" unique_id=751345273]
+[node name="AlfombraRoja" type="ColorRect" parent="Habitacion/Decoracion" unique_id=1180427343]
+offset_left = 160.0
+offset_top = 400.0
+offset_right = 360.0
+offset_bottom = 520.0
+mouse_filter = 2
+color = Color(0.5, 0.15, 0.15, 1)
+
+[node name="AlfombraVerde" type="ColorRect" parent="Habitacion/Decoracion" unique_id=831734912]
+offset_left = 280.0
+offset_top = 110.0
+offset_right = 340.0
+offset_bottom = 230.0
+mouse_filter = 2
+color = Color(0.2, 0.36, 0.3, 1)
+
+[node name="Mesita" type="ColorRect" parent="Habitacion/Decoracion" unique_id=2077398302]
+offset_left = 260.0
+offset_top = 70.0
+offset_right = 300.0
+offset_bottom = 105.0
+mouse_filter = 2
+color = Color(0.4, 0.26, 0.16, 1)
+
+[node name="Lampara" type="ColorRect" parent="Habitacion/Decoracion" unique_id=1756248110]
+offset_left = 270.0
+offset_top = 76.0
+offset_right = 290.0
+offset_bottom = 96.0
+mouse_filter = 2
+color = Color(0.98, 0.9, 0.6, 1)
+
+[node name="Inodoro" type="ColorRect" parent="Habitacion/Decoracion" unique_id=1942765594]
+offset_left = 440.0
+offset_top = 80.0
+offset_right = 470.0
+offset_bottom = 120.0
+mouse_filter = 2
+color = Color(0.95, 0.95, 0.95, 1)
+
+[node name="Lavabo" type="ColorRect" parent="Habitacion/Decoracion" unique_id=2038702767]
+offset_left = 530.0
+offset_top = 75.0
+offset_right = 580.0
+offset_bottom = 110.0
+mouse_filter = 2
+color = Color(0.95, 0.95, 0.95, 1)
+
+[node name="Banera" type="ColorRect" parent="Habitacion/Decoracion" unique_id=1766074428]
+offset_left = 585.0
+offset_top = 150.0
+offset_right = 635.0
+offset_bottom = 250.0
+mouse_filter = 2
+color = Color(0.5, 0.72, 0.88, 1)
+
+[node name="SillaDer" type="ColorRect" parent="Habitacion/Decoracion" unique_id=2071194350]
+offset_left = 923.0
+offset_top = 265.0
+offset_right = 948.0
+offset_bottom = 325.0
+mouse_filter = 2
+color = Color(0.42, 0.27, 0.16, 1)
+
+[node name="MuebleTV" type="ColorRect" parent="Habitacion/Decoracion" unique_id=824770952]
+offset_left = 105.0
+offset_top = 370.0
+offset_right = 135.0
+offset_bottom = 480.0
+mouse_filter = 2
+color = Color(0.35, 0.22, 0.14, 1)
+
+[node name="TV" type="ColorRect" parent="Habitacion/Decoracion" unique_id=911216108]
+offset_left = 108.0
+offset_top = 380.0
+offset_right = 126.0
+offset_bottom = 450.0
+mouse_filter = 2
+color = Color(0.05, 0.05, 0.08, 1)
+
+[node name="Estante" type="ColorRect" parent="Habitacion/Decoracion" unique_id=1695460877]
+offset_left = 500.0
+offset_top = 568.0
+offset_right = 620.0
+offset_bottom = 590.0
+mouse_filter = 2
+color = Color(0.3, 0.2, 0.12, 1)
+
+[node name="Solidos" type="Node2D" parent="Habitacion" unique_id=1160618060]
+
+[node name="ParedSup" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=148874857]
+position = Vector2(570, 50)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/ParedSup" unique_id=1077329931]
+offset_left = -490.0
+offset_top = -10.0
+offset_right = 490.0
+offset_bottom = 10.0
+mouse_filter = 2
+color = Color(0.14, 0.14, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/ParedSup" unique_id=1208094224]
+shape = SubResource("rs_pared_sup")
+
+[node name="ParedInf" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=166290081]
+position = Vector2(570, 600)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/ParedInf" unique_id=1032955866]
+offset_left = -490.0
+offset_top = -10.0
+offset_right = 490.0
+offset_bottom = 10.0
+mouse_filter = 2
+color = Color(0.14, 0.14, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/ParedInf" unique_id=974213910]
+shape = SubResource("rs_pared_inf")
+
+[node name="ParedIzq" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=1541646089]
+position = Vector2(90, 325)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/ParedIzq" unique_id=908120990]
+offset_left = -10.0
+offset_top = -285.0
+offset_right = 10.0
+offset_bottom = 285.0
+mouse_filter = 2
+color = Color(0.14, 0.14, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/ParedIzq" unique_id=44022904]
+shape = SubResource("rs_pared_izq")
+
+[node name="ParedDerArriba" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=758962567]
+position = Vector2(1050, 170)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/ParedDerArriba" unique_id=1802748947]
+offset_left = -10.0
+offset_top = -130.0
+offset_right = 10.0
+offset_bottom = 130.0
+mouse_filter = 2
+color = Color(0.14, 0.14, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/ParedDerArriba" unique_id=1978785755]
+shape = SubResource("rs_pared_der_a")
+
+[node name="ParedDerAbajo" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=1284560915]
+position = Vector2(1050, 540)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/ParedDerAbajo" unique_id=775494966]
+offset_left = -10.0
+offset_top = -70.0
+offset_right = 10.0
+offset_bottom = 70.0
+mouse_filter = 2
+color = Color(0.14, 0.14, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/ParedDerAbajo" unique_id=1778318963]
+shape = SubResource("rs_pared_der_b")
+
+[node name="ParedDormitorioDer" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=1713170912]
+position = Vector2(410, 205)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/ParedDormitorioDer" unique_id=170560517]
+offset_left = -10.0
+offset_top = -145.0
+offset_right = 10.0
+offset_bottom = 145.0
+mouse_filter = 2
+color = Color(0.14, 0.14, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/ParedDormitorioDer" unique_id=502462149]
+shape = SubResource("rs_dorm_der")
+
+[node name="ParedDormitorioInf" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=429285274]
+position = Vector2(200, 340)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/ParedDormitorioInf" unique_id=1036087964]
+offset_left = -100.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 10.0
+mouse_filter = 2
+color = Color(0.14, 0.14, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/ParedDormitorioInf" unique_id=1583877680]
+shape = SubResource("rs_dorm_inf")
+
+[node name="ParedBanioDer" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=160913924]
+position = Vector2(650, 160)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/ParedBanioDer" unique_id=1723625534]
+offset_left = -10.0
+offset_top = -100.0
+offset_right = 10.0
+offset_bottom = 100.0
+mouse_filter = 2
+color = Color(0.14, 0.14, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/ParedBanioDer" unique_id=1307740995]
+shape = SubResource("rs_banio_der")
+
+[node name="ParedBanioInfIzq" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=802970230]
+position = Vector2(450, 270)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/ParedBanioInfIzq" unique_id=370134613]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 30.0
+offset_bottom = 10.0
+mouse_filter = 2
+color = Color(0.14, 0.14, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/ParedBanioInfIzq" unique_id=1286060924]
+shape = SubResource("rs_banio_inf_a")
+
+[node name="ParedBanioInfDer" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=1450979808]
+position = Vector2(620, 270)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/ParedBanioInfDer" unique_id=1104895736]
+offset_left = -40.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+mouse_filter = 2
+color = Color(0.14, 0.14, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/ParedBanioInfDer" unique_id=2014478410]
+shape = SubResource("rs_banio_inf_b")
+
+[node name="Cama" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=2092503756]
+position = Vector2(185, 165)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/Cama" unique_id=1241981893]
+offset_left = -55.0
+offset_top = -75.0
+offset_right = 55.0
+offset_bottom = 75.0
+mouse_filter = 2
+color = Color(0.17, 0.25, 0.55, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/Cama" unique_id=1182836308]
+shape = SubResource("rs_cama")
+
+[node name="MesaComedor" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=555628755]
+position = Vector2(860, 295)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/MesaComedor" unique_id=52965598]
+offset_left = -60.0
+offset_top = -45.0
+offset_right = 60.0
+offset_bottom = 45.0
+mouse_filter = 2
+color = Color(0.45, 0.28, 0.17, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/MesaComedor" unique_id=1347233021]
+shape = SubResource("rs_mesa")
+
+[node name="Sofa" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=1987683528]
+position = Vector2(255, 545)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/Sofa" unique_id=1109744211]
+offset_left = -115.0
+offset_top = -35.0
+offset_right = 115.0
+offset_bottom = 35.0
+mouse_filter = 2
+color = Color(0.2, 0.22, 0.28, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/Sofa" unique_id=1931974545]
+shape = SubResource("rs_sofa")
+
+[node name="MuebleCocina" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=1378227615]
+position = Vector2(830, 85)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/MuebleCocina" unique_id=1166754753]
+offset_left = -170.0
+offset_top = -25.0
+offset_right = 170.0
+offset_bottom = 25.0
+mouse_filter = 2
+color = Color(0.85, 0.85, 0.88, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/MuebleCocina" unique_id=826335115]
+shape = SubResource("rs_cocina")
+
+[node name="Heladera" type="StaticBody2D" parent="Habitacion/Solidos" unique_id=1013279012]
+position = Vector2(1020, 105)
+
+[node name="ColorRect" type="ColorRect" parent="Habitacion/Solidos/Heladera" unique_id=1642080959]
+offset_left = -20.0
+offset_top = -45.0
+offset_right = 20.0
+offset_bottom = 45.0
+mouse_filter = 2
+color = Color(0.78, 0.8, 0.85, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/Heladera" unique_id=396418915]
+shape = SubResource("rs_heladera")
+
+[node name="Ventanas" type="Node2D" parent="Habitacion" unique_id=65180943]
+
+[node name="VentanaDormitorio" type="ColorRect" parent="Habitacion/Ventanas" unique_id=78883794]
+offset_left = 200.0
+offset_top = 44.0
+offset_right = 300.0
+offset_bottom = 56.0
+mouse_filter = 2
+color = Color(0.55, 0.78, 0.95, 1)
+
+[node name="VentanaBanio" type="ColorRect" parent="Habitacion/Ventanas" unique_id=1584075408]
+offset_left = 500.0
+offset_top = 44.0
+offset_right = 560.0
+offset_bottom = 56.0
+mouse_filter = 2
+color = Color(0.55, 0.78, 0.95, 1)
+
+[node name="VentanaCocina" type="ColorRect" parent="Habitacion/Ventanas" unique_id=1405620667]
+offset_left = 760.0
+offset_top = 44.0
+offset_right = 860.0
+offset_bottom = 56.0
+mouse_filter = 2
+color = Color(0.55, 0.78, 0.95, 1)
+
+[node name="PuertaSalida" type="ColorRect" parent="Habitacion" unique_id=655408368]
+offset_left = 1038.0
+offset_top = 300.0
+offset_right = 1060.0
+offset_bottom = 470.0
+mouse_filter = 2
+color = Color(0.7, 0.45, 0.2, 1)
+
+[node name="Jugador" parent="." unique_id=285856266 instance=ExtResource("2_jugador")]
+position = Vector2(600, 460)
+
+[node name="Puerta" type="Area2D" parent="." unique_id=1096417352]
+position = Vector2(1040, 385)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta" unique_id=1399241325]
+shape = SubResource("rs_puerta")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1701599843]
+
+[node name="Hint" type="Label" parent="UI" unique_id=220941756]
 offset_left = 28.0
-offset_top = -33.0
+offset_top = 8.0
 offset_right = 539.0
-offset_bottom = 3.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
 text = "Entra por la puerta para empezar la run"
 
 [connection signal="body_entered" from="Puerta" to="." method="_on_puerta_body_entered"]

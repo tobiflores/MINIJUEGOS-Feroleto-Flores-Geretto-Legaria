@@ -1,0 +1,314 @@
+[gd_scene format=3 uid="uid://cpltktxrovv4h"]
+
+[ext_resource type="Script" uid="uid://jtod5unei438" path="res://scripts/minijuego-flechas/minijuego_flechas.gd" id="1_flechas"]
+[ext_resource type="Texture2D" uid="uid://cwmhbr3kdd45l" path="res://imagenes/pink cursor.png" id="2_cursor"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_barra"]
+bg_color = Color(0.09240068, 0.19522923, 0.53666794, 1)
+
+[node name="Minijuego-Flechas" type="Node2D" unique_id=1551428289]
+script = ExtResource("1_flechas")
+tiempo_limite = 10.0
+texturaCursor = ExtResource("2_cursor")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1038905924]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.18, 0.2, 0.28, 1)
+
+[node name="Salida" type="Node2D" parent="." unique_id=1482273014]
+
+[node name="Puerta" type="ColorRect" parent="Salida" unique_id=916281576]
+offset_left = 1092.0
+offset_top = 250.0
+offset_right = 1152.0
+offset_bottom = 410.0
+mouse_filter = 2
+color = Color(0.7, 0.45, 0.2, 1)
+
+[node name="Picaporte" type="ColorRect" parent="Salida" unique_id=1694819055]
+offset_left = 1100.0
+offset_top = 325.0
+offset_right = 1112.0
+offset_bottom = 337.0
+mouse_filter = 2
+color = Color(0.95, 0.85, 0.4, 1)
+
+[node name="EtiquetaSalida" type="Label" parent="Salida" unique_id=327103105]
+offset_left = 1062.0
+offset_top = 215.0
+offset_right = 1152.0
+offset_bottom = 245.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 20
+text = "SALIDA"
+horizontal_alignment = 1
+
+[node name="Casillas" type="Node2D" parent="." unique_id=1938176978]
+
+[node name="Casilla1" type="Node2D" parent="Casillas" unique_id=1419308934]
+position = Vector2(156, 330)
+
+[node name="Marco" type="ColorRect" parent="Casillas/Casilla1" unique_id=1095894509]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 2
+color = Color(0.12, 0.14, 0.2, 1)
+
+[node name="Fondo" type="ColorRect" parent="Casillas/Casilla1" unique_id=765157315]
+offset_left = -54.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 54.0
+mouse_filter = 2
+color = Color(0.85, 0.82, 0.7, 1)
+
+[node name="Flecha" type="Node2D" parent="Casillas/Casilla1" unique_id=264368822]
+rotation = 1.5707964
+
+[node name="Cuerpo" type="ColorRect" parent="Casillas/Casilla1/Flecha" unique_id=1079834506]
+offset_left = -35.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0.15, 0.2, 0.4, 1)
+
+[node name="Punta" type="Polygon2D" parent="Casillas/Casilla1/Flecha" unique_id=627100960]
+color = Color(0.15, 0.2, 0.4, 1)
+polygon = PackedVector2Array(10, -28, 45, 0, 10, 28)
+
+[node name="Casilla2" type="Node2D" parent="Casillas" unique_id=1433715954]
+position = Vector2(296, 330)
+
+[node name="Marco" type="ColorRect" parent="Casillas/Casilla2" unique_id=2125407072]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 2
+color = Color(0.12, 0.14, 0.2, 1)
+
+[node name="Fondo" type="ColorRect" parent="Casillas/Casilla2" unique_id=2147336172]
+offset_left = -54.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 54.0
+mouse_filter = 2
+color = Color(0.85, 0.82, 0.7, 1)
+
+[node name="Flecha" type="Node2D" parent="Casillas/Casilla2" unique_id=181478673]
+rotation = 3.1415927
+
+[node name="Cuerpo" type="ColorRect" parent="Casillas/Casilla2/Flecha" unique_id=1292010278]
+offset_left = -35.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0.15, 0.2, 0.4, 1)
+
+[node name="Punta" type="Polygon2D" parent="Casillas/Casilla2/Flecha" unique_id=1423432530]
+color = Color(0.15, 0.2, 0.4, 1)
+polygon = PackedVector2Array(10, -28, 45, 0, 10, 28)
+
+[node name="Casilla3" type="Node2D" parent="Casillas" unique_id=2083724944]
+position = Vector2(436, 330)
+
+[node name="Marco" type="ColorRect" parent="Casillas/Casilla3" unique_id=571050450]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 2
+color = Color(0.12, 0.14, 0.2, 1)
+
+[node name="Fondo" type="ColorRect" parent="Casillas/Casilla3" unique_id=252899286]
+offset_left = -54.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 54.0
+mouse_filter = 2
+color = Color(0.85, 0.82, 0.7, 1)
+
+[node name="Flecha" type="Node2D" parent="Casillas/Casilla3" unique_id=1487894328]
+rotation = 4.712389
+
+[node name="Cuerpo" type="ColorRect" parent="Casillas/Casilla3/Flecha" unique_id=1360301483]
+offset_left = -35.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0.15, 0.2, 0.4, 1)
+
+[node name="Punta" type="Polygon2D" parent="Casillas/Casilla3/Flecha" unique_id=1710759159]
+color = Color(0.15, 0.2, 0.4, 1)
+polygon = PackedVector2Array(10, -28, 45, 0, 10, 28)
+
+[node name="Casilla4" type="Node2D" parent="Casillas" unique_id=1005410474]
+position = Vector2(576, 330)
+
+[node name="Marco" type="ColorRect" parent="Casillas/Casilla4" unique_id=1750006590]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 2
+color = Color(0.12, 0.14, 0.2, 1)
+
+[node name="Fondo" type="ColorRect" parent="Casillas/Casilla4" unique_id=1479207195]
+offset_left = -54.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 54.0
+mouse_filter = 2
+color = Color(0.85, 0.82, 0.7, 1)
+
+[node name="Flecha" type="Node2D" parent="Casillas/Casilla4" unique_id=1933341261]
+rotation = 1.5707964
+
+[node name="Cuerpo" type="ColorRect" parent="Casillas/Casilla4/Flecha" unique_id=443109439]
+offset_left = -35.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0.15, 0.2, 0.4, 1)
+
+[node name="Punta" type="Polygon2D" parent="Casillas/Casilla4/Flecha" unique_id=51299459]
+color = Color(0.15, 0.2, 0.4, 1)
+polygon = PackedVector2Array(10, -28, 45, 0, 10, 28)
+
+[node name="Casilla5" type="Node2D" parent="Casillas" unique_id=990064060]
+position = Vector2(716, 330)
+
+[node name="Marco" type="ColorRect" parent="Casillas/Casilla5" unique_id=1103455091]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 2
+color = Color(0.12, 0.14, 0.2, 1)
+
+[node name="Fondo" type="ColorRect" parent="Casillas/Casilla5" unique_id=1414677116]
+offset_left = -54.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 54.0
+mouse_filter = 2
+color = Color(0.85, 0.82, 0.7, 1)
+
+[node name="Flecha" type="Node2D" parent="Casillas/Casilla5" unique_id=564105544]
+rotation = 3.1415927
+
+[node name="Cuerpo" type="ColorRect" parent="Casillas/Casilla5/Flecha" unique_id=2047478319]
+offset_left = -35.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0.15, 0.2, 0.4, 1)
+
+[node name="Punta" type="Polygon2D" parent="Casillas/Casilla5/Flecha" unique_id=1655693234]
+color = Color(0.15, 0.2, 0.4, 1)
+polygon = PackedVector2Array(10, -28, 45, 0, 10, 28)
+
+[node name="Casilla6" type="Node2D" parent="Casillas" unique_id=1786311580]
+position = Vector2(856, 330)
+
+[node name="Marco" type="ColorRect" parent="Casillas/Casilla6" unique_id=754429361]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 2
+color = Color(0.12, 0.14, 0.2, 1)
+
+[node name="Fondo" type="ColorRect" parent="Casillas/Casilla6" unique_id=1906469863]
+offset_left = -54.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 54.0
+mouse_filter = 2
+color = Color(0.85, 0.82, 0.7, 1)
+
+[node name="Flecha" type="Node2D" parent="Casillas/Casilla6" unique_id=186501459]
+rotation = 4.712389
+
+[node name="Cuerpo" type="ColorRect" parent="Casillas/Casilla6/Flecha" unique_id=1858816810]
+offset_left = -35.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0.15, 0.2, 0.4, 1)
+
+[node name="Punta" type="Polygon2D" parent="Casillas/Casilla6/Flecha" unique_id=1808580478]
+color = Color(0.15, 0.2, 0.4, 1)
+polygon = PackedVector2Array(10, -28, 45, 0, 10, 28)
+
+[node name="Casilla7" type="Node2D" parent="Casillas" unique_id=2146571015]
+position = Vector2(996, 330)
+
+[node name="Marco" type="ColorRect" parent="Casillas/Casilla7" unique_id=122464413]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 2
+color = Color(0.12, 0.14, 0.2, 1)
+
+[node name="Fondo" type="ColorRect" parent="Casillas/Casilla7" unique_id=1083224450]
+offset_left = -54.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 54.0
+mouse_filter = 2
+color = Color(0.85, 0.82, 0.7, 1)
+
+[node name="Flecha" type="Node2D" parent="Casillas/Casilla7" unique_id=1529086338]
+rotation = 3.1415927
+
+[node name="Cuerpo" type="ColorRect" parent="Casillas/Casilla7/Flecha" unique_id=1343968147]
+offset_left = -35.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0.15, 0.2, 0.4, 1)
+
+[node name="Punta" type="Polygon2D" parent="Casillas/Casilla7/Flecha" unique_id=106154256]
+color = Color(0.15, 0.2, 0.4, 1)
+polygon = PackedVector2Array(10, -28, 45, 0, 10, 28)
+
+[node name="Interfaz" type="CanvasLayer" parent="." unique_id=382251139]
+
+[node name="EtiquetaInfo" type="Label" parent="Interfaz" unique_id=2088596108]
+offset_top = 30.0
+offset_right = 1152.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 28
+text = "¡GIRÁ LAS FLECHAS HACIA LA SALIDA!"
+horizontal_alignment = 1
+
+[node name="EtiquetaAyuda" type="Label" parent="Interfaz" unique_id=1651545858]
+offset_top = 80.0
+offset_right = 1152.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 20
+text = "Clic izquierdo: girar a la derecha   Clic derecho: girar a la izquierda"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=890817272]
+offset_top = 620.0
+offset_right = 1152.0
+offset_bottom = 647.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_barra")
+max_value = 1.0
+step = 0.0

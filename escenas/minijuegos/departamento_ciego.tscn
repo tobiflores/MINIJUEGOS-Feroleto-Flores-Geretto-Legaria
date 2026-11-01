@@ -1,0 +1,222 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/minijuego-gato/departamento_gato.gd" id="1_depto"]
+[ext_resource type="PackedScene" path="res://escenas/general/jugador.tscn" id="2_jugador"]
+[ext_resource type="PackedScene" path="res://escenas/minijuegos/minijuego_flechas.tscn" id="3_flechas"]
+
+[node name="Departamento-Ciego" type="Node2D"]
+script = ExtResource("1_depto")
+escenaMinijuego = ExtResource("3_flechas")
+
+[node name="Apartamento" type="Node2D" parent="."]
+
+[node name="Fondo" type="ColorRect" parent="Apartamento"]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.2, 0.24, 0.27, 1)
+
+[node name="Pared" type="ColorRect" parent="Apartamento"]
+offset_right = 1152.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.45, 0.55, 0.58, 1)
+
+[node name="Moldura" type="ColorRect" parent="Apartamento"]
+offset_top = 345.0
+offset_right = 1152.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.25, 0.32, 0.35, 1)
+
+[node name="Piso" type="ColorRect" parent="Apartamento"]
+offset_top = 365.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.5, 0.42, 0.36, 1)
+
+[node name="Alfombra" type="ColorRect" parent="Apartamento"]
+offset_left = 200.0
+offset_top = 470.0
+offset_right = 900.0
+offset_bottom = 610.0
+mouse_filter = 2
+color = Color(0.3, 0.38, 0.42, 1)
+
+[node name="Biblioteca" type="ColorRect" parent="Apartamento"]
+offset_left = 120.0
+offset_top = 110.0
+offset_right = 300.0
+offset_bottom = 350.0
+mouse_filter = 2
+color = Color(0.32, 0.22, 0.15, 1)
+
+[node name="Estante1" type="ColorRect" parent="Apartamento"]
+offset_left = 130.0
+offset_top = 150.0
+offset_right = 290.0
+offset_bottom = 156.0
+mouse_filter = 2
+color = Color(0.2, 0.13, 0.09, 1)
+
+[node name="Estante2" type="ColorRect" parent="Apartamento"]
+offset_left = 130.0
+offset_top = 220.0
+offset_right = 290.0
+offset_bottom = 226.0
+mouse_filter = 2
+color = Color(0.2, 0.13, 0.09, 1)
+
+[node name="Estante3" type="ColorRect" parent="Apartamento"]
+offset_left = 130.0
+offset_top = 290.0
+offset_right = 290.0
+offset_bottom = 296.0
+mouse_filter = 2
+color = Color(0.2, 0.13, 0.09, 1)
+
+[node name="Mesa" type="ColorRect" parent="Apartamento"]
+offset_left = 430.0
+offset_top = 250.0
+offset_right = 580.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.38, 0.28, 0.2, 1)
+
+[node name="Lampara" type="ColorRect" parent="Apartamento"]
+offset_left = 490.0
+offset_top = 215.0
+offset_right = 520.0
+offset_bottom = 250.0
+mouse_filter = 2
+color = Color(0.95, 0.88, 0.55, 1)
+
+[node name="PuertaMarco" type="ColorRect" parent="Apartamento"]
+offset_left = 1040.0
+offset_top = 110.0
+offset_right = 1140.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.2, 0.25, 0.22, 1)
+
+[node name="Puerta" type="ColorRect" parent="Apartamento"]
+offset_left = 1050.0
+offset_top = 120.0
+offset_right = 1130.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.7, 0.45, 0.2, 1)
+
+[node name="Picaporte" type="ColorRect" parent="Apartamento"]
+offset_left = 1060.0
+offset_top = 250.0
+offset_right = 1072.0
+offset_bottom = 262.0
+mouse_filter = 2
+color = Color(0.95, 0.85, 0.4, 1)
+
+[node name="Vecino" type="Node2D" parent="Apartamento"]
+position = Vector2(760, 470)
+
+[node name="Cabeza" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = -25.0
+offset_top = -110.0
+offset_right = 25.0
+offset_bottom = -60.0
+mouse_filter = 2
+color = Color(0.9, 0.72, 0.58, 1)
+
+[node name="Gafas" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = -22.0
+offset_top = -95.0
+offset_right = 22.0
+offset_bottom = -83.0
+mouse_filter = 2
+color = Color(0.02, 0.02, 0.03, 1)
+
+[node name="Cuerpo" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = -35.0
+offset_top = -60.0
+offset_right = 35.0
+offset_bottom = 30.0
+mouse_filter = 2
+color = Color(0.55, 0.5, 0.3, 1)
+
+[node name="PiernaIzq" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = -25.0
+offset_top = 30.0
+offset_right = -5.0
+offset_bottom = 70.0
+mouse_filter = 2
+color = Color(0.2, 0.2, 0.3, 1)
+
+[node name="PiernaDer" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = 5.0
+offset_top = 30.0
+offset_right = 25.0
+offset_bottom = 70.0
+mouse_filter = 2
+color = Color(0.2, 0.2, 0.3, 1)
+
+[node name="Baston" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = 42.0
+offset_top = -30.0
+offset_right = 48.0
+offset_bottom = 70.0
+mouse_filter = 2
+color = Color(0.95, 0.95, 0.95, 1)
+
+[node name="Jugador" parent="Apartamento" instance=ExtResource("2_jugador")]
+position = Vector2(300, 560)
+
+[node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="EtiquetaHablar" type="Label" parent="Interfaz"]
+visible = false
+offset_left = 416.0
+offset_top = 585.0
+offset_right = 736.0
+offset_bottom = 625.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 24
+text = "E  HABLAR"
+horizontal_alignment = 1
+
+[node name="Dialogo" type="Control" parent="Interfaz"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Fondo" type="ColorRect" parent="Interfaz/Dialogo"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 400.0
+offset_right = 976.0
+offset_bottom = 590.0
+mouse_filter = 2
+color = Color(0.08, 0.08, 0.12, 0.92)
+
+[node name="Texto" type="Label" parent="Interfaz/Dialogo"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 420.0
+offset_right = 956.0
+offset_bottom = 510.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 26
+text = "Vecino: No veo nada... ¡Ayudame a encontrar la salida!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Opcion" type="Label" parent="Interfaz/Dialogo"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 530.0
+offset_right = 956.0
+offset_bottom = 570.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 24
+text = "[1] Aceptar"
+horizontal_alignment = 1

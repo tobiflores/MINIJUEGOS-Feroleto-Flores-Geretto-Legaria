@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bj35kg4jbd0e4"]
+
+[ext_resource type="Script" uid="uid://bk6hwegvgu3ml" path="res://scripts/mascota.gd" id="1_ani"]
+[ext_resource type="Texture2D" uid="uid://cc0q1voaakd3w" path="res://imagenes/cat.png" id="2_cat"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ani"]
+radius = 60.0
+
+[node name="Mascota" type="Node2D" unique_id=2027971108]
+script = ExtResource("1_ani")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933806372]
+scale = Vector2(2, 2)
+texture = ExtResource("2_cat")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=117241980]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1510257760]
+shape = SubResource("CircleShape2D_ani")
