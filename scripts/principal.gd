@@ -1,7 +1,5 @@
 extends Node2D
 
-const DISTANCIA_INTERACCION: float = 112.0
-const INDICES_PUERTA_DIRECTA: Array[int] = [0, 1]
 const PUERTA_DIRECTA_ANCHO: float = 146.0
 const PUERTA_DIRECTA_Y_MAX: float = 380.0
 
@@ -20,9 +18,9 @@ var indice_piso_actual: int = 0
 var vuelta_pisos: int = 0
 var nombres_disponibles: Array[String] = []
 var departamentos_resueltos: Array[bool] = []
+var departamentos_intentados: Array[bool] = []
 var posiciones_vecinos: Array[Vector2] = []
 var vecinos: Array[Sprite2D] = []
-var vecino_cercano: int = -1
 var minijuego_activo: bool = false
 var partida_terminada: bool = false
 
@@ -49,8 +47,10 @@ func _ready() -> void:
 
 func _inicializar_departamentos() -> void:
 	departamentos_resueltos.clear()
+	departamentos_intentados.clear()
 	for _departamento in pisos[indice_piso_actual].departamentos:
 		departamentos_resueltos.append(false)
+		departamentos_intentados.append(false)
 
 func _crear_vecinos() -> void:
 	for vecino in vecinos:
@@ -69,7 +69,7 @@ func _crear_vecinos() -> void:
 		vecino.texture = texturaVecino
 		vecino.position = posicion
 		vecino.scale = Vector2(0.28, 0.28)
-		vecino.visible = not INDICES_PUERTA_DIRECTA.has(indice)
+		vecino.visible = false
 		add_child(vecino)
 
 		var etiqueta := Label.new()
@@ -96,35 +96,14 @@ func _process(_delta: float) -> void:
 	if minijuego_activo or partida_terminada:
 		return
 
-	var nuevo_vecino: int = -1
-	var distancia_menor: float = DISTANCIA_INTERACCION
 	for indice in posiciones_vecinos.size():
-		if departamentos_resueltos[indice] or INDICES_PUERTA_DIRECTA.has(indice):
-			continue
-		var distancia: float = jugador.global_position.distance_to(posiciones_vecinos[indice])
-		if distancia < distancia_menor:
-			distancia_menor = distancia
-			nuevo_vecino = indice
-
-	vecino_cercano = nuevo_vecino
-	etiqueta_interaccion.visible = vecino_cercano >= 0
-
-	for indice in INDICES_PUERTA_DIRECTA:
-		if indice >= posiciones_vecinos.size() or departamentos_resueltos[indice]:
+		if departamentos_intentados[indice]:
 			continue
 		var en_puerta: bool = absf(jugador.global_position.x - posiciones_vecinos[indice].x) < PUERTA_DIRECTA_ANCHO * 0.5 \
 				and jugador.global_position.y < PUERTA_DIRECTA_Y_MAX
 		if en_puerta:
 			_entrar_al_departamento(indice)
 			break
-
-func _unhandled_input(evento: InputEvent) -> void:
-	if minijuego_activo or partida_terminada or vecino_cercano < 0:
-		return
-	if evento is InputEventKey and evento.pressed and not evento.echo:
-		if evento.keycode == KEY_E or evento.physical_keycode == KEY_E:
-			_entrar_al_departamento(vecino_cercano)
-			get_viewport().set_input_as_handled()
 
 func _entrar_al_departamento(indice: int) -> void:
 	var departamento: DepartamentoMinijuego = pisos[indice_piso_actual].departamentos[indice]
@@ -135,7 +114,6 @@ func _entrar_al_departamento(indice: int) -> void:
 		return
 
 	minijuego_activo = true
-	vecino_cercano = -1
 	jugador.velocity = Vector2.ZERO
 	jugador.hide()
 	jugador.set_physics_process(false)
@@ -145,13 +123,16 @@ func _entrar_al_departamento(indice: int) -> void:
 
 func _cuando_termina_minijuego(resultado: float, indice: int) -> void:
 	var gano: bool = resultado >= 1.0
+	departamentos_intentados[indice] = true
 	if gano:
 		departamentos_resueltos[indice] = true
 		vecinos[indice].modulate = Color(0.6, 1.0, 0.6)
 
 	var piso_completo: bool = gano and not departamentos_resueltos.has(false)
 	var hay_otro_piso: bool = piso_completo
-	await gestorPartida.resultado(resultado, piso_completo, hay_otro_piso)
+	var todos_intentados: bool = not departamentos_intentados.has(false)
+
+	await gestorPartida.resultado(resultado, piso_completo, todos_intentados)
 	minijuego_activo = false
 	_actualizar_hud()
 
@@ -168,8 +149,11 @@ func _cuando_termina_minijuego(resultado: float, indice: int) -> void:
 			vuelta_pisos += 1
 		_inicializar_departamentos()
 		_crear_vecinos()
+	elif todos_intentados:
+		for i in departamentos_intentados.size():
+			departamentos_intentados[i] = false
 
-	if indice < posiciones_vecinos.size() and INDICES_PUERTA_DIRECTA.has(indice):
+	if indice < posiciones_vecinos.size():
 		jugador.position = Vector2(posiciones_vecinos[indice].x, 565)
 	jugador.show()
 	jugador.set_physics_process(true)
