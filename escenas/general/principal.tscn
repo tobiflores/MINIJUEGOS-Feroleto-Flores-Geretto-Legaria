@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://3npap6dn82cw" path="res://scripts/principal.gd" id="1_dj7q0"]
 [ext_resource type="Script" uid="uid://c7xks6oi3umgf" path="res://scripts/piso_minijuegos.gd" id="2_piso_script"]
-[ext_resource type="Resource" path="res://recursos/piso_1.tres" id="3_piso"]
+[ext_resource type="Resource" path="res://recursos/piso_3.tres" id="3_piso3"]
+[ext_resource type="Resource" path="res://recursos/piso_2.tres" id="3_piso2"]
+[ext_resource type="Resource" path="res://recursos/piso_1.tres" id="3_piso1"]
 [ext_resource type="Texture2D" uid="uid://b31lg8aeubsly" path="res://icon.svg" id="4_aanal"]
 [ext_resource type="PackedScene" path="res://escenas/general/jugador.tscn" id="4_jugador"]
 
 [node name="Principal" type="Node2D" unique_id=218056312]
 script = ExtResource("1_dj7q0")
-pisos = Array[ExtResource("2_piso_script")]([ExtResource("3_piso")])
+pisos = Array[ExtResource("2_piso_script")]([ExtResource("3_piso3"), ExtResource("3_piso2"), ExtResource("3_piso1")])
 texturaVecino = ExtResource("4_aanal")
 
 [node name="Fondo" type="ColorRect" parent="." unique_id=1201170031]

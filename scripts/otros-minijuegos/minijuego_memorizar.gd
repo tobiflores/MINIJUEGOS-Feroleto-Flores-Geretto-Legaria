@@ -3,7 +3,7 @@ extends Node2D
 signal termino(resultado: float)
 
 @export var tiempoLimite: float = 15.0
-@export var tiempoMostrarInicio: float = 1.5
+@export var tiempoMostrarInicio: float = 0.8
 @export var tiempoVoltear: float = 0.6
 @export var tiempoMostrarResultado: float = 1.0
 
@@ -79,8 +79,9 @@ func _al_elegir_carta(carta: Button) -> void:
 		await get_tree().create_timer(tiempoVoltear).timeout
 		if terminado:
 			return
-		primeraCarta.icon = texturaDorso
-		segundaCarta.icon = texturaDorso
+		for c in cartas:
+			c.icon = texturaDorso
+		encontradas.clear()
 		primeraCarta = null
 		puedeClickear = true
 

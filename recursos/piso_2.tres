@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PisoMinijuegos" format=3 uid="uid://birjacm6qm0vo"]
+
+[ext_resource type="Script" uid="uid://c7xks6oi3umgf" path="res://scripts/piso_minijuegos.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://bdgul2o0mrg0c" path="res://scripts/departamento_minijuego.gd" id="2_departamento_script"]
+[ext_resource type="Resource" path="res://recursos/departamento_puerta.tres" id="3_puerta"]
+[ext_resource type="Resource" path="res://recursos/departamento_dormido.tres" id="4_dormido"]
+[ext_resource type="Resource" uid="uid://bs0sfr14erxsa" path="res://recursos/departamento_lila.tres" id="5_lila"]
+
+[resource]
+script = ExtResource("1_script")
+departamentos = Array[ExtResource("2_departamento_script")]([ExtResource("3_puerta"), ExtResource("4_dormido"), ExtResource("5_lila")])

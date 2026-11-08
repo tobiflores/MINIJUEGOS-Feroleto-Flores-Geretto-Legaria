@@ -1,0 +1,230 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/minijuego-gato/departamento_gato.gd" id="1_depto"]
+[ext_resource type="PackedScene" path="res://escenas/general/jugador.tscn" id="2_jugador"]
+[ext_resource type="PackedScene" path="res://escenas/minijuegos/minijuego_golpearMadera.tscn" id="3_puerta"]
+
+[node name="Departamento-Puerta" type="Node2D"]
+script = ExtResource("1_depto")
+escenaMinijuego = ExtResource("3_puerta")
+
+[node name="Apartamento" type="Node2D" parent="."]
+
+[node name="Fondo" type="ColorRect" parent="Apartamento"]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.22, 0.25, 0.2, 1)
+
+[node name="Pared" type="ColorRect" parent="Apartamento"]
+offset_right = 1152.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.6, 0.55, 0.4, 1)
+
+[node name="Moldura" type="ColorRect" parent="Apartamento"]
+offset_top = 345.0
+offset_right = 1152.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.38, 0.33, 0.22, 1)
+
+[node name="Piso" type="ColorRect" parent="Apartamento"]
+offset_top = 365.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.45, 0.36, 0.28, 1)
+
+[node name="Alfombra" type="ColorRect" parent="Apartamento"]
+offset_left = 180.0
+offset_top = 490.0
+offset_right = 940.0
+offset_bottom = 610.0
+mouse_filter = 2
+color = Color(0.32, 0.4, 0.3, 1)
+
+[node name="PuertaMarco" type="ColorRect" parent="Apartamento"]
+offset_left = 120.0
+offset_top = 100.0
+offset_right = 300.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.2, 0.15, 0.1, 1)
+
+[node name="Puerta" type="ColorRect" parent="Apartamento"]
+offset_left = 130.0
+offset_top = 110.0
+offset_right = 290.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.55, 0.36, 0.2, 1)
+
+[node name="Tablon1" type="ColorRect" parent="Apartamento"]
+offset_left = 130.0
+offset_top = 170.0
+offset_right = 290.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.35, 0.22, 0.12, 1)
+
+[node name="Tablon2" type="ColorRect" parent="Apartamento"]
+offset_left = 130.0
+offset_top = 240.0
+offset_right = 290.0
+offset_bottom = 246.0
+mouse_filter = 2
+color = Color(0.35, 0.22, 0.12, 1)
+
+[node name="Tablon3" type="ColorRect" parent="Apartamento"]
+offset_left = 130.0
+offset_top = 310.0
+offset_right = 290.0
+offset_bottom = 316.0
+mouse_filter = 2
+color = Color(0.35, 0.22, 0.12, 1)
+
+[node name="Cerrojo" type="ColorRect" parent="Apartamento"]
+offset_left = 250.0
+offset_top = 220.0
+offset_right = 280.0
+offset_bottom = 250.0
+mouse_filter = 2
+color = Color(0.65, 0.65, 0.7, 1)
+
+[node name="Cuadro" type="ColorRect" parent="Apartamento"]
+offset_left = 520.0
+offset_top = 110.0
+offset_right = 640.0
+offset_bottom = 200.0
+mouse_filter = 2
+color = Color(0.3, 0.2, 0.12, 1)
+
+[node name="CuadroPintura" type="ColorRect" parent="Apartamento"]
+offset_left = 530.0
+offset_top = 120.0
+offset_right = 630.0
+offset_bottom = 190.0
+mouse_filter = 2
+color = Color(0.45, 0.65, 0.5, 1)
+
+[node name="Armario" type="ColorRect" parent="Apartamento"]
+offset_left = 880.0
+offset_top = 130.0
+offset_right = 1060.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.35, 0.24, 0.15, 1)
+
+[node name="ArmarioDivisor" type="ColorRect" parent="Apartamento"]
+offset_left = 966.0
+offset_top = 130.0
+offset_right = 974.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.2, 0.13, 0.08, 1)
+
+[node name="Mesa" type="ColorRect" parent="Apartamento"]
+offset_left = 400.0
+offset_top = 270.0
+offset_right = 550.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.4, 0.28, 0.18, 1)
+
+[node name="Vecino" type="Node2D" parent="Apartamento"]
+position = Vector2(760, 470)
+
+[node name="Cabeza" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = -25.0
+offset_top = -110.0
+offset_right = 25.0
+offset_bottom = -60.0
+mouse_filter = 2
+color = Color(0.88, 0.7, 0.56, 1)
+
+[node name="Gorro" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = -28.0
+offset_top = -122.0
+offset_right = 28.0
+offset_bottom = -102.0
+mouse_filter = 2
+color = Color(0.6, 0.2, 0.2, 1)
+
+[node name="Cuerpo" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = -35.0
+offset_top = -60.0
+offset_right = 35.0
+offset_bottom = 30.0
+mouse_filter = 2
+color = Color(0.7, 0.45, 0.2, 1)
+
+[node name="PiernaIzq" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = -25.0
+offset_top = 30.0
+offset_right = -5.0
+offset_bottom = 70.0
+mouse_filter = 2
+color = Color(0.2, 0.2, 0.3, 1)
+
+[node name="PiernaDer" type="ColorRect" parent="Apartamento/Vecino"]
+offset_left = 5.0
+offset_top = 30.0
+offset_right = 25.0
+offset_bottom = 70.0
+mouse_filter = 2
+color = Color(0.2, 0.2, 0.3, 1)
+
+[node name="Jugador" parent="Apartamento" instance=ExtResource("2_jugador")]
+position = Vector2(300, 560)
+
+[node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="EtiquetaHablar" type="Label" parent="Interfaz"]
+visible = false
+offset_left = 416.0
+offset_top = 585.0
+offset_right = 736.0
+offset_bottom = 625.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 24
+text = "E  HABLAR"
+horizontal_alignment = 1
+
+[node name="Dialogo" type="Control" parent="Interfaz"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Fondo" type="ColorRect" parent="Interfaz/Dialogo"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 400.0
+offset_right = 976.0
+offset_bottom = 590.0
+mouse_filter = 2
+color = Color(0.08, 0.08, 0.12, 0.92)
+
+[node name="Texto" type="Label" parent="Interfaz/Dialogo"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 420.0
+offset_right = 956.0
+offset_bottom = 510.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 26
+text = "Vecino: ¡Mi puerta se trabó y no puedo salir! Necesito romperla, ¿me ayudás?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Opcion" type="Label" parent="Interfaz/Dialogo"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 530.0
+offset_right = 956.0
+offset_bottom = 570.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 24
+text = "[1] Aceptar"
+horizontal_alignment = 1

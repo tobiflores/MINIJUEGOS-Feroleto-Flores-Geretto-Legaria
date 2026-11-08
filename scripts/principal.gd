@@ -117,6 +117,7 @@ func _entrar_al_departamento(indice: int) -> void:
 	jugador.velocity = Vector2.ZERO
 	jugador.hide()
 	jugador.set_physics_process(false)
+	$Jugador/CollisionShape2D.set_deferred("disabled", true)
 	etiqueta_interaccion.hide()
 	minijuego.connect("termino", _cuando_termina_minijuego.bind(indice))
 	add_child(minijuego)
@@ -128,9 +129,9 @@ func _cuando_termina_minijuego(resultado: float, indice: int) -> void:
 		departamentos_resueltos[indice] = true
 		vecinos[indice].modulate = Color(0.6, 1.0, 0.6)
 
-	var piso_completo: bool = gano and not departamentos_resueltos.has(false)
-	var hay_otro_piso: bool = piso_completo
 	var todos_intentados: bool = not departamentos_intentados.has(false)
+	var piso_completo: bool = todos_intentados
+	var hay_otro_piso: bool = piso_completo
 
 	await gestorPartida.resultado(resultado, piso_completo, todos_intentados)
 	minijuego_activo = false
@@ -147,13 +148,13 @@ func _cuando_termina_minijuego(resultado: float, indice: int) -> void:
 		if indice_piso_actual >= pisos.size():
 			indice_piso_actual = 0
 			vuelta_pisos += 1
+			gestorPartida.configurar_pisos(pisos.size())
 		_inicializar_departamentos()
 		_crear_vecinos()
-	elif todos_intentados:
-		for i in departamentos_intentados.size():
-			departamentos_intentados[i] = false
+		_actualizar_hud()
 
 	if indice < posiciones_vecinos.size():
 		jugador.position = Vector2(posiciones_vecinos[indice].x, 565)
 	jugador.show()
 	jugador.set_physics_process(true)
+	$Jugador/CollisionShape2D.set_deferred("disabled", false)

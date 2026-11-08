@@ -245,10 +245,10 @@ func resultado(
 ) -> void:
 	var gano: bool = resultado_minijuego >= 1.0
 
-	if gano and piso_completo:
-		pisoActual -= 1
-	elif not gano:
+	if not gano:
 		vidas -= 1
+	if piso_completo:
+		pisoActual -= 1
 
 	if mostrar_transicion_despues:
 		await mostrar_transicion(gano)

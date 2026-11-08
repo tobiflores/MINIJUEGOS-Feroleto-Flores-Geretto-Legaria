@@ -1,0 +1,228 @@
+[gd_scene format=3 uid="uid://b88q5qn1bw1i7"]
+
+[ext_resource type="Script" uid="uid://ctphqua0rt03s" path="res://scripts/minijuego-despertar/minijuego_despertar.gd" id="1_despertar"]
+[ext_resource type="Texture2D" uid="uid://cwmhbr3kdd45l" path="res://imagenes/pink cursor.png" id="2_cursor"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_despierto"]
+bg_color = Color(0.95, 0.6, 0.15, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tiempo"]
+bg_color = Color(0.09240068, 0.19522923, 0.53666794, 1)
+
+[node name="Minijuego-Despertar" type="Node2D" unique_id=958315852]
+script = ExtResource("1_despertar")
+texturaCursor = ExtResource("2_cursor")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=938763697]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.16, 0.17, 0.25, 1)
+
+[node name="Piso" type="ColorRect" parent="." unique_id=62343711]
+offset_top = 430.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.3, 0.24, 0.2, 1)
+
+[node name="Ventana" type="ColorRect" parent="." unique_id=710374553]
+offset_left = 80.0
+offset_top = 80.0
+offset_right = 280.0
+offset_bottom = 230.0
+mouse_filter = 2
+color = Color(0.3, 0.22, 0.15, 1)
+
+[node name="Noche" type="ColorRect" parent="Ventana" unique_id=762391218]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 190.0
+offset_bottom = 140.0
+mouse_filter = 2
+color = Color(0.08, 0.1, 0.28, 1)
+
+[node name="Luna" type="ColorRect" parent="Ventana" unique_id=32385448]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 30.0
+offset_right = 160.0
+offset_bottom = 60.0
+mouse_filter = 2
+color = Color(0.95, 0.95, 0.7, 1)
+
+[node name="Mesita" type="ColorRect" parent="." unique_id=953759024]
+offset_left = 880.0
+offset_top = 380.0
+offset_right = 980.0
+offset_bottom = 470.0
+mouse_filter = 2
+color = Color(0.4, 0.26, 0.16, 1)
+
+[node name="Despertador" type="ColorRect" parent="Mesita" unique_id=1259147229]
+layout_mode = 0
+offset_left = 20.0
+offset_top = -40.0
+offset_right = 80.0
+mouse_filter = 2
+color = Color(0.8, 0.15, 0.15, 1)
+
+[node name="Cama" type="Node2D" parent="." unique_id=995193263]
+position = Vector2(576, 350)
+
+[node name="Cabecera" type="ColorRect" parent="Cama" unique_id=836313515]
+offset_left = -270.0
+offset_top = -130.0
+offset_right = -250.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.3, 0.18, 0.1, 1)
+
+[node name="Base" type="ColorRect" parent="Cama" unique_id=1066547325]
+offset_left = -260.0
+offset_top = -20.0
+offset_right = 260.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.35, 0.22, 0.14, 1)
+
+[node name="Colchon" type="ColorRect" parent="Cama" unique_id=772800027]
+offset_left = -250.0
+offset_top = -50.0
+offset_right = 250.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.75, 0.8, 0.9, 1)
+
+[node name="Almohada" type="ColorRect" parent="Cama" unique_id=1937667488]
+offset_left = -240.0
+offset_top = -70.0
+offset_right = -120.0
+offset_bottom = -10.0
+mouse_filter = 2
+color = Color(0.95, 0.95, 0.98, 1)
+
+[node name="Durmiente" type="Node2D" parent="Cama" unique_id=897053013]
+
+[node name="Cabeza" type="ColorRect" parent="Cama/Durmiente" unique_id=794783890]
+offset_left = -215.0
+offset_top = -90.0
+offset_right = -145.0
+offset_bottom = -30.0
+mouse_filter = 2
+color = Color(0.9, 0.72, 0.58, 1)
+
+[node name="Pelo" type="ColorRect" parent="Cama/Durmiente" unique_id=1787315828]
+offset_left = -220.0
+offset_top = -98.0
+offset_right = -140.0
+offset_bottom = -78.0
+mouse_filter = 2
+color = Color(0.2, 0.12, 0.08, 1)
+
+[node name="OjosCerrados" type="Node2D" parent="Cama/Durmiente" unique_id=1253338005]
+
+[node name="OjoCerradoIzq" type="ColorRect" parent="Cama/Durmiente/OjosCerrados" unique_id=1509619708]
+offset_left = -203.0
+offset_top = -62.0
+offset_right = -185.0
+offset_bottom = -59.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="OjoCerradoDer" type="ColorRect" parent="Cama/Durmiente/OjosCerrados" unique_id=108884600]
+offset_left = -175.0
+offset_top = -62.0
+offset_right = -157.0
+offset_bottom = -59.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="OjosAbiertos" type="Node2D" parent="Cama/Durmiente" unique_id=279740107]
+visible = false
+
+[node name="OjoAbiertoIzq" type="ColorRect" parent="Cama/Durmiente/OjosAbiertos" unique_id=5097959]
+offset_left = -203.0
+offset_top = -68.0
+offset_right = -185.0
+offset_bottom = -52.0
+mouse_filter = 2
+
+[node name="PupilaIzq" type="ColorRect" parent="Cama/Durmiente/OjosAbiertos" unique_id=1653954540]
+offset_left = -197.0
+offset_top = -63.0
+offset_right = -191.0
+offset_bottom = -57.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="OjoAbiertoDer" type="ColorRect" parent="Cama/Durmiente/OjosAbiertos" unique_id=567230941]
+offset_left = -175.0
+offset_top = -68.0
+offset_right = -157.0
+offset_bottom = -52.0
+mouse_filter = 2
+
+[node name="PupilaDer" type="ColorRect" parent="Cama/Durmiente/OjosAbiertos" unique_id=255466146]
+offset_left = -169.0
+offset_top = -63.0
+offset_right = -163.0
+offset_bottom = -57.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Manta" type="ColorRect" parent="Cama/Durmiente" unique_id=712708376]
+offset_left = -140.0
+offset_top = -60.0
+offset_right = 250.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.2, 0.35, 0.6, 1)
+
+[node name="Zzz" type="Label" parent="Cama" unique_id=29472932]
+offset_left = -150.0
+offset_top = -170.0
+offset_right = -30.0
+offset_bottom = -120.0
+theme_override_colors/font_color = Color(0.9, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "Z z z"
+
+[node name="Interfaz" type="CanvasLayer" parent="." unique_id=1861267315]
+
+[node name="EtiquetaInfo" type="Label" parent="Interfaz" unique_id=1608221176]
+offset_top = 30.0
+offset_right = 1152.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 28
+text = "¡DESPERTALO!"
+horizontal_alignment = 1
+
+[node name="EtiquetaAyuda" type="Label" parent="Interfaz" unique_id=2004504391]
+offset_top = 75.0
+offset_right = 1152.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 20
+text = "Hacé clic o apretá ESPACIO lo más rápido que puedas"
+horizontal_alignment = 1
+
+[node name="BarraDespierto" type="ProgressBar" parent="Interfaz" unique_id=1330001588]
+offset_left = 376.0
+offset_top = 120.0
+offset_right = 776.0
+offset_bottom = 150.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_despierto")
+max_value = 1.0
+step = 0.0
+show_percentage = false
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=141532156]
+offset_top = 620.0
+offset_right = 1152.0
+offset_bottom = 647.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_tiempo")
+max_value = 1.0
+step = 0.0
