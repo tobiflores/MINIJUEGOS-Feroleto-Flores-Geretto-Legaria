@@ -20,6 +20,10 @@ var ancho: float = 1152.0
 var alto: float = 648.0
 
 func _ready() -> void:
+	var dificultad: float = gestorPartida.factor_dificultad()
+	tiempo_limite = maxf(tiempo_limite / dificultad, 0.75)
+	velocidad_min *= dificultad
+	velocidad_max *= dificultad
 	var tamano: Vector2 = get_viewport_rect().size
 	ancho = tamano.x
 	alto = tamano.y
@@ -68,9 +72,7 @@ func _terminar(resultado: float, mensaje: String) -> void:
 	terminado = true
 	Input.set_custom_mouse_cursor(null)
 	etiqueta_info.text = mensaje
-	await get_tree().create_timer(1.0).timeout
 	termino.emit(resultado)
-	queue_free()
 
 func _reprogramar_cambio() -> void:
 	cambio_en = randf_range(0.4, 1.0)

@@ -18,6 +18,9 @@ var puedeClickear: bool = false
 var terminado: bool = false
 
 func _ready() -> void:
+	var dificultad: float = gestorPartida.factor_dificultad()
+	tiempoLimite = maxf(tiempoLimite / dificultad, 6.0)
+	tiempoMostrarInicio = maxf(tiempoMostrarInicio / dificultad, 0.35)
 	cartas = [$GridContainer/Carta1, $GridContainer/Carta2, $GridContainer/Carta3, $GridContainer/Carta4, $GridContainer/Carta5, $GridContainer/Carta6, $GridContainer/Carta7, $GridContainer/Carta8]
 
 	var totalParejas: int = int(cartas.size() / 2.0)
@@ -105,4 +108,3 @@ func _cuando_se_acaba_el_tiempo() -> void:
 
 func terminar(resultado: float) -> void:
 	termino.emit(resultado)
-	queue_free()

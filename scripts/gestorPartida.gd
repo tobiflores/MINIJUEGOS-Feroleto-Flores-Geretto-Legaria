@@ -2,6 +2,10 @@ extends Node
 
 signal tiempo_agotado
 
+const VIDAS_INICIALES: int = 3
+const DIFICULTAD_POR_PISO: float = 0.2
+const DIFICULTAD_MAXIMA: float = 2.5
+
 const PENALIZACION_POR_ANIMAL: float = 20.0
 const CHANCE_PICKUP_BASE: float = 0.08
 const TIEMPO_ESCAPE_INICIAL: float = 300.0
@@ -34,7 +38,9 @@ const ITEMS_INFO: Dictionary = {
 }
 
 var pisoActual: int = 20
-var vidas: int = 3
+var vidas: int = VIDAS_INICIALES
+var pisos_bajados: int = 0
+var vecinos_ayudados: int = 0
 var glitchedquest: int = 0
 var tiene_atun: bool = false
 var chance_pickup: float = CHANCE_PICKUP_BASE
@@ -93,6 +99,22 @@ func iniciar_run() -> void:
 		"items": [],
 		"animales": [],
 	}
+
+func reiniciar_run() -> void:
+	run_iniciada = false
+	transicion_actual = null
+	vidas = VIDAS_INICIALES
+	pisos_bajados = 0
+	vecinos_ayudados = 0
+	glitchedquest = 0
+	tiene_atun = false
+	chance_pickup = CHANCE_PICKUP_BASE
+	gato_extra_chance = 0.0
+	tiempo_escape = TIEMPO_ESCAPE_INICIAL
+
+# Cada piso bajado endurece los minijuegos un 20% hasta un tope.
+func factor_dificultad() -> float:
+	return minf(1.0 + DIFICULTAD_POR_PISO * pisos_bajados, DIFICULTAD_MAXIMA)
 
 func tiempo_escape_formateado() -> String:
 	var total: int = int(ceil(tiempo_escape))
@@ -247,8 +269,11 @@ func resultado(
 
 	if not gano:
 		vidas -= 1
+	if gano:
+		vecinos_ayudados += 1
 	if piso_completo:
 		pisoActual -= 1
+		pisos_bajados += 1
 
 	if mostrar_transicion_despues:
 		await mostrar_transicion(gano)

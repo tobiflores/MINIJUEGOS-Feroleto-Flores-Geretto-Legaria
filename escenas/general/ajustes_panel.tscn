@@ -1,0 +1,143 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ajustes_panel.gd" id="1_panel"]
+[ext_resource type="FontFile" uid="uid://bcw1irlfqrc5x" path="res://fuentes/Frijole/Frijole-Regular.ttf" id="2_fuente"]
+
+[node name="AjustesPanel" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_panel")
+
+[node name="Sombra" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="Marco" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 124.0
+offset_right = 826.0
+offset_bottom = 524.0
+color = Color(0.16, 0.12, 0.14, 1)
+
+[node name="Borde" type="ColorRect" parent="Marco"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 494.0
+offset_bottom = 394.0
+color = Color(0.24, 0.18, 0.18, 1)
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 146.0
+offset_right = 826.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(1, 0.8, 0.45, 1)
+theme_override_fonts/font = ExtResource("2_fuente")
+theme_override_font_sizes/font_size = 32
+text = "AJUSTES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Filas" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 236.0
+offset_right = 786.0
+offset_bottom = 396.0
+theme_override_constants/separation = 24
+
+[node name="Maestro" type="HBoxContainer" parent="Filas"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Nombre" type="Label" parent="Filas/Maestro"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "General"
+
+[node name="Slider" type="HSlider" parent="Filas/Maestro"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+
+[node name="Valor" type="Label" parent="Filas/Maestro"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "100%"
+horizontal_alignment = 2
+
+[node name="Musica" type="HBoxContainer" parent="Filas"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Nombre" type="Label" parent="Filas/Musica"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Música"
+
+[node name="Slider" type="HSlider" parent="Filas/Musica"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+
+[node name="Valor" type="Label" parent="Filas/Musica"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "100%"
+horizontal_alignment = 2
+
+[node name="SFX" type="HBoxContainer" parent="Filas"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Nombre" type="Label" parent="Filas/SFX"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Efectos"
+
+[node name="Slider" type="HSlider" parent="Filas/SFX"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+
+[node name="Valor" type="Label" parent="Filas/SFX"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "100%"
+horizontal_alignment = 2
+
+[node name="Volver" type="Button" parent="."]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 440.0
+offset_right = 676.0
+offset_bottom = 490.0
+theme_override_font_sizes/font_size = 22
+text = "VOLVER"
+
+[connection signal="value_changed" from="Filas/Maestro/Slider" to="." method="_on_maestro_value_changed"]
+[connection signal="value_changed" from="Filas/Musica/Slider" to="." method="_on_musica_value_changed"]
+[connection signal="value_changed" from="Filas/SFX/Slider" to="." method="_on_sfx_value_changed"]
+[connection signal="pressed" from="Volver" to="." method="_on_volver_pressed"]

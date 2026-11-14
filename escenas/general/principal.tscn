@@ -7,6 +7,8 @@
 [ext_resource type="Resource" path="res://recursos/piso_1.tres" id="3_piso1"]
 [ext_resource type="Texture2D" uid="uid://b31lg8aeubsly" path="res://icon.svg" id="4_aanal"]
 [ext_resource type="PackedScene" path="res://escenas/general/jugador.tscn" id="4_jugador"]
+[ext_resource type="PackedScene" path="res://escenas/general/vidas_hud.tscn" id="5_vidas"]
+[ext_resource type="PackedScene" path="res://escenas/general/feedback.tscn" id="6_feedback"]
 
 [node name="Principal" type="Node2D" unique_id=218056312]
 script = ExtResource("1_dj7q0")
@@ -113,14 +115,12 @@ offset_bottom = 52.0
 theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
 theme_override_font_sizes/font_size = 24
 
-[node name="EtiquetaVidas" type="Label" parent="Interfaz" unique_id=1201170035]
-offset_left = 961.0
-offset_top = 14.0
-offset_right = 1128.0
-offset_bottom = 52.0
-theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
-theme_override_font_sizes/font_size = 22
-horizontal_alignment = 2
+[node name="VidasHud" parent="Interfaz" instance=ExtResource("5_vidas")]
+offset_left = 980.0
+offset_top = 12.0
+offset_right = 1120.0
+offset_bottom = 50.0
+grow_horizontal = 0
 
 [node name="EtiquetaInteraccion" type="Label" parent="Interfaz" unique_id=1201170036]
 offset_left = 416.0
@@ -140,3 +140,5 @@ offset_bottom = 112.0
 theme_override_colors/font_color = Color(0.62, 0.878431, 0.517647, 1)
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
+
+[node name="Feedback" parent="." instance=ExtResource("6_feedback")]

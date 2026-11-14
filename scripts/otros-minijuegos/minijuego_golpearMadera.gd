@@ -18,6 +18,10 @@ var yaGolpeo: bool = false
 var segmentos: Array[ColorRect] = []
 
 func _ready() -> void:
+	var dificultad: float = gestorPartida.factor_dificultad()
+	tiempoLimite = maxf(tiempoLimite / dificultad, 4.0)
+	velocidadBarra *= dificultad
+	zona_roja_min = minf(zona_roja_min + 0.06 * (dificultad - 1.0), 0.92)
 	$Musica.play()
 	segmentos = [$Fuerza1, $Fuerza2, $Fuerza3, $Fuerza4, $Fuerza5, $Fuerza6, $Fuerza7, $Fuerza8, $Fuerza9, $Fuerza10]
 	$Instruccion.text = "GOLPEÁ LA PUERTA"
@@ -95,4 +99,3 @@ func _actualizar_segmentos() -> void:
 func terminar(resultado: float) -> void:
 	$Musica.stop()
 	termino.emit(resultado)
-	queue_free()

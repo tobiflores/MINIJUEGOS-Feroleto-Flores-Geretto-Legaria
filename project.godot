@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="minijuegos"
-run/main_scene="res://escenas/general/overworld.tscn"
+run/main_scene="res://escenas/general/menu.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 gestorPartida="*uid://cbiycrc5jw1ql"
+ajustes="*res://scripts/ajustes.gd"
 
 [input]
 

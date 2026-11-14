@@ -63,10 +63,12 @@ offset_bottom = 124.0
 [node name="Musica" type="AudioStreamPlayer2D" parent="." unique_id=2020611094]
 stream = ExtResource("6_eosf5")
 volume_db = -10.692
+bus = &"Musica"
 
 [node name="SonidoMadera" type="AudioStreamPlayer2D" parent="." unique_id=594350697]
 stream = ExtResource("7_fbf3g")
 volume_db = -10.692
+bus = &"SFX"
 
 [node name="Fuerza1" type="ColorRect" parent="." unique_id=1984878306]
 offset_left = 1041.0

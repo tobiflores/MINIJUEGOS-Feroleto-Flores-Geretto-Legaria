@@ -16,6 +16,7 @@ var angulos: Array[float] = []
 var terminado: bool = false
 
 func _ready() -> void:
+	tiempo_limite = maxf(tiempo_limite / gestorPartida.factor_dificultad(), 6.0)
 	barra_tiempo.value = barra_tiempo.max_value
 	Input.set_custom_mouse_cursor(texturaCursor)
 
@@ -70,6 +71,4 @@ func _terminar(resultado: float, mensaje: String) -> void:
 	terminado = true
 	Input.set_custom_mouse_cursor(null)
 	etiqueta_info.text = mensaje
-	await get_tree().create_timer(1.0).timeout
 	termino.emit(resultado)
-	queue_free()

@@ -1,17 +1,349 @@
-[gd_scene format=3 uid="uid://5ytbmcbtm336"]
+[gd_scene format=3 uid="uid://dt5e4wwehtfvl"]
 
-[ext_resource type="Texture2D" uid="uid://oa4mnr44xa7x" path="res://imagenes/edificio.png" id="1_e8rns"]
+[ext_resource type="Script" uid="uid://dkv4ga78pgpvm" path="res://scripts/menu.gd" id="1_menu"]
+[ext_resource type="FontFile" uid="uid://bcw1irlfqrc5x" path="res://fuentes/Frijole/Frijole-Regular.ttf" id="2_fuente"]
+[ext_resource type="PackedScene" path="res://escenas/general/ajustes_panel.tscn" id="3_ajustes"]
 
-[node name="Node2D" type="Node2D" unique_id=686049770]
-scale = Vector2(0.9, 0.9)
+[node name="Menu" type="Control" unique_id=1234261196]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=917807602]
-offset_left = 2.2222223
-offset_top = -34.444443
-offset_right = 1282.2223
-offset_bottom = 731.55554
-texture = ExtResource("1_e8rns")
+[node name="Cielo" type="ColorRect" parent="." unique_id=120478645]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.05, 0.04, 0.09, 1)
 
-[node name="Button" type="Button" parent="." unique_id=489674484]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Resp1" type="ColorRect" parent="." unique_id=1053723043]
+layout_mode = 0
+offset_top = 420.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(1, 0.45, 0.1, 0.1)
+
+[node name="Resplandor2" type="ColorRect" parent="." unique_id=473962432]
+layout_mode = 0
+offset_top = 500.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(1, 0.4, 0.05, 0.12)
+
+[node name="Resplandor3" type="ColorRect" parent="." unique_id=1424417731]
+layout_mode = 0
+offset_top = 570.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(1, 0.35, 0, 0.15)
+
+[node name="Edificio" type="Node2D" parent="." unique_id=748377923]
+
+[node name="Cuerpo" type="ColorRect" parent="Edificio" unique_id=1796086425]
+offset_left = 740.0
+offset_top = 110.0
+offset_right = 960.0
+offset_bottom = 600.0
+mouse_filter = 2
+color = Color(0.13, 0.12, 0.17, 1)
+
+[node name="Cornisa" type="ColorRect" parent="Edificio" unique_id=76140943]
+offset_left = 730.0
+offset_top = 100.0
+offset_right = 970.0
+offset_bottom = 118.0
+mouse_filter = 2
+color = Color(0.2, 0.18, 0.24, 1)
+
+[node name="Puerta" type="ColorRect" parent="Edificio" unique_id=2110672637]
+offset_left = 830.0
+offset_top = 540.0
+offset_right = 870.0
+offset_bottom = 600.0
+mouse_filter = 2
+color = Color(0.35, 0.22, 0.14, 1)
+
+[node name="V_F1C1" type="ColorRect" parent="Edificio" unique_id=1224945264]
+offset_left = 765.0
+offset_top = 140.0
+offset_right = 805.0
+offset_bottom = 192.0
+mouse_filter = 2
+color = Color(0.95, 0.8, 0.4, 1)
+
+[node name="V_F1C2" type="ColorRect" parent="Edificio" unique_id=539616422]
+offset_left = 835.0
+offset_top = 140.0
+offset_right = 875.0
+offset_bottom = 192.0
+mouse_filter = 2
+color = Color(0.12, 0.14, 0.22, 1)
+
+[node name="V_F1C3" type="ColorRect" parent="Edificio" unique_id=2081894016 groups=["fuego"]]
+offset_left = 905.0
+offset_top = 140.0
+offset_right = 945.0
+offset_bottom = 192.0
+mouse_filter = 2
+color = Color(1, 0.45, 0.1, 1)
+
+[node name="V_F2C1" type="ColorRect" parent="Edificio" unique_id=1337717248 groups=["fuego"]]
+offset_left = 765.0
+offset_top = 218.0
+offset_right = 805.0
+offset_bottom = 270.0
+mouse_filter = 2
+color = Color(1, 0.45, 0.1, 1)
+
+[node name="V_F2C2" type="ColorRect" parent="Edificio" unique_id=2094889827]
+offset_left = 835.0
+offset_top = 218.0
+offset_right = 875.0
+offset_bottom = 270.0
+mouse_filter = 2
+color = Color(0.95, 0.8, 0.4, 1)
+
+[node name="V_F2C3" type="ColorRect" parent="Edificio" unique_id=320933529]
+offset_left = 905.0
+offset_top = 218.0
+offset_right = 945.0
+offset_bottom = 270.0
+mouse_filter = 2
+color = Color(0.12, 0.14, 0.22, 1)
+
+[node name="V_F3C1" type="ColorRect" parent="Edificio" unique_id=1902160001]
+offset_left = 765.0
+offset_top = 296.0
+offset_right = 805.0
+offset_bottom = 348.0
+mouse_filter = 2
+color = Color(0.12, 0.14, 0.22, 1)
+
+[node name="V_F3C2" type="ColorRect" parent="Edificio" unique_id=1168712593 groups=["fuego"]]
+offset_left = 835.0
+offset_top = 296.0
+offset_right = 875.0
+offset_bottom = 348.0
+mouse_filter = 2
+color = Color(1, 0.45, 0.1, 1)
+
+[node name="V_F3C3" type="ColorRect" parent="Edificio" unique_id=1996717784]
+offset_left = 905.0
+offset_top = 296.0
+offset_right = 945.0
+offset_bottom = 348.0
+mouse_filter = 2
+color = Color(0.95, 0.8, 0.4, 1)
+
+[node name="V_F4C1" type="ColorRect" parent="Edificio" unique_id=1900371917]
+offset_left = 765.0
+offset_top = 374.0
+offset_right = 805.0
+offset_bottom = 426.0
+mouse_filter = 2
+color = Color(0.95, 0.8, 0.4, 1)
+
+[node name="V_F4C2" type="ColorRect" parent="Edificio" unique_id=120544965]
+offset_left = 835.0
+offset_top = 374.0
+offset_right = 875.0
+offset_bottom = 426.0
+mouse_filter = 2
+color = Color(0.12, 0.14, 0.22, 1)
+
+[node name="V_F4C3" type="ColorRect" parent="Edificio" unique_id=1382091448 groups=["fuego"]]
+offset_left = 905.0
+offset_top = 374.0
+offset_right = 945.0
+offset_bottom = 426.0
+mouse_filter = 2
+color = Color(1, 0.45, 0.1, 1)
+
+[node name="V_F5C1" type="ColorRect" parent="Edificio" unique_id=2104862537]
+offset_left = 765.0
+offset_top = 452.0
+offset_right = 805.0
+offset_bottom = 504.0
+mouse_filter = 2
+color = Color(0.12, 0.14, 0.22, 1)
+
+[node name="V_F5C2" type="ColorRect" parent="Edificio" unique_id=270512292]
+offset_left = 835.0
+offset_top = 452.0
+offset_right = 875.0
+offset_bottom = 504.0
+mouse_filter = 2
+color = Color(0.95, 0.8, 0.4, 1)
+
+[node name="V_F5C3" type="ColorRect" parent="Edificio" unique_id=1075961084]
+offset_left = 905.0
+offset_top = 452.0
+offset_right = 945.0
+offset_bottom = 504.0
+mouse_filter = 2
+color = Color(0.95, 0.8, 0.4, 1)
+
+[node name="LlamaTecho1" type="Polygon2D" parent="Edificio" unique_id=1822635416 groups=["fuego"]]
+position = Vector2(790, 100)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/LlamaTecho1" unique_id=1579196922]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="LlamaTecho2" type="Polygon2D" parent="Edificio" unique_id=1660265790 groups=["fuego"]]
+position = Vector2(860, 100)
+scale = Vector2(1.5, 1.5)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/LlamaTecho2" unique_id=858098835]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="LlamaTecho3" type="Polygon2D" parent="Edificio" unique_id=460593304 groups=["fuego"]]
+position = Vector2(930, 100)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/LlamaTecho3" unique_id=432115900]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="Calle" type="ColorRect" parent="." unique_id=811683919]
+layout_mode = 0
+offset_top = 600.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.08, 0.07, 0.1, 1)
+
+[node name="Titulo" type="Label" parent="." unique_id=1590575801]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 19.0
+offset_right = 690.0
+offset_bottom = 226.0
+theme_override_colors/font_color = Color(1, 0.8, 0.45, 1)
+theme_override_fonts/font = ExtResource("2_fuente")
+theme_override_font_sizes/font_size = 48
+text = "FIRE
+ESCAPE"
+
+[node name="Botones" type="VBoxContainer" parent="." unique_id=1884092032]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 320.0
+offset_right = 340.0
+offset_bottom = 580.0
+theme_override_constants/separation = 14
+
+[node name="Jugar" type="Button" parent="Botones" unique_id=1407383003]
+custom_minimum_size = Vector2(280, 54)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "JUGAR"
+
+[node name="Ajustes" type="Button" parent="Botones" unique_id=317431501]
+custom_minimum_size = Vector2(280, 54)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "AJUSTES"
+
+[node name="Creditos" type="Button" parent="Botones" unique_id=1409091677]
+custom_minimum_size = Vector2(280, 54)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "CRÉDITOS"
+
+[node name="Salir" type="Button" parent="Botones" unique_id=1262559778]
+custom_minimum_size = Vector2(280, 54)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SALIR"
+
+[node name="PanelCreditos" type="Control" parent="." unique_id=418340533]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sombra" type="ColorRect" parent="PanelCreditos" unique_id=23160186]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="Marco" type="ColorRect" parent="PanelCreditos" unique_id=1881651474]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 124.0
+offset_right = 826.0
+offset_bottom = 524.0
+color = Color(0.16, 0.12, 0.14, 1)
+
+[node name="Borde" type="ColorRect" parent="PanelCreditos/Marco" unique_id=648001413]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 494.0
+offset_bottom = 394.0
+color = Color(0.24, 0.18, 0.18, 1)
+
+[node name="Titulo" type="Label" parent="PanelCreditos" unique_id=1479348623]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 146.0
+offset_right = 826.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(1, 0.8, 0.45, 1)
+theme_override_fonts/font = ExtResource("2_fuente")
+theme_override_font_sizes/font_size = 32
+text = "CRÉDITOS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nombres" type="Label" parent="PanelCreditos" unique_id=787536802]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 230.0
+offset_right = 826.0
+offset_bottom = 420.0
+theme_override_font_sizes/font_size = 26
+text = "Selene Feroleto
+Tobías Flores
+Santino Geretto
+Javier Legaria"
+horizontal_alignment = 1
+
+[node name="Volver" type="Button" parent="PanelCreditos" unique_id=494475638]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 440.0
+offset_right = 676.0
+offset_bottom = 490.0
+theme_override_font_sizes/font_size = 22
+text = "VOLVER"
+
+[node name="AjustesPanel" parent="." unique_id=2078065310 instance=ExtResource("3_ajustes")]
+layout_mode = 1
+
+[connection signal="pressed" from="Botones/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="Botones/Ajustes" to="." method="_on_ajustes_pressed"]
+[connection signal="pressed" from="Botones/Creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="Botones/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="PanelCreditos/Volver" to="." method="_on_creditos_volver_pressed"]

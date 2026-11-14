@@ -2,21 +2,19 @@ extends Node2D
 
 const PUERTA_DIRECTA_ANCHO: float = 146.0
 const PUERTA_DIRECTA_Y_MAX: float = 380.0
+const ESCENA_MUERTE: String = "res://escenas/general/pantalla_muerte.tscn"
 
 @export var pisos: Array[PisoMinijuegos] = []
 @export var texturaVecino: Texture2D
 
 @onready var jugador: CharacterBody2D = $Jugador
 @onready var etiqueta_piso: Label = $Interfaz/EtiquetaPiso
-@onready var etiqueta_vidas: Label = $Interfaz/EtiquetaVidas
+@onready var vidas_hud: HBoxContainer = $Interfaz/VidasHud
+@onready var feedback: CanvasLayer = $Feedback
 @onready var etiqueta_interaccion: Label = $Interfaz/EtiquetaInteraccion
 @onready var etiqueta_estado: Label = $Interfaz/EtiquetaEstado
 
-const NOMBRES_NUEVOS: Array[String] = ["Marta", "Bruno", "Sofia", "Lucas", "Camila", "Diego", "Julia", "Mateo", "Paula", "Hugo", "Elena", "Pablo"]
-
 var indice_piso_actual: int = 0
-var vuelta_pisos: int = 0
-var nombres_disponibles: Array[String] = []
 var departamentos_resueltos: Array[bool] = []
 var departamentos_intentados: Array[bool] = []
 var posiciones_vecinos: Array[Vector2] = []
@@ -71,26 +69,11 @@ func _crear_vecinos() -> void:
 		vecino.scale = Vector2(0.28, 0.28)
 		vecino.visible = false
 		add_child(vecino)
-
-		var etiqueta := Label.new()
-		etiqueta.text = departamentos[indice].habitante if vuelta_pisos == 0 else _nombre_nuevo()
-		etiqueta.position = Vector2(-100, -120)
-		etiqueta.size = Vector2(200, 30)
-		etiqueta.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		etiqueta.add_theme_color_override("font_color", Color("#fff0c9"))
-		etiqueta.add_theme_font_size_override("font_size", 18)
-		vecino.add_child(etiqueta)
 		vecinos.append(vecino)
-
-func _nombre_nuevo() -> String:
-	if nombres_disponibles.is_empty():
-		nombres_disponibles.assign(NOMBRES_NUEVOS)
-		nombres_disponibles.shuffle()
-	return nombres_disponibles.pop_back()
 
 func _actualizar_hud() -> void:
 	etiqueta_piso.text = "PISO %d" % gestorPartida.pisoActual
-	etiqueta_vidas.text = "VIDAS  %d" % gestorPartida.vidas
+	vidas_hud.actualizar(gestorPartida.vidas)
 
 func _process(_delta: float) -> void:
 	if minijuego_activo or partida_terminada:
@@ -119,10 +102,10 @@ func _entrar_al_departamento(indice: int) -> void:
 	jugador.set_physics_process(false)
 	$Jugador/CollisionShape2D.set_deferred("disabled", true)
 	etiqueta_interaccion.hide()
-	minijuego.connect("termino", _cuando_termina_minijuego.bind(indice))
+	minijuego.connect("termino", _cuando_termina_minijuego.bind(indice, minijuego))
 	add_child(minijuego)
 
-func _cuando_termina_minijuego(resultado: float, indice: int) -> void:
+func _cuando_termina_minijuego(resultado: float, indice: int, minijuego: Node) -> void:
 	var gano: bool = resultado >= 1.0
 	departamentos_intentados[indice] = true
 	if gano:
@@ -133,21 +116,28 @@ func _cuando_termina_minijuego(resultado: float, indice: int) -> void:
 	var piso_completo: bool = todos_intentados
 	var hay_otro_piso: bool = piso_completo
 
+	if gano:
+		await feedback.mostrar(true, "¡MUY BIEN!")
+	else:
+		vidas_hud.actualizar(gestorPartida.vidas - 1)
+		await feedback.mostrar(false, "FALLIDO")
+
+	if is_instance_valid(minijuego):
+		minijuego.queue_free()
+
 	await gestorPartida.resultado(resultado, piso_completo, todos_intentados)
 	minijuego_activo = false
 	_actualizar_hud()
 
 	if gestorPartida.vidas <= 0:
 		partida_terminada = true
-		etiqueta_estado.text = "SIN VIDAS"
-		etiqueta_estado.show()
+		get_tree().change_scene_to_file.call_deferred(ESCENA_MUERTE)
 		return
 
 	if hay_otro_piso:
 		indice_piso_actual += 1
 		if indice_piso_actual >= pisos.size():
 			indice_piso_actual = 0
-			vuelta_pisos += 1
 			gestorPartida.configurar_pisos(pisos.size())
 		_inicializar_departamentos()
 		_crear_vecinos()

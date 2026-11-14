@@ -35,4 +35,3 @@ func _iniciar_minijuego() -> void:
 
 func _cuando_termina_minijuego(resultado: float) -> void:
 	termino.emit(resultado)
-	queue_free()

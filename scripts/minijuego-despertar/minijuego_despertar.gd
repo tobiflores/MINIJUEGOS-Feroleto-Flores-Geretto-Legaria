@@ -20,6 +20,10 @@ var terminado: bool = false
 var posicion_cama: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
+	var dificultad: float = gestorPartida.factor_dificultad()
+	tiempo_limite = maxf(tiempo_limite / dificultad, 3.0)
+	perdida_por_segundo *= dificultad
+	aumento_por_toque /= sqrt(dificultad)
 	posicion_cama = cama.position
 	barra_tiempo.value = barra_tiempo.max_value
 	barra_despierto.value = 0.0
@@ -69,6 +73,4 @@ func _terminar(resultado: float, mensaje: String) -> void:
 	terminado = true
 	Input.set_custom_mouse_cursor(null)
 	etiqueta_info.text = mensaje
-	await get_tree().create_timer(1.0).timeout
 	termino.emit(resultado)
-	queue_free()
