@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://dk2jrxg65v5hn"]
+
+[ext_resource type="Script" uid="uid://b0aeockxn2f83" path="res://scripts/diario.gd" id="1_diario"]
+[ext_resource type="FontFile" uid="uid://bcw1irlfqrc5x" path="res://fuentes/Frijole/Frijole-Regular.ttf" id="2_fuente"]
+[ext_resource type="Texture2D" uid="uid://bltcog42fq5bg" path="res://imagenes/PersonajeIzquierda.png" id="3_personaje"]
+
+[node name="Diario" type="Control" unique_id=23761622]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_diario")
+
+[node name="Marron" type="ColorRect" parent="." unique_id=250684545]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.3, 0.2, 0.14, 1)
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1756266737]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 24.0
+offset_right = 1030.0
+offset_bottom = 618.0
+mouse_filter = 2
+color = Color(0.93, 0.9, 0.8, 1)
+
+[node name="Nombre" type="Label" parent="." unique_id=69175481]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 36.0
+offset_right = 1030.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.12315822, 0.09985284, 0.8977666, 1)
+theme_override_fonts/font = ExtResource("2_fuente")
+theme_override_font_sizes/font_size = 36
+text = "LA NACIÓN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Linea" type="ColorRect" parent="." unique_id=65538990]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 102.0
+offset_right = 1000.0
+offset_bottom = 106.0
+mouse_filter = 2
+color = Color(0.12, 0.1, 0.08, 1)
+
+[node name="Titular" type="Label" parent="." unique_id=787393559]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 107.0
+offset_right = 993.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(0.12, 0.1, 0.08, 1)
+theme_override_font_sizes/font_size = 40
+text = "VECINA SALVA A SU EDIFICIO DEL INCENDIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Linea2" type="ColorRect" parent="." unique_id=1542168353]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 214.0
+offset_right = 1000.0
+offset_bottom = 217.0
+mouse_filter = 2
+color = Color(0.12, 0.1, 0.08, 1)
+
+[node name="Foto" type="ColorRect" parent="." unique_id=1128321306]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 240.0
+offset_right = 440.0
+offset_bottom = 500.0
+mouse_filter = 2
+color = Color(0.15, 0.13, 0.1, 1)
+
+[node name="Foto2" type="ColorRect" parent="Foto" unique_id=101397536]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 272.0
+offset_bottom = 252.0
+mouse_filter = 2
+color = Color(0.6, 0.6, 0.55, 1)
+
+[node name="Protagonista" type="Sprite2D" parent="Foto" unique_id=1840991422]
+position = Vector2(140, 130)
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("3_personaje")
+
+[node name="Texto" type="Label" parent="." unique_id=1254430702]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 240.0
+offset_right = 1000.0
+offset_bottom = 520.0
+theme_override_colors/font_color = Color(0.15, 0.13, 0.1, 1)
+theme_override_font_sizes/font_size = 22
+text = "Anoche se desató un incendio en un edificio del barrio de Pueyrredón. Una vecina recorrió los pisos ayudando a cada vecino: Salvó la vida de todos y el presidente quiere darle un reconocimiento nacional.
+
+Los testigos que presenciaron el suceso la aplaudieron y reconocieron con euforia."
+autowrap_mode = 3
+
+[node name="Volver" type="Button" parent="." unique_id=1921241807]
+visible = false
+layout_mode = 0
+offset_left = 680.0
+offset_top = 548.0
+offset_right = 940.0
+offset_bottom = 596.0
+theme_override_font_sizes/font_size = 20
+text = "VOLVER AL MENÚ"
+
+[node name="Flecha" type="Node2D" parent="." unique_id=1325740164]
+visible = false
+position = Vector2(960, 572)
+
+[node name="Cuerpo" type="ColorRect" parent="Flecha" unique_id=1283699230]
+offset_top = -5.0
+offset_right = 30.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0.12, 0.1, 0.08, 1)
+
+[node name="Punta" type="Polygon2D" parent="Flecha" unique_id=1639084396]
+position = Vector2(30, 0)
+color = Color(0.12, 0.1, 0.08, 1)
+polygon = PackedVector2Array(0, -16, 26, 0, 0, 16)
+
+[connection signal="pressed" from="Volver" to="." method="_on_volver_pressed"]

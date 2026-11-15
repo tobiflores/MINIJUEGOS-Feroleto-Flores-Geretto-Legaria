@@ -5,7 +5,6 @@
 [ext_resource type="Resource" path="res://recursos/piso_3.tres" id="3_piso3"]
 [ext_resource type="Resource" path="res://recursos/piso_2.tres" id="3_piso2"]
 [ext_resource type="Resource" path="res://recursos/piso_1.tres" id="3_piso1"]
-[ext_resource type="Texture2D" uid="uid://b31lg8aeubsly" path="res://icon.svg" id="4_aanal"]
 [ext_resource type="PackedScene" path="res://escenas/general/jugador.tscn" id="4_jugador"]
 [ext_resource type="PackedScene" path="res://escenas/general/vidas_hud.tscn" id="5_vidas"]
 [ext_resource type="PackedScene" path="res://escenas/general/feedback.tscn" id="6_feedback"]
@@ -13,7 +12,6 @@
 [node name="Principal" type="Node2D" unique_id=218056312]
 script = ExtResource("1_dj7q0")
 pisos = Array[ExtResource("2_piso_script")]([ExtResource("3_piso3"), ExtResource("3_piso2"), ExtResource("3_piso1")])
-texturaVecino = ExtResource("4_aanal")
 
 [node name="Fondo" type="ColorRect" parent="." unique_id=1201170031]
 offset_right = 1152.0
@@ -121,24 +119,5 @@ offset_top = 12.0
 offset_right = 1120.0
 offset_bottom = 50.0
 grow_horizontal = 0
-
-[node name="EtiquetaInteraccion" type="Label" parent="Interfaz" unique_id=1201170036]
-offset_left = 416.0
-offset_top = 585.0
-offset_right = 736.0
-offset_bottom = 625.0
-theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
-theme_override_font_sizes/font_size = 24
-text = "E  HABLAR"
-horizontal_alignment = 1
-
-[node name="EtiquetaEstado" type="Label" parent="Interfaz" unique_id=1201170037]
-offset_left = 276.0
-offset_top = 72.0
-offset_right = 876.0
-offset_bottom = 112.0
-theme_override_colors/font_color = Color(0.62, 0.878431, 0.517647, 1)
-theme_override_font_sizes/font_size = 24
-horizontal_alignment = 1
 
 [node name="Feedback" parent="." instance=ExtResource("6_feedback")]

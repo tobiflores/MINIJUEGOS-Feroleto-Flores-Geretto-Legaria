@@ -1,0 +1,122 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/minijuego-caja/minijuego_caja.gd" id="1_caja"]
+[ext_resource type="Texture2D" uid="uid://cwmhbr3kdd45l" path="res://imagenes/pink cursor.png" id="2_cursor"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tiempo"]
+bg_color = Color(0.09240068, 0.19522923, 0.53666794, 1)
+
+[node name="Minijuego-Caja" type="Node2D"]
+script = ExtResource("1_caja")
+texturaCursor = ExtResource("2_cursor")
+
+[node name="Fondo" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.17, 0.2, 0.24, 1)
+
+[node name="Caja" type="Node2D" parent="."]
+
+[node name="Cuerpo" type="ColorRect" parent="Caja"]
+offset_left = 120.0
+offset_top = 160.0
+offset_right = 480.0
+offset_bottom = 500.0
+mouse_filter = 2
+color = Color(0.3, 0.32, 0.36, 1)
+
+[node name="Interior" type="ColorRect" parent="Caja"]
+offset_left = 150.0
+offset_top = 190.0
+offset_right = 450.0
+offset_bottom = 470.0
+mouse_filter = 2
+color = Color(0.07, 0.07, 0.09, 1)
+
+[node name="Billetes" type="ColorRect" parent="Caja"]
+offset_left = 200.0
+offset_top = 390.0
+offset_right = 330.0
+offset_bottom = 450.0
+mouse_filter = 2
+color = Color(0.3, 0.6, 0.35, 1)
+
+[node name="Puerta" type="ColorRect" parent="Caja"]
+offset_left = 150.0
+offset_top = 190.0
+offset_right = 450.0
+offset_bottom = 470.0
+clip_contents = true
+mouse_filter = 2
+color = Color(0.5, 0.52, 0.57, 1)
+
+[node name="Dial" type="ColorRect" parent="Caja/Puerta"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 100.0
+offset_right = 180.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.2, 0.2, 0.24, 1)
+
+[node name="Manija" type="ColorRect" parent="Caja/Puerta"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 120.0
+offset_right = 270.0
+offset_bottom = 150.0
+mouse_filter = 2
+color = Color(0.85, 0.75, 0.3, 1)
+
+[node name="Botones" type="Node2D" parent="."]
+
+[node name="Rojo" type="ColorRect" parent="Botones"]
+offset_left = 600.0
+offset_top = 160.0
+offset_right = 760.0
+offset_bottom = 320.0
+mouse_filter = 2
+color = Color(0.7, 0.18, 0.18, 1)
+
+[node name="Azul" type="ColorRect" parent="Botones"]
+offset_left = 780.0
+offset_top = 160.0
+offset_right = 940.0
+offset_bottom = 320.0
+mouse_filter = 2
+color = Color(0.2, 0.35, 0.75, 1)
+
+[node name="Verde" type="ColorRect" parent="Botones"]
+offset_left = 600.0
+offset_top = 340.0
+offset_right = 760.0
+offset_bottom = 500.0
+mouse_filter = 2
+color = Color(0.2, 0.6, 0.3, 1)
+
+[node name="Amarillo" type="ColorRect" parent="Botones"]
+offset_left = 780.0
+offset_top = 340.0
+offset_right = 940.0
+offset_bottom = 500.0
+mouse_filter = 2
+color = Color(0.8, 0.7, 0.2, 1)
+
+[node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="EtiquetaInfo" type="Label" parent="Interfaz"]
+offset_top = 50.0
+offset_right = 1152.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_top = 620.0
+offset_right = 1152.0
+offset_bottom = 647.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_tiempo")
+max_value = 1.0
+step = 0.0

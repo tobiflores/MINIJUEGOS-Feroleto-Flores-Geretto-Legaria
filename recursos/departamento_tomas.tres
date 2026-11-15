@@ -5,6 +5,4 @@
 
 [resource]
 script = ExtResource("1_script")
-nombre = "Problema"
-problematica = "Ayudar al ciego a encontrar la salida"
 escena_minijuego = ExtResource("2_game")

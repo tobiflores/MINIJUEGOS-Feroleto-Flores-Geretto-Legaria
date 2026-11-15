@@ -1,0 +1,451 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/minijuego-final/minijuego_final.gd" id="1_final"]
+[ext_resource type="Texture2D" uid="uid://cwmhbr3kdd45l" path="res://imagenes/pink cursor.png" id="2_cursor"]
+[ext_resource type="FontFile" uid="uid://bcw1irlfqrc5x" path="res://fuentes/Frijole/Frijole-Regular.ttf" id="3_fuente"]
+
+[node name="Minijuego-Final" type="Node2D"]
+script = ExtResource("1_final")
+texturaCursor = ExtResource("2_cursor")
+
+[node name="Cielo" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.06, 0.05, 0.1, 1)
+
+[node name="Resplandor" type="ColorRect" parent="."]
+offset_top = 250.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(1, 0.4, 0.05, 0.1)
+
+[node name="Calle" type="ColorRect" parent="."]
+offset_top = 590.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.14, 0.14, 0.17, 1)
+
+[node name="Edificio" type="Node2D" parent="."]
+
+[node name="Cuerpo" type="ColorRect" parent="Edificio"]
+offset_left = 300.0
+offset_top = 60.0
+offset_right = 850.0
+offset_bottom = 590.0
+mouse_filter = 2
+color = Color(0.14, 0.13, 0.18, 1)
+
+[node name="Cornisa" type="ColorRect" parent="Edificio"]
+offset_left = 290.0
+offset_top = 48.0
+offset_right = 860.0
+offset_bottom = 66.0
+mouse_filter = 2
+color = Color(0.22, 0.2, 0.26, 1)
+
+[node name="Ventanas" type="Node2D" parent="Edificio"]
+
+[node name="V1" type="Node2D" parent="Edificio/Ventanas"]
+position = Vector2(335, 90)
+
+[node name="Marco" type="ColorRect" parent="Edificio/Ventanas/V1"]
+offset_right = 100.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.14, 1)
+
+[node name="Vidrio" type="ColorRect" parent="Edificio/Ventanas/V1"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.85, 0.35, 0.1, 1)
+
+[node name="Llama" type="Polygon2D" parent="Edificio/Ventanas/V1"]
+position = Vector2(50, 84)
+scale = Vector2(2, 2)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/Ventanas/V1/Llama"]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="V2" type="Node2D" parent="Edificio/Ventanas"]
+position = Vector2(525, 90)
+
+[node name="Marco" type="ColorRect" parent="Edificio/Ventanas/V2"]
+offset_right = 100.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.14, 1)
+
+[node name="Vidrio" type="ColorRect" parent="Edificio/Ventanas/V2"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.85, 0.35, 0.1, 1)
+
+[node name="Llama" type="Polygon2D" parent="Edificio/Ventanas/V2"]
+position = Vector2(50, 84)
+scale = Vector2(2, 2)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/Ventanas/V2/Llama"]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="V3" type="Node2D" parent="Edificio/Ventanas"]
+position = Vector2(715, 90)
+
+[node name="Marco" type="ColorRect" parent="Edificio/Ventanas/V3"]
+offset_right = 100.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.14, 1)
+
+[node name="Vidrio" type="ColorRect" parent="Edificio/Ventanas/V3"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.85, 0.35, 0.1, 1)
+
+[node name="Llama" type="Polygon2D" parent="Edificio/Ventanas/V3"]
+position = Vector2(50, 84)
+scale = Vector2(2, 2)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/Ventanas/V3/Llama"]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="V4" type="Node2D" parent="Edificio/Ventanas"]
+position = Vector2(335, 215)
+
+[node name="Marco" type="ColorRect" parent="Edificio/Ventanas/V4"]
+offset_right = 100.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.14, 1)
+
+[node name="Vidrio" type="ColorRect" parent="Edificio/Ventanas/V4"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.85, 0.35, 0.1, 1)
+
+[node name="Llama" type="Polygon2D" parent="Edificio/Ventanas/V4"]
+position = Vector2(50, 84)
+scale = Vector2(2, 2)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/Ventanas/V4/Llama"]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="V5" type="Node2D" parent="Edificio/Ventanas"]
+position = Vector2(525, 215)
+
+[node name="Marco" type="ColorRect" parent="Edificio/Ventanas/V5"]
+offset_right = 100.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.14, 1)
+
+[node name="Vidrio" type="ColorRect" parent="Edificio/Ventanas/V5"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.85, 0.35, 0.1, 1)
+
+[node name="Llama" type="Polygon2D" parent="Edificio/Ventanas/V5"]
+position = Vector2(50, 84)
+scale = Vector2(2, 2)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/Ventanas/V5/Llama"]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="V6" type="Node2D" parent="Edificio/Ventanas"]
+position = Vector2(715, 215)
+
+[node name="Marco" type="ColorRect" parent="Edificio/Ventanas/V6"]
+offset_right = 100.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.14, 1)
+
+[node name="Vidrio" type="ColorRect" parent="Edificio/Ventanas/V6"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.85, 0.35, 0.1, 1)
+
+[node name="Llama" type="Polygon2D" parent="Edificio/Ventanas/V6"]
+position = Vector2(50, 84)
+scale = Vector2(2, 2)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/Ventanas/V6/Llama"]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="V7" type="Node2D" parent="Edificio/Ventanas"]
+position = Vector2(335, 340)
+
+[node name="Marco" type="ColorRect" parent="Edificio/Ventanas/V7"]
+offset_right = 100.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.14, 1)
+
+[node name="Vidrio" type="ColorRect" parent="Edificio/Ventanas/V7"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.85, 0.35, 0.1, 1)
+
+[node name="Llama" type="Polygon2D" parent="Edificio/Ventanas/V7"]
+position = Vector2(50, 84)
+scale = Vector2(2, 2)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/Ventanas/V7/Llama"]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="V8" type="Node2D" parent="Edificio/Ventanas"]
+position = Vector2(525, 340)
+
+[node name="Marco" type="ColorRect" parent="Edificio/Ventanas/V8"]
+offset_right = 100.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.14, 1)
+
+[node name="Vidrio" type="ColorRect" parent="Edificio/Ventanas/V8"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.85, 0.35, 0.1, 1)
+
+[node name="Llama" type="Polygon2D" parent="Edificio/Ventanas/V8"]
+position = Vector2(50, 84)
+scale = Vector2(2, 2)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/Ventanas/V8/Llama"]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="V9" type="Node2D" parent="Edificio/Ventanas"]
+position = Vector2(715, 340)
+
+[node name="Marco" type="ColorRect" parent="Edificio/Ventanas/V9"]
+offset_right = 100.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.14, 1)
+
+[node name="Vidrio" type="ColorRect" parent="Edificio/Ventanas/V9"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.85, 0.35, 0.1, 1)
+
+[node name="Llama" type="Polygon2D" parent="Edificio/Ventanas/V9"]
+position = Vector2(50, 84)
+scale = Vector2(2, 2)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/Ventanas/V9/Llama"]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="V10" type="Node2D" parent="Edificio/Ventanas"]
+position = Vector2(335, 465)
+
+[node name="Marco" type="ColorRect" parent="Edificio/Ventanas/V10"]
+offset_right = 100.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.14, 1)
+
+[node name="Vidrio" type="ColorRect" parent="Edificio/Ventanas/V10"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.85, 0.35, 0.1, 1)
+
+[node name="Llama" type="Polygon2D" parent="Edificio/Ventanas/V10"]
+position = Vector2(50, 84)
+scale = Vector2(2, 2)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/Ventanas/V10/Llama"]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="V11" type="Node2D" parent="Edificio/Ventanas"]
+position = Vector2(525, 465)
+
+[node name="Marco" type="ColorRect" parent="Edificio/Ventanas/V11"]
+offset_right = 100.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.14, 1)
+
+[node name="Vidrio" type="ColorRect" parent="Edificio/Ventanas/V11"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.85, 0.35, 0.1, 1)
+
+[node name="Llama" type="Polygon2D" parent="Edificio/Ventanas/V11"]
+position = Vector2(50, 84)
+scale = Vector2(2, 2)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/Ventanas/V11/Llama"]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="V12" type="Node2D" parent="Edificio/Ventanas"]
+position = Vector2(715, 465)
+
+[node name="Marco" type="ColorRect" parent="Edificio/Ventanas/V12"]
+offset_right = 100.0
+offset_bottom = 90.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.14, 1)
+
+[node name="Vidrio" type="ColorRect" parent="Edificio/Ventanas/V12"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.85, 0.35, 0.1, 1)
+
+[node name="Llama" type="Polygon2D" parent="Edificio/Ventanas/V12"]
+position = Vector2(50, 84)
+scale = Vector2(2, 2)
+color = Color(1, 0.5, 0.1, 1)
+polygon = PackedVector2Array(-18, 0, -12, -28, -4, -14, 0, -44, 6, -18, 14, -30, 18, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="Edificio/Ventanas/V12/Llama"]
+color = Color(1, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-8, 0, -3, -16, 0, -24, 4, -14, 8, 0)
+
+[node name="CamionFrente" type="ColorRect" parent="."]
+offset_left = 380.0
+offset_top = 602.0
+offset_right = 770.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.8, 0.12, 0.1, 1)
+
+[node name="Franja" type="ColorRect" parent="CamionFrente"]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 390.0
+offset_bottom = 24.0
+mouse_filter = 2
+color = Color(0.95, 0.95, 0.9, 1)
+
+[node name="Boquilla" type="ColorRect" parent="."]
+offset_left = 566.0
+offset_top = 586.0
+offset_right = 586.0
+offset_bottom = 612.0
+mouse_filter = 2
+color = Color(0.6, 0.6, 0.62, 1)
+
+[node name="OrigenChorro" type="Marker2D" parent="."]
+position = Vector2(576, 588)
+
+[node name="Chorro" type="Line2D" parent="."]
+visible = false
+width = 10.0
+default_color = Color(0.5, 0.8, 1, 0.9)
+
+[node name="Salpicadura" type="ColorRect" parent="."]
+visible = false
+offset_right = 36.0
+offset_bottom = 36.0
+mouse_filter = 2
+color = Color(0.7, 0.9, 1, 0.6)
+
+[node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="EtiquetaInfo" type="Label" parent="Interfaz"]
+offset_top = 14.0
+offset_right = 1152.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 22
+text = "¡APAGÁ EL INCENDIO! Mantené el clic sobre cada llama"
+horizontal_alignment = 1
+
+[node name="EtiquetaLlamas" type="Label" parent="Interfaz"]
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 280.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(1, 0.65, 0.35, 1)
+theme_override_font_sizes/font_size = 24
+
+[node name="Oscuro" type="ColorRect" parent="Interfaz"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Fin" type="Label" parent="Interfaz"]
+visible = false
+offset_top = 200.0
+offset_right = 1152.0
+offset_bottom = 448.0
+pivot_offset = Vector2(576, 124)
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_fonts/font = ExtResource("3_fuente")
+theme_override_font_sizes/font_size = 220
+text = "FIN"
+horizontal_alignment = 1
+vertical_alignment = 1

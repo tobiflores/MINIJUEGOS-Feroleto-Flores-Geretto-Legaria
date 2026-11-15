@@ -3,22 +3,18 @@ extends Node2D
 const PUERTA_DIRECTA_ANCHO: float = 146.0
 const PUERTA_DIRECTA_Y_MAX: float = 380.0
 const ESCENA_MUERTE: String = "res://escenas/general/pantalla_muerte.tscn"
+const ESCENA_AFUERAS: String = "res://escenas/general/afueras.tscn"
 
 @export var pisos: Array[PisoMinijuegos] = []
-@export var texturaVecino: Texture2D
 
 @onready var jugador: CharacterBody2D = $Jugador
 @onready var etiqueta_piso: Label = $Interfaz/EtiquetaPiso
 @onready var vidas_hud: HBoxContainer = $Interfaz/VidasHud
 @onready var feedback: CanvasLayer = $Feedback
-@onready var etiqueta_interaccion: Label = $Interfaz/EtiquetaInteraccion
-@onready var etiqueta_estado: Label = $Interfaz/EtiquetaEstado
 
 var indice_piso_actual: int = 0
-var departamentos_resueltos: Array[bool] = []
 var departamentos_intentados: Array[bool] = []
-var posiciones_vecinos: Array[Vector2] = []
-var vecinos: Array[Sprite2D] = []
+var posiciones_puertas: Array[Vector2] = []
 var minijuego_activo: bool = false
 var partida_terminada: bool = false
 
@@ -35,41 +31,24 @@ func _ready() -> void:
 				push_error("Cada departamento debe tener un minijuego asignado.")
 				return
 
-	etiqueta_interaccion.hide()
-	etiqueta_estado.hide()
 	gestorPartida.configurar_pisos(pisos.size())
 	gestorPartida.iniciar_run()
 	_inicializar_departamentos()
-	_crear_vecinos()
+	_calcular_puertas()
 	_actualizar_hud()
 
 func _inicializar_departamentos() -> void:
-	departamentos_resueltos.clear()
 	departamentos_intentados.clear()
 	for _departamento in pisos[indice_piso_actual].departamentos:
-		departamentos_resueltos.append(false)
 		departamentos_intentados.append(false)
 
-func _crear_vecinos() -> void:
-	for vecino in vecinos:
-		vecino.queue_free()
-	vecinos.clear()
-	posiciones_vecinos.clear()
-
+func _calcular_puertas() -> void:
+	posiciones_puertas.clear()
 	var tamano: Vector2 = get_viewport_rect().size
-	var departamentos: Array[DepartamentoMinijuego] = pisos[indice_piso_actual].departamentos
-	for indice in departamentos.size():
-		var x: float = tamano.x * float(indice + 1) / float(departamentos.size() + 1)
-		var posicion := Vector2(x, tamano.y * 0.69)
-		posiciones_vecinos.append(posicion)
-
-		var vecino := Sprite2D.new()
-		vecino.texture = texturaVecino
-		vecino.position = posicion
-		vecino.scale = Vector2(0.28, 0.28)
-		vecino.visible = false
-		add_child(vecino)
-		vecinos.append(vecino)
+	var cantidad: int = pisos[indice_piso_actual].departamentos.size()
+	for indice in cantidad:
+		var x: float = tamano.x * float(indice + 1) / float(cantidad + 1)
+		posiciones_puertas.append(Vector2(x, tamano.y * 0.69))
 
 func _actualizar_hud() -> void:
 	etiqueta_piso.text = "PISO %d" % gestorPartida.pisoActual
@@ -79,10 +58,10 @@ func _process(_delta: float) -> void:
 	if minijuego_activo or partida_terminada:
 		return
 
-	for indice in posiciones_vecinos.size():
+	for indice in posiciones_puertas.size():
 		if departamentos_intentados[indice]:
 			continue
-		var en_puerta: bool = absf(jugador.global_position.x - posiciones_vecinos[indice].x) < PUERTA_DIRECTA_ANCHO * 0.5 \
+		var en_puerta: bool = absf(jugador.global_position.x - posiciones_puertas[indice].x) < PUERTA_DIRECTA_ANCHO * 0.5 \
 				and jugador.global_position.y < PUERTA_DIRECTA_Y_MAX
 		if en_puerta:
 			_entrar_al_departamento(indice)
@@ -101,16 +80,12 @@ func _entrar_al_departamento(indice: int) -> void:
 	jugador.hide()
 	jugador.set_physics_process(false)
 	$Jugador/CollisionShape2D.set_deferred("disabled", true)
-	etiqueta_interaccion.hide()
 	minijuego.connect("termino", _cuando_termina_minijuego.bind(indice, minijuego))
 	add_child(minijuego)
 
 func _cuando_termina_minijuego(resultado: float, indice: int, minijuego: Node) -> void:
 	var gano: bool = resultado >= 1.0
 	departamentos_intentados[indice] = true
-	if gano:
-		departamentos_resueltos[indice] = true
-		vecinos[indice].modulate = Color(0.6, 1.0, 0.6)
 
 	var todos_intentados: bool = not departamentos_intentados.has(false)
 	var piso_completo: bool = todos_intentados
@@ -137,14 +112,15 @@ func _cuando_termina_minijuego(resultado: float, indice: int, minijuego: Node) -
 	if hay_otro_piso:
 		indice_piso_actual += 1
 		if indice_piso_actual >= pisos.size():
-			indice_piso_actual = 0
-			gestorPartida.configurar_pisos(pisos.size())
+			partida_terminada = true
+			get_tree().change_scene_to_file.call_deferred(ESCENA_AFUERAS)
+			return
 		_inicializar_departamentos()
-		_crear_vecinos()
+		_calcular_puertas()
 		_actualizar_hud()
 
-	if indice < posiciones_vecinos.size():
-		jugador.position = Vector2(posiciones_vecinos[indice].x, 565)
+	if indice < posiciones_puertas.size():
+		jugador.position = Vector2(posiciones_puertas[indice].x, 565)
 	jugador.show()
 	jugador.set_physics_process(true)
 	$Jugador/CollisionShape2D.set_deferred("disabled", false)

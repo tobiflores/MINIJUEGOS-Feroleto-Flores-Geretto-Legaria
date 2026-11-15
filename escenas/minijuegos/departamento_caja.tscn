@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://cbbw0bh0maceh"]
+
+[ext_resource type="Script" uid="uid://c5p7u5w84ayst" path="res://scripts/minijuego-gato/departamento_gato.gd" id="1_depto"]
+[ext_resource type="PackedScene" path="res://escenas/general/jugador.tscn" id="2_jugador"]
+[ext_resource type="PackedScene" path="res://escenas/minijuegos/minijuego_caja.tscn" id="3_caja"]
+
+[node name="Departamento-Caja" type="Node2D" unique_id=1656724004]
+script = ExtResource("1_depto")
+escenaMinijuego = ExtResource("3_caja")
+
+[node name="Apartamento" type="Node2D" parent="." unique_id=1586512352]
+
+[node name="Fondo" type="ColorRect" parent="Apartamento" unique_id=1068008801]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.22, 0.24, 0.26, 1)
+
+[node name="Pared" type="ColorRect" parent="Apartamento" unique_id=301708562]
+offset_right = 1152.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.5, 0.55, 0.5, 1)
+
+[node name="Moldura" type="ColorRect" parent="Apartamento" unique_id=216845033]
+offset_top = 345.0
+offset_right = 1152.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.3, 0.34, 0.3, 1)
+
+[node name="Piso" type="ColorRect" parent="Apartamento" unique_id=630561078]
+offset_top = 365.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.4, 0.33, 0.27, 1)
+
+[node name="Alfombra" type="ColorRect" parent="Apartamento" unique_id=1586896230]
+offset_left = 200.0
+offset_top = 500.0
+offset_right = 800.0
+offset_bottom = 620.0
+mouse_filter = 2
+color = Color(0.25, 0.3, 0.4, 1)
+
+[node name="Cuadro" type="ColorRect" parent="Apartamento" unique_id=676044972]
+offset_left = 140.0
+offset_top = 110.0
+offset_right = 300.0
+offset_bottom = 210.0
+mouse_filter = 2
+color = Color(0.3, 0.2, 0.12, 1)
+
+[node name="CuadroPintura" type="ColorRect" parent="Apartamento" unique_id=298289433]
+offset_left = 150.0
+offset_top = 120.0
+offset_right = 290.0
+offset_bottom = 200.0
+mouse_filter = 2
+color = Color(0.7, 0.6, 0.4, 1)
+
+[node name="Escritorio" type="ColorRect" parent="Apartamento" unique_id=2134210680]
+offset_left = 380.0
+offset_top = 260.0
+offset_right = 640.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.38, 0.27, 0.18, 1)
+
+[node name="Lampara" type="ColorRect" parent="Apartamento" unique_id=459420484]
+offset_left = 400.0
+offset_top = 225.0
+offset_right = 430.0
+offset_bottom = 260.0
+mouse_filter = 2
+color = Color(0.95, 0.88, 0.55, 1)
+
+[node name="CajaFuerte" type="ColorRect" parent="Apartamento" unique_id=1151121550]
+offset_left = 900.0
+offset_top = 230.0
+offset_right = 1050.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0.3, 0.32, 0.36, 1)
+
+[node name="CajaFuertePuerta" type="ColorRect" parent="Apartamento" unique_id=1275746549]
+offset_left = 912.0
+offset_top = 242.0
+offset_right = 1038.0
+offset_bottom = 353.0
+mouse_filter = 2
+color = Color(0.5, 0.52, 0.57, 1)
+
+[node name="CajaFuerteDial" type="ColorRect" parent="Apartamento" unique_id=1241960432]
+offset_left = 960.0
+offset_top = 275.0
+offset_right = 990.0
+offset_bottom = 305.0
+mouse_filter = 2
+color = Color(0.2, 0.2, 0.24, 1)
+
+[node name="Vecino" type="Node2D" parent="Apartamento" unique_id=1964171864]
+position = Vector2(760, 470)
+
+[node name="Cabeza" type="ColorRect" parent="Apartamento/Vecino" unique_id=1626457370]
+offset_left = -25.0
+offset_top = -110.0
+offset_right = 25.0
+offset_bottom = -60.0
+mouse_filter = 2
+color = Color(0.9, 0.72, 0.58, 1)
+
+[node name="Pelo" type="ColorRect" parent="Apartamento/Vecino" unique_id=24121370]
+offset_left = -27.0
+offset_top = -114.0
+offset_right = 27.0
+offset_bottom = -98.0
+mouse_filter = 2
+color = Color(0.75, 0.75, 0.78, 1)
+
+[node name="Cuerpo" type="ColorRect" parent="Apartamento/Vecino" unique_id=516186798]
+offset_left = -35.0
+offset_top = -60.0
+offset_right = 35.0
+offset_bottom = 30.0
+mouse_filter = 2
+color = Color(0.4, 0.55, 0.4, 1)
+
+[node name="PiernaIzq" type="ColorRect" parent="Apartamento/Vecino" unique_id=195401315]
+offset_left = -25.0
+offset_top = 30.0
+offset_right = -5.0
+offset_bottom = 70.0
+mouse_filter = 2
+color = Color(0.2, 0.2, 0.3, 1)
+
+[node name="PiernaDer" type="ColorRect" parent="Apartamento/Vecino" unique_id=1181400890]
+offset_left = 5.0
+offset_top = 30.0
+offset_right = 25.0
+offset_bottom = 70.0
+mouse_filter = 2
+color = Color(0.2, 0.2, 0.3, 1)
+
+[node name="Jugador" parent="Apartamento" unique_id=695832650 instance=ExtResource("2_jugador")]
+position = Vector2(300, 560)
+
+[node name="Interfaz" type="CanvasLayer" parent="." unique_id=486738228]
+
+[node name="EtiquetaHablar" type="Label" parent="Interfaz" unique_id=458861190]
+visible = false
+offset_left = 416.0
+offset_top = 585.0
+offset_right = 736.0
+offset_bottom = 625.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 24
+text = "E  HABLAR"
+horizontal_alignment = 1
+
+[node name="Dialogo" type="Control" parent="Interfaz" unique_id=1847579849]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Fondo" type="ColorRect" parent="Interfaz/Dialogo" unique_id=561236352]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 400.0
+offset_right = 976.0
+offset_bottom = 590.0
+mouse_filter = 2
+color = Color(0.08, 0.08, 0.12, 0.92)
+
+[node name="Texto" type="Label" parent="Interfaz/Dialogo" unique_id=2099579522]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 420.0
+offset_right = 956.0
+offset_bottom = 510.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 26
+text = "Vecino: Se me trabó la caja fuerte y no recuerdo la combinación. ¿Me ayudás a abrirla?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Opcion" type="Label" parent="Interfaz/Dialogo" unique_id=281710220]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 530.0
+offset_right = 956.0
+offset_bottom = 570.0
+theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_font_sizes/font_size = 24
+text = "[1] Aceptar"
+horizontal_alignment = 1
