@@ -18,13 +18,14 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if minijuegoIniciado:
 		return
-	if not (event is InputEventKey and event.pressed and not event.echo):
+	if not event.is_action_pressed("interactuar"):
 		return
+	get_viewport().set_input_as_handled()
 
 	if not dialogoAbierto:
-		if event.physical_keycode == KEY_E and $Interfaz/EtiquetaHablar.visible:
+		if $Interfaz/EtiquetaHablar.visible:
 			abrirDialogo()
-	elif event.physical_keycode == KEY_1:
+	else:
 		aceptar()
 
 func abrirDialogo() -> void:

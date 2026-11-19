@@ -32,3 +32,11 @@ shape = SubResource("RectangleShape2D_flecha")
 [node name="Cursor" type="Sprite2D" parent="." unique_id=1038205838]
 z_index = 100
 texture = ExtResource("4_cursor")
+
+[node name="Ayuda" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 18.0
+offset_right = 952.0
+offset_bottom = 48.0
+text = "Apuntá al objeto o a la flecha de salida y apretá E"
+horizontal_alignment = 1

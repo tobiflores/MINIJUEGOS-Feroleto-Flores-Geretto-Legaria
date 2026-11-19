@@ -8,6 +8,10 @@
 script = ExtResource("1_final")
 texturaCursor = ExtResource("2_cursor")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
 [node name="Cielo" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -430,6 +434,16 @@ offset_bottom = 48.0
 theme_override_colors/font_color = Color(1, 0.65, 0.35, 1)
 theme_override_font_sizes/font_size = 24
 
+[node name="EtiquetaTimer" type="Label" parent="Interfaz"]
+offset_left = 900.0
+offset_top = 14.0
+offset_right = 1128.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(1, 0.94, 0.79, 1)
+theme_override_font_sizes/font_size = 24
+text = "TIEMPO: 0:20"
+horizontal_alignment = 2
+
 [node name="Oscuro" type="ColorRect" parent="Interfaz"]
 visible = false
 offset_right = 1152.0
@@ -449,3 +463,5 @@ theme_override_font_sizes/font_size = 220
 text = "FIN"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_terminar" binds=[false]]

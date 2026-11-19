@@ -10,7 +10,7 @@ func velocidad_actual() -> float:
 	return maxf(velocidad - gestorPartida.penalizacion_velocidad(), velocidad_minima)
 
 func _physics_process(_delta: float) -> void:
-	velocity = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") * velocidad_actual()
+	velocity = Input.get_vector("mover_izquierda", "mover_derecha", "mover_arriba", "mover_abajo") * velocidad_actual()
 	move_and_slide()
 
 	if velocity.x < 0:

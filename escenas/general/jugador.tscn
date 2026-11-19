@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bjd6pb212ch0y" path="res://imagenes/PersonajeDerecha.png" id="3_der"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jug"]
-size = Vector2(84, 150)
+size = Vector2(48, 22)
 
 [node name="Jugador" type="CharacterBody2D"]
 script = ExtResource("1_jug")
@@ -17,4 +17,5 @@ scale = Vector2(0.20625006, 0.19934209)
 texture = ExtResource("2_izq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 64)
 shape = SubResource("RectangleShape2D_jug")

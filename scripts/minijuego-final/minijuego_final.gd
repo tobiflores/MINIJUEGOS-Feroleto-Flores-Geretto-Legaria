@@ -1,6 +1,7 @@
 extends Node2D
 
 const ESCENA_DIARIO: String = "res://escenas/general/diario.tscn"
+const ESCENA_MUERTE: String = "res://escenas/general/pantalla_muerte.tscn"
 const TAMANO_VENTANA: Vector2 = Vector2(100, 90)
 const ESCALA_LLAMA: float = 2.0
 const COLOR_APAGADO: Color = Color(0.18, 0.18, 0.22)
@@ -16,6 +17,8 @@ const COLOR_APAGADO: Color = Color(0.18, 0.18, 0.22)
 @onready var etiqueta_info: Label = $Interfaz/EtiquetaInfo
 @onready var oscuro: ColorRect = $Interfaz/Oscuro
 @onready var cartel_fin: Label = $Interfaz/Fin
+@onready var timer: Timer = $Timer
+@onready var etiqueta_timer: Label = $Interfaz/EtiquetaTimer
 
 var progreso: Array[float] = []
 var apagadas: Array[bool] = []
@@ -29,10 +32,16 @@ func _ready() -> void:
 		apagadas.append(false)
 	llamas_restantes = ventanas.size()
 	_actualizar_contador()
+	timer.start()
 
 func _process(delta: float) -> void:
 	if terminado:
 		return
+
+	var segundos: int = int(ceil(timer.time_left))
+	etiqueta_timer.text = "TIEMPO: %d:%02d" % [segundos / 60, segundos % 60]
+	if segundos <= 10:
+		etiqueta_timer.modulate = Color(1, 0.4, 0.3)
 
 	var apuntando: bool = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 	chorro.visible = apuntando
@@ -67,12 +76,21 @@ func _apagar(indice: int) -> void:
 func _actualizar_contador() -> void:
 	etiqueta_llamas.text = "LLAMAS: %d" % llamas_restantes
 
-func _terminar() -> void:
+func _terminar(gano: bool = true) -> void:
+	if terminado:
+		return
 	terminado = true
+	timer.stop()
 	Input.set_custom_mouse_cursor(null)
 	chorro.hide()
 	salpicadura.hide()
 	etiqueta_info.text = ""
+	if not gano:
+		gestorPartida.vidas = 0
+		etiqueta_timer.text = "TIEMPO: 0:00"
+		cartel_fin.text = "TIEMPO AGOTADO"
+		cartel_fin.add_theme_font_size_override("font_size", 64)
+		cartel_fin.add_theme_color_override("font_color", Color(1, 0.4, 0.3))
 
 	oscuro.show()
 	create_tween().tween_property(oscuro, "color:a", 0.85, 0.6)
@@ -81,4 +99,4 @@ func _terminar() -> void:
 			.from(Vector2(0.2, 0.2)).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 	await get_tree().create_timer(3.0).timeout
-	get_tree().change_scene_to_file(ESCENA_DIARIO)
+	get_tree().change_scene_to_file(ESCENA_DIARIO if gano else ESCENA_MUERTE)

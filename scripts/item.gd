@@ -17,8 +17,6 @@ func configurar(nombre_item: String) -> void:
 
 func _ready() -> void:
 	input_pickable = true
-	if not input_event.is_connected(_on_input_event):
-		input_event.connect(_on_input_event)
 	if not mouse_entered.is_connected(_on_mouse_entered):
 		mouse_entered.connect(_on_mouse_entered)
 	if not mouse_exited.is_connected(_on_mouse_exited):
@@ -30,10 +28,9 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	$Tooltip.hide()
 
-func _on_input_event(_viewport: Node, evento: InputEvent, _shape_idx: int) -> void:
-	if not (evento is InputEventMouseButton):
+func _unhandled_input(evento: InputEvent) -> void:
+	if not $Tooltip.visible or not evento.is_action_pressed("interactuar"):
 		return
-	if evento.button_index != MOUSE_BUTTON_LEFT or not evento.pressed:
-		return
+	get_viewport().set_input_as_handled()
 	recogido.emit(nombre)
 	queue_free()

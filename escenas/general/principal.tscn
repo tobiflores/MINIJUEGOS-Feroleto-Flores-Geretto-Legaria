@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" path="res://escenas/general/jugador.tscn" id="4_jugador"]
 [ext_resource type="PackedScene" path="res://escenas/general/vidas_hud.tscn" id="5_vidas"]
 [ext_resource type="PackedScene" path="res://escenas/general/feedback.tscn" id="6_feedback"]
+[ext_resource type="FontFile" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="7_fuente"]
+
+[sub_resource type="RectangleShape2D" id="rs_barrera_pared"]
+size = Vector2(1152, 365)
 
 [node name="Principal" type="Node2D" unique_id=218056312]
 script = ExtResource("1_dj7q0")
@@ -44,6 +48,61 @@ offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2
 color = Color(0.501961, 0.364706, 0.258824, 1)
+
+[node name="DetallesPiso" type="Node2D" parent="." unique_id=1201170050]
+
+[node name="JuntaHorizontal1" type="ColorRect" parent="DetallesPiso" unique_id=1201170051]
+offset_top = 425.0
+offset_right = 1152.0
+offset_bottom = 427.0
+mouse_filter = 2
+color = Color(0.24, 0.17, 0.12, 0.24)
+
+[node name="JuntaHorizontal2" type="ColorRect" parent="DetallesPiso" unique_id=1201170052]
+offset_top = 495.0
+offset_right = 1152.0
+offset_bottom = 497.0
+mouse_filter = 2
+color = Color(0.24, 0.17, 0.12, 0.24)
+
+[node name="JuntaHorizontal3" type="ColorRect" parent="DetallesPiso" unique_id=1201170053]
+offset_top = 565.0
+offset_right = 1152.0
+offset_bottom = 567.0
+mouse_filter = 2
+color = Color(0.24, 0.17, 0.12, 0.24)
+
+[node name="JuntaVertical1" type="ColorRect" parent="DetallesPiso" unique_id=1201170054]
+offset_left = 190.0
+offset_top = 365.0
+offset_right = 192.0
+offset_bottom = 425.0
+mouse_filter = 2
+color = Color(0.24, 0.17, 0.12, 0.2)
+
+[node name="JuntaVertical2" type="ColorRect" parent="DetallesPiso" unique_id=1201170055]
+offset_left = 480.0
+offset_top = 427.0
+offset_right = 482.0
+offset_bottom = 495.0
+mouse_filter = 2
+color = Color(0.24, 0.17, 0.12, 0.2)
+
+[node name="JuntaVertical3" type="ColorRect" parent="DetallesPiso" unique_id=1201170056]
+offset_left = 770.0
+offset_top = 497.0
+offset_right = 772.0
+offset_bottom = 565.0
+mouse_filter = 2
+color = Color(0.24, 0.17, 0.12, 0.2)
+
+[node name="JuntaVertical4" type="ColorRect" parent="DetallesPiso" unique_id=1201170057]
+offset_left = 1060.0
+offset_top = 567.0
+offset_right = 1062.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.24, 0.17, 0.12, 0.2)
 
 [node name="Zocalo" type="ColorRect" parent="." unique_id=1201170042]
 offset_top = 365.0
@@ -100,18 +159,179 @@ offset_bottom = 352.0
 mouse_filter = 2
 color = Color(0.501961, 0.345098, 0.239216, 1)
 
+[node name="PanelSuperiorPuerta1" type="ColorRect" parent="." unique_id=1201170058]
+offset_left = 239.0
+offset_top = 108.0
+offset_right = 337.0
+offset_bottom = 190.0
+mouse_filter = 2
+color = Color(0.62, 0.43, 0.29, 0.48)
+
+[node name="PanelInferiorPuerta1" type="ColorRect" parent="." unique_id=1201170059]
+offset_left = 239.0
+offset_top = 208.0
+offset_right = 337.0
+offset_bottom = 324.0
+mouse_filter = 2
+color = Color(0.35, 0.22, 0.16, 0.32)
+
+[node name="PanelSuperiorPuerta2" type="ColorRect" parent="." unique_id=1201170060]
+offset_left = 527.0
+offset_top = 108.0
+offset_right = 625.0
+offset_bottom = 190.0
+mouse_filter = 2
+color = Color(0.62, 0.43, 0.29, 0.48)
+
+[node name="PanelInferiorPuerta2" type="ColorRect" parent="." unique_id=1201170061]
+offset_left = 527.0
+offset_top = 208.0
+offset_right = 625.0
+offset_bottom = 324.0
+mouse_filter = 2
+color = Color(0.35, 0.22, 0.16, 0.32)
+
+[node name="PanelSuperiorPuerta3" type="ColorRect" parent="." unique_id=1201170062]
+offset_left = 815.0
+offset_top = 108.0
+offset_right = 913.0
+offset_bottom = 190.0
+mouse_filter = 2
+color = Color(0.62, 0.43, 0.29, 0.48)
+
+[node name="PanelInferiorPuerta3" type="ColorRect" parent="." unique_id=1201170063]
+offset_left = 815.0
+offset_top = 208.0
+offset_right = 913.0
+offset_bottom = 324.0
+mouse_filter = 2
+color = Color(0.35, 0.22, 0.16, 0.32)
+
+[node name="PomoPuerta1" type="Polygon2D" parent="." unique_id=1201170064]
+position = Vector2(340, 225)
+color = Color(1, 0.77, 0.37, 1)
+polygon = PackedVector2Array(-5, -5, 0, -7, 5, -5, 7, 0, 5, 5, 0, 7, -5, 5, -7, 0)
+
+[node name="PomoPuerta2" type="Polygon2D" parent="." unique_id=1201170065]
+position = Vector2(628, 225)
+color = Color(1, 0.77, 0.37, 1)
+polygon = PackedVector2Array(-5, -5, 0, -7, 5, -5, 7, 0, 5, 5, 0, 7, -5, 5, -7, 0)
+
+[node name="PomoPuerta3" type="Polygon2D" parent="." unique_id=1201170066]
+position = Vector2(916, 225)
+color = Color(1, 0.77, 0.37, 1)
+polygon = PackedVector2Array(-5, -5, 0, -7, 5, -5, 7, 0, 5, 5, 0, 7, -5, 5, -7, 0)
+
+[node name="NumeroPuerta1" type="Label" parent="." unique_id=1201170067]
+offset_left = 215.0
+offset_top = 42.0
+offset_right = 361.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(1, 0.84, 0.59, 1)
+theme_override_fonts/font = ExtResource("7_fuente")
+theme_override_font_sizes/font_size = 20
+text = "01"
+horizontal_alignment = 1
+
+[node name="NumeroPuerta2" type="Label" parent="." unique_id=1201170068]
+offset_left = 503.0
+offset_top = 42.0
+offset_right = 649.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(1, 0.84, 0.59, 1)
+theme_override_fonts/font = ExtResource("7_fuente")
+theme_override_font_sizes/font_size = 20
+text = "02"
+horizontal_alignment = 1
+
+[node name="NumeroPuerta3" type="Label" parent="." unique_id=1201170069]
+offset_left = 791.0
+offset_top = 42.0
+offset_right = 937.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(1, 0.84, 0.59, 1)
+theme_override_fonts/font = ExtResource("7_fuente")
+theme_override_font_sizes/font_size = 20
+text = "03"
+horizontal_alignment = 1
+
+[node name="CuadroIzq" type="ColorRect" parent="." unique_id=1201170070]
+offset_left = 418.0
+offset_top = 144.0
+offset_right = 474.0
+offset_bottom = 222.0
+mouse_filter = 2
+color = Color(0.21, 0.25, 0.21, 1)
+
+[node name="ArteIzq" type="ColorRect" parent="." unique_id=1201170071]
+offset_left = 424.0
+offset_top = 150.0
+offset_right = 468.0
+offset_bottom = 216.0
+mouse_filter = 2
+color = Color(0.72, 0.43, 0.25, 1)
+
+[node name="DetalleArteIzq" type="Polygon2D" parent="." unique_id=1201170072]
+position = Vector2(446, 183)
+color = Color(0.97, 0.74, 0.39, 1)
+polygon = PackedVector2Array(0, -22, 15, 11, -15, 11)
+
+[node name="CuadroDer" type="ColorRect" parent="." unique_id=1201170073]
+offset_left = 678.0
+offset_top = 144.0
+offset_right = 734.0
+offset_bottom = 222.0
+mouse_filter = 2
+color = Color(0.21, 0.25, 0.21, 1)
+
+[node name="ArteDer" type="ColorRect" parent="." unique_id=1201170074]
+offset_left = 684.0
+offset_top = 150.0
+offset_right = 728.0
+offset_bottom = 216.0
+mouse_filter = 2
+color = Color(0.38, 0.49, 0.43, 1)
+
+[node name="DetalleArteDer" type="Polygon2D" parent="." unique_id=1201170075]
+position = Vector2(706, 183)
+color = Color(0.86, 0.78, 0.57, 1)
+polygon = PackedVector2Array(0, -22, 15, 11, -15, 11)
+
 [node name="Jugador" parent="." unique_id=1201170032 instance=ExtResource("4_jugador")]
 position = Vector2(576, 565)
 
+[node name="BarreraPared" type="StaticBody2D" parent="."]
+position = Vector2(576, 182.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BarreraPared"]
+shape = SubResource("rs_barrera_pared")
+
 [node name="Interfaz" type="CanvasLayer" parent="." unique_id=1201170033]
+
+[node name="FondoEtiquetaPiso" type="ColorRect" parent="Interfaz" unique_id=1201170076]
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 286.0
+offset_bottom = 58.0
+mouse_filter = 2
+color = Color(0.08, 0.1, 0.09, 0.76)
 
 [node name="EtiquetaPiso" type="Label" parent="Interfaz" unique_id=1201170034]
 offset_left = 24.0
 offset_top = 14.0
 offset_right = 280.0
 offset_bottom = 52.0
-theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
+theme_override_colors/font_color = Color(1, 0.84, 0.59, 1)
+theme_override_fonts/font = ExtResource("7_fuente")
 theme_override_font_sizes/font_size = 24
+
+[node name="FondoVidas" type="ColorRect" parent="Interfaz" unique_id=1201170077]
+offset_left = 966.0
+offset_top = 8.0
+offset_right = 1138.0
+offset_bottom = 58.0
+mouse_filter = 2
+color = Color(0.08, 0.1, 0.09, 0.76)
 
 [node name="VidasHud" parent="Interfaz" instance=ExtResource("5_vidas")]
 offset_left = 980.0
@@ -119,5 +339,16 @@ offset_top = 12.0
 offset_right = 1120.0
 offset_bottom = 50.0
 grow_horizontal = 0
+
+[node name="Ayuda" type="Label" parent="Interfaz" unique_id=1201170078]
+offset_left = 300.0
+offset_top = 14.0
+offset_right = 948.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.95, 0.84, 0.67, 0.9)
+theme_override_fonts/font = ExtResource("7_fuente")
+theme_override_font_sizes/font_size = 17
+text = "WASD PARA MOVERTE  ·  E PARA ENTRAR"
+horizontal_alignment = 1
 
 [node name="Feedback" parent="." instance=ExtResource("6_feedback")]

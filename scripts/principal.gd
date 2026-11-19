@@ -1,7 +1,7 @@
 extends Node2D
 
 const PUERTA_DIRECTA_ANCHO: float = 146.0
-const PUERTA_DIRECTA_Y_MAX: float = 380.0
+const PUERTA_DIRECTA_Y_MAX: float = 340.0
 const ESCENA_MUERTE: String = "res://escenas/general/pantalla_muerte.tscn"
 const ESCENA_AFUERAS: String = "res://escenas/general/afueras.tscn"
 
@@ -54,8 +54,10 @@ func _actualizar_hud() -> void:
 	etiqueta_piso.text = "PISO %d" % gestorPartida.pisoActual
 	vidas_hud.actualizar(gestorPartida.vidas)
 
-func _process(_delta: float) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if minijuego_activo or partida_terminada:
+		return
+	if not event.is_action_pressed("interactuar"):
 		return
 
 	for indice in posiciones_puertas.size():
@@ -64,6 +66,7 @@ func _process(_delta: float) -> void:
 		var en_puerta: bool = absf(jugador.global_position.x - posiciones_puertas[indice].x) < PUERTA_DIRECTA_ANCHO * 0.5 \
 				and jugador.global_position.y < PUERTA_DIRECTA_Y_MAX
 		if en_puerta:
+			get_viewport().set_input_as_handled()
 			_entrar_al_departamento(indice)
 			break
 
@@ -80,6 +83,7 @@ func _entrar_al_departamento(indice: int) -> void:
 	jugador.hide()
 	jugador.set_physics_process(false)
 	$Jugador/CollisionShape2D.set_deferred("disabled", true)
+	$BarreraPared/CollisionShape2D.set_deferred("disabled", true)
 	minijuego.connect("termino", _cuando_termina_minijuego.bind(indice, minijuego))
 	add_child(minijuego)
 
@@ -124,3 +128,4 @@ func _cuando_termina_minijuego(resultado: float, indice: int, minijuego: Node) -
 	jugador.show()
 	jugador.set_physics_process(true)
 	$Jugador/CollisionShape2D.set_deferred("disabled", false)
+	$BarreraPared/CollisionShape2D.set_deferred("disabled", false)

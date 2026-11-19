@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bjt2rlh7g777t" path="res://imagenes/stairsdownwards.png" id="4_xmfty"]
 [ext_resource type="FontFile" uid="uid://bcw1irlfqrc5x" path="res://fuentes/Frijole/Frijole-Regular.ttf" id="5_qofvb"]
 [ext_resource type="PackedScene" uid="uid://cymun2tuc5lsx" path="res://escenas/general/room.tscn" id="6_room"]
+[ext_resource type="PackedScene" path="res://escenas/general/indicador_salida.tscn" id="7_indicador"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_salida"]
 size = Vector2(200, 80)
@@ -40,6 +41,8 @@ position = Vector2(798, 560)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Salida" unique_id=1323234340]
 shape = SubResource("RectangleShape2D_salida")
+
+[node name="Indicador" parent="Salida" instance=ExtResource("7_indicador")]
 
 [node name="Puerta" type="Area2D" parent="." unique_id=1114915009]
 position = Vector2(380, 598)

@@ -2,6 +2,55 @@
 
 [ext_resource type="Script" path="res://scripts/ajustes_panel.gd" id="1_panel"]
 [ext_resource type="FontFile" uid="uid://bcw1irlfqrc5x" path="res://fuentes/Frijole/Frijole-Regular.ttf" id="2_fuente"]
+[ext_resource type="FontFile" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="3_ui_fuente"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boton_normal"]
+bg_color = Color(0.19, 0.13, 0.13, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.54, 0.34, 0.22, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boton_hover"]
+bg_color = Color(0.34, 0.19, 0.14, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.72, 0.37, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boton_pressed"]
+bg_color = Color(0.53, 0.27, 0.13, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.86, 0.59, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider"]
+bg_color = Color(0.39, 0.26, 0.2, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.64, 0.42, 0.25, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="AjustesPanel" type="Control"]
 visible = false
@@ -66,6 +115,8 @@ theme_override_constants/separation = 16
 [node name="Nombre" type="Label" parent="Filas/Maestro"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.84, 0.67, 1)
+theme_override_fonts/font = ExtResource("3_ui_fuente")
 theme_override_font_sizes/font_size = 20
 text = "General"
 
@@ -73,11 +124,14 @@ text = "General"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider")
 value = 100.0
 
 [node name="Valor" type="Label" parent="Filas/Maestro"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.84, 0.67, 1)
+theme_override_fonts/font = ExtResource("3_ui_fuente")
 theme_override_font_sizes/font_size = 20
 text = "100%"
 horizontal_alignment = 2
@@ -89,6 +143,8 @@ theme_override_constants/separation = 16
 [node name="Nombre" type="Label" parent="Filas/Musica"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.84, 0.67, 1)
+theme_override_fonts/font = ExtResource("3_ui_fuente")
 theme_override_font_sizes/font_size = 20
 text = "Música"
 
@@ -96,11 +152,14 @@ text = "Música"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider")
 value = 100.0
 
 [node name="Valor" type="Label" parent="Filas/Musica"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.84, 0.67, 1)
+theme_override_fonts/font = ExtResource("3_ui_fuente")
 theme_override_font_sizes/font_size = 20
 text = "100%"
 horizontal_alignment = 2
@@ -112,6 +171,8 @@ theme_override_constants/separation = 16
 [node name="Nombre" type="Label" parent="Filas/SFX"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.84, 0.67, 1)
+theme_override_fonts/font = ExtResource("3_ui_fuente")
 theme_override_font_sizes/font_size = 20
 text = "Efectos"
 
@@ -119,11 +180,14 @@ text = "Efectos"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider")
 value = 100.0
 
 [node name="Valor" type="Label" parent="Filas/SFX"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.84, 0.67, 1)
+theme_override_fonts/font = ExtResource("3_ui_fuente")
 theme_override_font_sizes/font_size = 20
 text = "100%"
 horizontal_alignment = 2
@@ -134,7 +198,13 @@ offset_left = 476.0
 offset_top = 440.0
 offset_right = 676.0
 offset_bottom = 490.0
+theme_override_colors/font_color = Color(1, 0.89, 0.72, 1)
+theme_override_fonts/font = ExtResource("3_ui_fuente")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_boton_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_boton_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_boton_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_boton_hover")
 text = "VOLVER"
 
 [connection signal="value_changed" from="Filas/Maestro/Slider" to="." method="_on_maestro_value_changed"]

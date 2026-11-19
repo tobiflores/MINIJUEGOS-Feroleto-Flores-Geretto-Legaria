@@ -19,7 +19,8 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if minijuegoIniciado or not etiqueta_jugar.visible:
 		return
-	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_E:
+	if event.is_action_pressed("interactuar"):
+		get_viewport().set_input_as_handled()
 		_iniciar_minijuego()
 
 func _iniciar_minijuego() -> void:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene format=3]
 
 [ext_resource type="Script" uid="uid://kofebppb3a6a" path="res://scripts/transicion.gd" id="1_fns7c"]
 [ext_resource type="Texture2D" path="res://imagenes/glitchedstairs.png" id="4_xmfty"]
 [ext_resource type="FontFile" uid="uid://bcw1irlfqrc5x" path="res://fuentes/Frijole/Frijole-Regular.ttf" id="5_qofvb"]
 [ext_resource type="PackedScene" path="res://escenas/general/room.tscn" id="6_room"]
+[ext_resource type="PackedScene" path="res://escenas/general/indicador_salida.tscn" id="7_indicador"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_salida"]
 size = Vector2(200, 80)
@@ -43,6 +44,8 @@ position = Vector2(798, 560)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Salida"]
 shape = SubResource("RectangleShape2D_salida")
+
+[node name="Indicador" parent="Salida" instance=ExtResource("7_indicador")]
 
 [node name="Puerta" type="Area2D" parent="."]
 position = Vector2(180, 360)

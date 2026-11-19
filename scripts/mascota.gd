@@ -15,18 +15,15 @@ func _ready() -> void:
 	if textura != null:
 		$Sprite2D.texture = textura
 
-	var area := $Area2D as Area2D
-	area.input_pickable = true
-	if not area.input_event.is_connected(_on_area_input_event):
-		area.input_event.connect(_on_area_input_event)
-
-func _on_area_input_event(_viewport: Node, evento: InputEvent, _shape_idx: int) -> void:
-	if fue_rescatado:
+func _unhandled_input(evento: InputEvent) -> void:
+	if fue_rescatado or not evento.is_action_pressed("interactuar"):
 		return
-	if not (evento is InputEventMouseButton):
+	if get_parent().has_node("Room"):
 		return
-	if evento.button_index != MOUSE_BUTTON_LEFT or not evento.pressed:
+	var jugador: CharacterBody2D = get_parent().get_node("Jugador")
+	if global_position.distance_to(jugador.global_position) >= 130.0:
 		return
+	get_viewport().set_input_as_handled()
 	fue_rescatado = true
 	historial.clear()
 	rescatado.emit(self)

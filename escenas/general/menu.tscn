@@ -3,6 +3,67 @@
 [ext_resource type="Script" uid="uid://dkv4ga78pgpvm" path="res://scripts/menu.gd" id="1_menu"]
 [ext_resource type="FontFile" uid="uid://bcw1irlfqrc5x" path="res://fuentes/Frijole/Frijole-Regular.ttf" id="2_fuente"]
 [ext_resource type="PackedScene" path="res://escenas/general/ajustes_panel.tscn" id="3_ajustes"]
+[ext_resource type="FontFile" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="4_ui_fuente"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_menu"]
+bg_color = Color(0.09, 0.07, 0.09, 0.82)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45, 0.28, 0.2, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boton_normal"]
+bg_color = Color(0.19, 0.13, 0.13, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.54, 0.34, 0.22, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+content_margin_left = 14.0
+content_margin_top = 6.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boton_hover"]
+bg_color = Color(0.34, 0.19, 0.14, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.72, 0.37, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+content_margin_left = 14.0
+content_margin_top = 6.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boton_pressed"]
+bg_color = Color(0.53, 0.27, 0.13, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.86, 0.59, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+content_margin_left = 14.0
+content_margin_top = 6.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
 
 [node name="Menu" type="Control" unique_id=1234261196]
 layout_mode = 3
@@ -238,6 +299,26 @@ theme_override_font_sizes/font_size = 48
 text = "FIRE
 ESCAPE"
 
+[node name="Subtitulo" type="Label" parent="." unique_id=1967263204]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 232.0
+offset_right = 632.0
+offset_bottom = 272.0
+theme_override_colors/font_color = Color(0.94, 0.79, 0.62, 1)
+theme_override_fonts/font = ExtResource("4_ui_fuente")
+theme_override_font_sizes/font_size = 24
+text = "RECORRÉ EL EDIFICIO Y ENCONTRÁ LA SALIDA"
+
+[node name="PanelBotones" type="Panel" parent="." unique_id=1345187913]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 300.0
+offset_right = 358.0
+offset_bottom = 592.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_menu")
+
 [node name="Botones" type="VBoxContainer" parent="." unique_id=1884092032]
 layout_mode = 0
 offset_left = 60.0
@@ -249,25 +330,57 @@ theme_override_constants/separation = 14
 [node name="Jugar" type="Button" parent="Botones" unique_id=1407383003]
 custom_minimum_size = Vector2(280, 54)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.89, 0.72, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.82, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.97, 0.88, 1)
+theme_override_fonts/font = ExtResource("4_ui_fuente")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_boton_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_boton_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_boton_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_boton_hover")
 text = "JUGAR"
 
 [node name="Ajustes" type="Button" parent="Botones" unique_id=317431501]
 custom_minimum_size = Vector2(280, 54)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.89, 0.72, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.82, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.97, 0.88, 1)
+theme_override_fonts/font = ExtResource("4_ui_fuente")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_boton_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_boton_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_boton_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_boton_hover")
 text = "AJUSTES"
 
 [node name="Creditos" type="Button" parent="Botones" unique_id=1409091677]
 custom_minimum_size = Vector2(280, 54)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.89, 0.72, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.82, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.97, 0.88, 1)
+theme_override_fonts/font = ExtResource("4_ui_fuente")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_boton_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_boton_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_boton_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_boton_hover")
 text = "CRÉDITOS"
 
 [node name="Salir" type="Button" parent="Botones" unique_id=1262559778]
 custom_minimum_size = Vector2(280, 54)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.89, 0.72, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.82, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.97, 0.88, 1)
+theme_override_fonts/font = ExtResource("4_ui_fuente")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_boton_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_boton_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_boton_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_boton_hover")
 text = "SALIR"
 
 [node name="PanelCreditos" type="Control" parent="." unique_id=418340533]
@@ -336,7 +449,13 @@ offset_left = 476.0
 offset_top = 440.0
 offset_right = 676.0
 offset_bottom = 490.0
+theme_override_colors/font_color = Color(1, 0.89, 0.72, 1)
+theme_override_fonts/font = ExtResource("4_ui_fuente")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_boton_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_boton_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_boton_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_boton_hover")
 text = "VOLVER"
 
 [node name="AjustesPanel" parent="." unique_id=2078065310 instance=ExtResource("3_ajustes")]

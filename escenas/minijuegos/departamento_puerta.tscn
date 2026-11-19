@@ -226,5 +226,5 @@ offset_right = 956.0
 offset_bottom = 570.0
 theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
 theme_override_font_sizes/font_size = 24
-text = "[1] Aceptar"
+text = "[E] Aceptar"
 horizontal_alignment = 1

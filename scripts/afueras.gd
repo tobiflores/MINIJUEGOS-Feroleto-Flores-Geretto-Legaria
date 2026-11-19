@@ -11,10 +11,11 @@ const ESCENA_FINAL: String = "res://escenas/minijuegos/minijuego_final.tscn"
 
 var abordando: bool = false
 
-func _process(_delta: float) -> void:
-	if abordando:
+func _unhandled_input(event: InputEvent) -> void:
+	if abordando or not event.is_action_pressed("interactuar"):
 		return
 	if jugador.global_position.distance_to(punto_abordaje.global_position) < distancia_abordaje:
+		get_viewport().set_input_as_handled()
 		_abordar()
 
 func _abordar() -> void:

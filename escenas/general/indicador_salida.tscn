@@ -1,0 +1,42 @@
+[gd_scene format=3]
+
+[ext_resource type="FontFile" path="res://fuentes/Changa_One/ChangaOne-Regular.ttf" id="1_fuente"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_salida"]
+bg_color = Color(0.06, 0.23, 0.17, 0.8)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.5, 1, 0.7, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Indicador" type="Panel"]
+z_index = 2
+offset_left = -100.0
+offset_top = -40.0
+offset_right = 100.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_salida")
+
+[node name="Flecha" type="Polygon2D" parent="."]
+position = Vector2(100, 25)
+color = Color(0.7, 1, 0.8, 1)
+polygon = PackedVector2Array(-5, -12, 5, -12, 5, 0, 15, 0, 0, 15, -15, 0, -5, 0)
+
+[node name="Texto" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 45.0
+offset_right = 195.0
+offset_bottom = 72.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.85, 1, 0.89, 1)
+theme_override_fonts/font = ExtResource("1_fuente")
+theme_override_font_sizes/font_size = 17
+text = "ACERCATE PARA BAJAR"
+horizontal_alignment = 1
+vertical_alignment = 1

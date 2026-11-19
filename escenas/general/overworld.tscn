@@ -49,7 +49,10 @@ size = Vector2(340, 50)
 size = Vector2(40, 90)
 
 [sub_resource type="RectangleShape2D" id="rs_puerta"]
-size = Vector2(40, 150)
+size = Vector2(40, 170)
+
+[sub_resource type="RectangleShape2D" id="rs_barrera_puerta"]
+size = Vector2(22, 170)
 
 [node name="Overworld" type="Node2D" unique_id=557774369]
 script = ExtResource("1_c8x7b")
@@ -390,6 +393,12 @@ color = Color(0.78, 0.8, 0.85, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/Heladera" unique_id=396418915]
 shape = SubResource("rs_heladera")
 
+[node name="BarreraPuerta" type="StaticBody2D" parent="Habitacion/Solidos"]
+position = Vector2(1049, 385)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Habitacion/Solidos/BarreraPuerta"]
+shape = SubResource("rs_barrera_puerta")
+
 [node name="Ventanas" type="Node2D" parent="Habitacion" unique_id=65180943]
 
 [node name="VentanaDormitorio" type="ColorRect" parent="Habitacion/Ventanas" unique_id=78883794]
@@ -441,6 +450,4 @@ offset_top = 8.0
 offset_right = 539.0
 offset_bottom = 34.0
 theme_override_colors/font_color = Color(1, 0.941176, 0.788235, 1)
-text = "Entra por la puerta para empezar la run"
-
-[connection signal="body_entered" from="Puerta" to="." method="_on_puerta_body_entered"]
+text = "WASD: moverte  |  E: entrar por la puerta y empezar"

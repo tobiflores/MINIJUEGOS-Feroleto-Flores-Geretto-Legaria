@@ -15,7 +15,6 @@ const ESCENA_PICKUP := preload("res://escenas/general/pickup_llave.tscn")
 var jugador: CharacterBody2D = null
 var tiempo_restante: float = 0.0
 var terminando: bool = false
-var puerta_hover: bool = false
 var ultimo_animal: Node2D = null
 
 func mostrar_datos(piso: int, vidas: int, _gano: bool) -> void:
@@ -29,8 +28,6 @@ func _ready() -> void:
 	_crear_jugador()
 	_crear_label_llaves()
 	_crear_label_timer()
-	_conectar_salida()
-	_conectar_puerta()
 
 	_spawn_animales_rescatados()
 
@@ -48,6 +45,12 @@ func _process(delta: float) -> void:
 
 	_actualizar_label_llaves()
 	_actualizar_label_timer()
+
+	var salida_disponible: bool = not has_node("Room")
+	var cerca_salida: bool = $Salida.overlaps_body(jugador)
+	$Salida/Indicador.visible = salida_disponible
+	$Salida/Indicador.modulate.a = 1.0 if cerca_salida else 0.7
+	$Salida/Indicador/Texto.text = "[E] PARA BAJAR" if cerca_salida else "ACERCATE PARA BAJAR"
 
 	if tiempo_restante > 0.0:
 		tiempo_restante -= delta
@@ -96,38 +99,18 @@ func _actualizar_label_timer() -> void:
 	else:
 		$Timer.hide()
 
-func _conectar_salida() -> void:
-	if not has_node("Salida"):
-		return
-	var salida := $Salida as Area2D
-	if not salida.body_entered.is_connected(_on_salida_body_entered):
-		salida.body_entered.connect(_on_salida_body_entered)
-
-func _conectar_puerta() -> void:
-	if not has_node("Puerta"):
-		return
-	var puerta := $Puerta as Area2D
-	puerta.input_pickable = true
-	if not puerta.mouse_entered.is_connected(_on_puerta_mouse_entered):
-		puerta.mouse_entered.connect(_on_puerta_mouse_entered)
-	if not puerta.mouse_exited.is_connected(_on_puerta_mouse_exited):
-		puerta.mouse_exited.connect(_on_puerta_mouse_exited)
-
-func _on_puerta_mouse_entered() -> void:
-	puerta_hover = true
-
-func _on_puerta_mouse_exited() -> void:
-	puerta_hover = false
-
 func _unhandled_input(evento: InputEvent) -> void:
-	if terminando or not puerta_hover:
+	if terminando or has_node("Room") or not evento.is_action_pressed("interactuar"):
 		return
-	if not (evento is InputEventMouseButton):
+	if has_node("Salida") and $Salida.overlaps_body(jugador):
+		get_viewport().set_input_as_handled()
+		_on_salida_body_entered(jugador)
 		return
-	if evento.button_index != MOUSE_BUTTON_LEFT or not evento.pressed:
+	if not has_node("Puerta") or not $Puerta.overlaps_body(jugador):
 		return
 	if not gestorPartida.usar_llave():
 		return
+	get_viewport().set_input_as_handled()
 	_entrar_a_habitacion()
 
 func _spawn_animales() -> void:
